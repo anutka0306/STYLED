@@ -11,17 +11,18 @@
 
 {% block body %}
    {# {{ include('v2/blocks/section/auto-brands.html.twig') }} #}
-    {% embed 'v2/embed/black-services-block.html.twig' %}
+    {#{% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
             {{ include('v2/blocks/section/services.html.twig') }}
-            {#{{ naschiraboty_slider(page) }}#}
-            {#{{ price_list(page) }}#}
+            #}{#{{ naschiraboty_slider(page) }}#}{#
+            {{ price_list(page) }}
         {% endblock %}
-    {% endembed %}
+    {% endembed %}#}
 {% endblock %}
 
 
 {% block extraModules %}
+    {{ include('v2/blocks/section/reviews.html.twig') }}
     {#{{ special_offers(page.brandAndModelName) }}#}
     {{ whatsapp_block(page) }}
     {{ include('v2/blocks/section/about.html.twig') }}
