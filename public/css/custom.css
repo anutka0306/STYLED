@@ -1507,13 +1507,16 @@
     color:#fff;
 }
 .fullscreen-bg__content .header-slogan{
-    font-family: 'Open Sans', sans-serif;
     text-align: center;
+    opacity: 1;
+    width: 60%
+}
+.fullscreen-bg__content .header-slogan h1{
+    font-family: 'Open Sans', sans-serif;
     font-size: 30px;
     line-height: 1.8;
     letter-spacing: 0em;
-    opacity: 1;
-    width: 60%
+    margin-top: 0;
 }
 .fullscreen-bg__content_menu{
     width: 60%;
@@ -1576,12 +1579,14 @@
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
         width: 80%;
+    }
+    .fullscreen-bg__content .header-slogan h1{
         font-size: 26px;
     }
 }
 
 @media (max-width: 1200px) {
-    .fullscreen-bg__content .header-slogan{
+    .fullscreen-bg__content .header-slogan h1{
         font-size: 21px;
     }
     .fullscreen-bg__content_menu{
@@ -1632,7 +1637,7 @@
     .short-logo img{
         width: 80%;
     }
-    .fullscreen-bg__content .header-slogan{
+    .fullscreen-bg__content .header-slogan h1{
         font-size: 17px;
     }
     .fullscreen-bg__content_menu{
@@ -1667,7 +1672,7 @@
         max-width: 80%;
         margin-top: 50px;
     }
-    .fullscreen-bg__content .header-slogan{
+    .fullscreen-bg__content .header-slogan h1{
         font-size: 20px;
     }
 }
@@ -1692,7 +1697,7 @@
         padding-bottom: 100%;
         padding-top: 60%;
     }
-    .fullscreen-bg__content .header-slogan{
+    .fullscreen-bg__content .header-slogan h1{
         font-size: 14px;
     }
     .fullscreen-bg__content_menu{
@@ -1715,7 +1720,7 @@
         max-width: 70%;
         margin-top: 0;
     }
-    .fullscreen-bg__content .header-slogan{
+    .fullscreen-bg__content .header-slogan h1{
         font-size: 14px;
     }
     .fullscreen-bg__content_menu{

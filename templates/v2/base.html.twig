@@ -44,14 +44,15 @@
         {#<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.min.css') }}" />#}
         <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet">
-        {#<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" />#}
-        {#<link rel="stylesheet" href="{{ asset('css/uikit.css') }}" />#}
+        {#<link rel="stylesheet" href="{{ asset('css/style.css') }}" />#}
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/uikit.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/hover-min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     {% endblock %}
     <meta name="yandex-verification" content="5440d1539bdcce3d"/>
     {{ include('v2/scripts/_schema.html.twig') }}
@@ -92,12 +93,12 @@
     {{ include('v2/blocks/section/mango.html.twig') }}
 </div>
 {% block javascripts %}
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
+
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/uikit.js') }}"></script>
     <script src="{{ asset('js/uikit-icons.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
     <script type="text/javascript" src="{{ asset('build/vendors~app2.js') }}"></script>
     <script type="text/javascript" src="{{ asset('build/app2.js') }}"></script>
 
