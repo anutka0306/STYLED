@@ -1,0 +1,21 @@
+<div class="services" id="services">
+    <div class="container">
+        <h2 class="services__title">Услуги</h2>
+        <div class="services__items">
+            {% for service in services %}
+            <div class="services__items__item">
+                <img {{ lazy_load(asset(service.img)) }} alt="">
+                <div class="img-overlay"></div>
+                <a href="{{ service.link }}">
+                    <div class="services__items__item__text">
+                        <div class="services__items__item__text__price">от {{ service.price }} <span>р</span>
+                        </div>
+                        <div class="services__items__item__text__name">{{ service.name }}</div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{% if items|length > 0 %}
+    <div class="section-stock">
+        <div class="uk-section uk-container">
+            <div class="uk-position-relative">
+                <h3 class="section-title"><span>Акции</span></h3>
+                <div class="stock-slider uk-position-relative">
+                    <div tabindex="-1" data-uk-slider="">
+                        <ul class="uk-slider-items uk-grid uk-child-width-1-3@l uk-child-width-1-2@s" data-uk-height-match=".stock-item__title, .stock-item__intro">
+                            {% for offer in items %}
+                                <li>
+                                    {{ include('v2/widget/special_offers_item.html.twig') }}
+                                </li>
+                            {% endfor %}
+                        </ul><a class="uk-position-center-left" href="#" data-uk-slidenav-previous="" data-uk-slider-item="previous"></a><a class="uk-position-center-right" href="#" data-uk-slidenav-next="" data-uk-slider-item="next"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

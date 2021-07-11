@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% embed 'blocks/embed/_content_wrapper.html.twig' %}
+        {% block content %}
+            <h2>Подборка свежих и актуальных новостей</h2>
+            {% for item in items %}
+                <div class="row">
+                    <div><span>{{ item.date|date("d.m.Y") }}</span> <a href="{{ path('news_item',{'id': item.id}) }}">{{ item.name }}</a></div>
+                    <div>{{ item.shortText|easyadmin_truncate(290) }}</div>
+                </div>
+                <hr />
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

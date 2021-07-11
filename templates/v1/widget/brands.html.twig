@@ -1,0 +1,28 @@
+<section id="brand" class="brand">
+    <div class="wrapper">
+        <h2 class="brand-list-header">Мы знаем все тонкости работы с каждым автомобилем</h2>
+        <div class="row popular_brands">
+            {% for brand in popular %}
+                <div class="brand_col">
+                    <a href="{{ brand.path }}" class="brand_cont">
+                        <img {{ lazy_load(asset(brand.imageUrl)) }} alt="{{ brand.name }}" />
+                        <div class="brand_name">{{ brand.name }}</div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row all-brands" style="display: none;">
+            {% for brand in items %}
+                <div class="brand_col">
+                    <a href="{{ brand.path }}" class="brand_cont">
+                        <img {{ lazy_load(asset(brand.imageUrl)) }} alt="{{ brand.name }}" />
+                        <div class="brand_name">{{ brand.name }}</div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="brand_line">
+            <div class="primary_button show-all-brands">Показать все марки</div>
+        </div>
+    </div>
+</section>

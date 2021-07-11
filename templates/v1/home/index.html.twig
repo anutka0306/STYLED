@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ brands_block() }}
+    {{ service_menu() }}
+
+    {{ price_list(page) }}
+    {{ wrap_content(page.text|remove_gallery) }}
+    {{ special_offers(page.brandAndModelName) }}
+
+{% endblock %}
+{% block whatsappBlock %}{% endblock %}

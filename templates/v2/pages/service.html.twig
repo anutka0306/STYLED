@@ -1,0 +1,30 @@
+{% extends 'v2/base.html.twig' %}
+{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Сервис «Мир АКПП»') }} {% endblock %}
+
+{% block body %}
+
+    <div class="container container2">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="title">{{ page.name }}</h1>
+                {{ page.text|raw }}
+            </div>
+        </div>
+    </div>
+
+    <div class="price-list-orders__wrapper">
+        {{ price_list(page) }}
+    </div>
+    {{ special_offers(page.brandAndModelName) }}
+    {% include 'elements/_advantages.html.twig' with {'brandName': brandName, 'modelName': modelName}  %}
+
+    <div class="brands-service-block__wrapper">
+        <div class="container container2">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    {{ brands_service_block(page.service.slug) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+<div class="mega_wrapss">
+    <header class="header__wrapper">
+        <div class="header__wrapper__top">
+            <div class="container">
+
+                <div class="header__wrapper__top__mobile">
+                    <p id="contacts">Контакты</p>
+                    <p id="menu">Меню</p>
+                </div>
+            </div>
+        </div>
+        <div class="header__wrapper__bottom clearfix">
+            <div class="container">
+                <div class="flex-head">
+                    <div class="close">&#215;</div>
+
+                    {% for salon in salons(page ?? null) %}
+                        <div class="header__wrapper__bottom__contact">
+                            <div class="header__wrapper__bottom__contact__name">{{ salon.name }}</div>
+                            <div class="header__wrapper__bottom__contact__adress">{{ salon.address }}</div>
+                            <div class="header__wrapper__bottom__contact__phone">
+                                <div class="mgo-number-{{ salon.mangoId }} cursor"
+                                     onclick="yaCounter41408589.reachGoal ('{{ salon.yandexTarget }}');location.href='tel:{{ salon.phoneDigits }}'; return true;">{{ salon.phone }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="header__wrapper__bottom__contact">
+                        <div class="button_top_service">
+                            <div class="header__wrapper__bottom__contact-popup__content">
+                                <p class="popup-trigger">Запись на сервис</p>
+                                <div class="top-phone-container cursor">
+                                    <div onclick="location.href='tel:88007757961'">+7 (800) 775-79-61</div><!--+7(800)100-87-53-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="header__wrapper__menu">
+            <div class="container">
+                <div class="header__wrapper__menu__logo">
+                    <a href="/"><img src="/img/logo.svg" alt=""></a>
+                </div>
+                <div class="header__wrapper__menu__items">
+
+                    <div class="close">&#215;</div>
+                    <div class="header__wrapper__menu__items__item">
+                        <a href="/" data-href="services">Главная</a>
+                    </div>
+                    <div class="header__wrapper__menu__items__item">
+                        <a href="/uslugi/" data-href="services">Услуги</a>
+                    </div>
+                    <div class="header__wrapper__menu__items__item">
+                        <a href="/price_list/" data-href="services">Прайс-лист</a>
+                    </div>
+                    <div class="header__wrapper__menu__items__item">
+                        <a href="/naschiraboty/" data-href="prices">Наши работы</a>
+                    </div>
+                    <div class="header__wrapper__menu__items__item">
+                        <a href="/about_us/" data-href="guarantee">О Компании</a>
+                    </div>
+                    <div class="header__wrapper__menu__items__item">
+                        <a href="/contact_info/" data-href="map">Контакты</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="main-top">
+            <div class="video_wrapper">
+                <div id="video_overlay"></div>
+                <video class="lazy" muted="" autoplay="" loop="" preload="auto">
+                    <source data-src="{{ asset('video/header-bg.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="container">
+                <div class="main-top__text">
+                    <p class="main-top__text__subtitle popup-trigger">пожизненная гарантия</p>
+                    {% if h1 %}
+                        <h1 itemprop="name" class="main-top__text__title">{{ h1|raw }}</h1>
+                        <div itemprop="description" class="d-none">{{ description }}</div>
+                    {% endif %}
+
+                    {%  set calculated_price = calc_price(page ?? null) %}
+                    {%  if calculated_price %}
+                        <span class="main-top__text__price popup-trigger">
+                            от {{ calculated_price }}&nbsp;<span>&#8381;</span>
+                        </span>
+                    {% endif %}
+                    <div class="main-top__text__button">
+                        <div class="main-top__text__button__inner popup-trigger">
+                            Заявка на просчет
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

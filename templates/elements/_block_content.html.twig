@@ -1,0 +1,22 @@
+<div class="block_content container container2">
+  <div class="block_content_background">
+    <div class="block_content_pre">
+      {{ first_part|raw }}
+    </div>
+    <div id="more_content" class="collapse">
+      {{ second_part|raw }}
+    </div>
+    <div class="block_content_more" id="button_more_content" data-toggle="collapse" data-target="#more_content">Развернуть</div>
+  </div>
+</div>
+
+<script>
+    $('#more_content').on('hide.bs.collapse', function () {
+        $('#button_more_content').removeClass('is-show');
+        $('#button_more_content').html('Развернуть');
+    });
+    $('#more_content').on('shown.bs.collapse', function () {
+        $('#button_more_content').addClass('is-show');
+        $('#button_more_content').html('Свернуть');
+    });
+</script>

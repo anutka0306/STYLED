@@ -1,0 +1,28 @@
+<div class="prices" id="prices">
+    <div class="container">
+        <div class="prices__list">
+            {% for section in sections %}
+                <div class="prices__list__main">{{ section.name }}</div>
+                <div class="prices__list__content">
+                    {% for sub_section in section.children %}
+                        <div class="prices__list__main">{{ sub_section.name }}</div>
+                        <div class="prices__list__content" {{ loop.first ? 'style="display:block"' }}>
+                            {% for service in sub_section.priceServices|filter(service => service.published ) %}
+                                <div class="prices__list__content__item clearfix">
+                                    <div class="prices__list__content__item__left">
+                                        {% if service.path %}
+                                            <a href="{{ service.path }}">{{ service.name }}</a>
+                                        {% else %}
+                                            {{ service.name }}
+                                        {% endif %}
+                                        <span>от {{ service.price }}&nbsp;р.</span></div>
+                                    <div class="prices__list__content__item__right popup-trigger" data-title="Рассчитать стоимость">Рассчитать стоимость</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+{#
+<div class="hero">
+    <div class="uk-container">
+        <div class="hero__box">
+            <div class="hero__content">
+                {% if h1 is not empty %}
+                    <h1 itemprop="name" class="hero__title">{{ h1|raw }}</h1>
+                {% endif %}
+                 <a
+                        class="youtube-btn"
+                        href="#modal-media-youtube" uk-toggle>
+                    <img src="/assets/images/icons/youtube.png" alt=""/>
+                    <p>
+                        <b>видео о нас</b>
+                        <span>всего за 180 сек</span>
+                    </p>
+                </a> 
+            </div>
+            <div
+                    class="hero__plus">
+                <div class="hero-plus-item">
+                    <div class="hero-plus-item__value"><img src="/assets/images/icons/plus.png" alt=""/></div>
+                    <div class="hero-plus-item__text">Пожизненная гарантия<br/> на кузовные работы</div>
+                </div>
+                <div class="hero-plus-item">
+                    <div class="hero-plus-item__value">3</div>
+                    <div class="hero-plus-item__text">Удобных автосервиса<br/> в Москве</div>
+                </div>
+                <div class="hero-plus-item">
+                    <div class="hero-plus-item__value"><small>на</small> 40%</div>
+                    <div class="hero-plus-item__text">Дешевле, чем у дилера<br/> при том же качестве</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>#}
+
+
+<div class="fullscreen-bg">
+    <div class="overlay">
+        <div class="fullscreen-bg__content d-flex flex-column align-items-center">
+            <div class="short-logo">
+                <img src="{{ asset('img/short_logo.png') }}" alt="Styled.cc автосервис"/>
+            </div>
+            <div class="header-slogan">
+                Компания Styled делает ваши автомобили интереснее и лучше с 2010 года. Сделаем кузов блестящим, защитим и придадим стиля.
+            </div>
+            {# Menu #}
+            <div class="fullscreen-bg__content_menu d-flex justify-content-between">
+                <div class="fullscreen-bg__content_menu-item d-flex flex-column align-items-center justify-content-center">
+                    <img class="hvr-bounce-in" src="{{ asset('img/header-menu-icon1.png') }}" alt=""/>
+                    <a class="hvr-bounce-in" href="#">Винил и винилография</a>
+                </div>
+                <div class="fullscreen-bg__content_menu-item d-flex flex-column align-items-center justify-content-center">
+                    <img class="hvr-rotate" src="{{ asset('img/header-menu-icon2.png') }}" alt=""/>
+                    <a class="hvr-rotate" href="#">Оклейка полеуретаном</a>
+                </div>
+                <div class="fullscreen-bg__content_menu-item d-flex flex-column align-items-center justify-content-center">
+                    <img class="hvr-grow-rotate" src="{{ asset('img/header-menu-icon3.png') }}" alt=""/>
+                    <a class="hvr-grow-rotate" href="#">Детейлинг</a>
+                </div>
+                <div class="fullscreen-bg__content_menu-item d-flex flex-column align-items-center justify-content-center">
+                    <img class="hvr-skew-forward" src="{{ asset('img/header-menu-icon1.png') }}" alt=""/>
+                    <a class="hvr-skew-forward" href="#">Шумоизоляция</a>
+                </div>
+            </div>
+
+            {# Callback button#}
+            <div class="callback-btn">
+                <button class="hvr-grow" type="button">Оставить заявку</button>
+            </div>
+
+        </div>
+
+    </div>
+    <video loop="" muted="" autoplay="" poster="{{ asset('video/video_bg.jpg') }}" class="fullscreen-bg__video">
+        <source src="{{ asset('video/video_bg1.mp4') }}" type="video/mp4">
+    </video>
+</div>

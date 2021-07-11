@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('service') }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('service') }}
+{% endblock %}
+
+{% block body %}
+    {% embed 'blocks/embed/_content_wrapper.html.twig' %}
+        {% block content %}
+            {% include 'widget/video.html.twig' with { item: page } %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

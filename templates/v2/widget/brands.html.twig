@@ -1,0 +1,26 @@
+<div class="tab-content" id="v-pills-tabContent">
+    {% for service in services %}
+
+    <div class="tab-pane fade {% if(loop.index == 1) %}show active {% endif %}" id="v-pills-brands{{ service.id }}" role="tabpanel" aria-labelledby="v-pills-home-tab{{ service.id }}">
+        <div class="row">
+            {% for row in items|batch(10) %}
+            <div class="col-md-2">
+                {% for brand in row %}
+
+                    {% if service.slug %}
+                        {% if brand.service_url %}
+                        <div class="price-title brands-list__block_item"><a href="{{ brand.service_url.path}}">{{ brand.name }}</a></div>
+                            {% else %}
+                                <div class="price-title brands-list__block_item"><a href="{{ brand.path}}">{{ brand.name }}</a></div>
+                            {% endif %}
+                    {% else %}
+                        <div class="price-title brands-list__block_item"><a href="{{ brand.path }}">{{ brand.name }}</a></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    {% endfor %}
+</div>

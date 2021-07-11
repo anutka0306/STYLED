@@ -1,0 +1,22 @@
+<div {{ lazy_load_bg('/img/works-bg.png',['before_after']) }} id="before_after">
+    <div class="container">
+        <h2 class="before_after__title">Наши работы</h2>
+        <div class="before_after__slider before-slider">
+            {% for item in items %}
+                <div class="before-slider__slide">
+                    <div class="before"><img {{ slick_lazy_load(item.beforeImg) }} alt=""></div>
+                    <div class="after"><img {{ slick_lazy_load(item.afterImg) }} alt=""></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="before_after__slider nav-before-slider">
+            {% for item in items %}
+                <div class="nav-before-slider__slide">
+                    <div>
+                        <img {{ slick_lazy_load(item.afterImg) }} alt="">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

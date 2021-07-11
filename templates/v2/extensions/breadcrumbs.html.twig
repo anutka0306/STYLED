@@ -1,0 +1,20 @@
+<div class="container container2">
+    <div class="navigation">
+        <div class="navigation_item_block">
+        {% for item in items %}
+            {% if loop.last %}
+            <div class="navigation_item">
+                <a href="#">{{ item.name }}</a>
+            </div>
+            {% else %}
+            <div class="navigation_item">
+                <a href="{{ item.path }}">{{ item.name }}</a>
+                <span>&#8646;</span>
+            </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    {{ include('v2/blocks/section/rating_schema.html.twig',{ page: page ?? null }) }}
+</div>
+</div>

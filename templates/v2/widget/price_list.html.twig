@@ -1,0 +1,27 @@
+<div class="services-prices">
+    <h3>{{ price_list_title }} цена</h3>
+    <ul data-uk-accordion="collapsible: false">
+        {% for section in sections %}
+            <li><a class="uk-accordion-title" href="#">{{ section.name }}</a>
+                <div class="uk-accordion-content">
+                    <ul class="price-list">
+                        {% for service in section.priceServices|filter(service => service.published ) %}
+                            <li>
+                                <span>
+                                    {% if service.path %}
+                                        <a href="{{ service.path }}">{{ service.nameInPriceList ?? service.name }}</a>
+                                    {% else %}
+                                        {{ service.name }} {{ page.brandAndModelName }}
+                                    {% endif %}
+                                        <b>от {{ service.price }}&nbsp;р.</b>
+                                </span>
+                                <span class="border"></span>
+                                <span><a class="callback js-popup-trigger" href="#">Рассчитать стоимость</a></span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

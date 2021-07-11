@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+{{ include('blocks/scripts/_liveinternet.html.twig') }}
+{{ include('blocks/layout/_header.html.twig') }}
+
+    {% block body %}{% endblock %}
+
+
+{{ order_form() }}
+{{ include('blocks/layout/_footer.html.twig') }}
+
+{{ include('blocks/popup/_callback-popup.html.twig') }}
+{{ whatsapp_button(null) }}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
+</html>

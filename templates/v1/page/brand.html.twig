@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ page.metaTitle ?? (page.h1~' - кузовной центр '~page.brandName~' Детейлингофъ') }}{% endblock %}
+{% block body %}
+    {{ include('blocks/rating_schema.html.twig') }}
+    {{ include('blocks/layout/_services_categories.html.twig') }}
+    {{ models_block(page) }}
+    {{ price_list(page) }}
+    {{ our_works_slider(page) }}
+    {{ naschiraboty_slider(page) }}
+    {{ wrap_content(page.text|remove_gallery) }}
+{% endblock %}

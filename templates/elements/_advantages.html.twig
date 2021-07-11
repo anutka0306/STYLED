@@ -1,0 +1,58 @@
+<div class="block_advantages">
+    <div class="block_advantages_bg">
+      <h2>Преимущества</h2>
+      <div class="container container2">
+        <div class="row">
+          <div class="preimblock-b">
+              <img src="https://r-ms.ru/img/advantages/1.png" alt="img">
+            <p>Специализированный сервис</p>
+              {% if brandName|default or modelName|default %}
+                <span>«Мир АКПП» - это сеть специализированных автосервисов в Москве по ремонту и обслуживанию АКПП
+                    {% if brandName|default %}
+                        {{ brandName }}
+                    {% endif %}
+                    {% if modelName|default %}
+                        {{ modelName }}
+                    {% endif %}
+                всех видов.</span>
+              {% else %}
+                <span>«Мир АКПП» - это сеть специализированных автосервисов в Москве по ремонту и обслуживанию АКПП
+                всех видов.</span>
+              {% endif %}
+          </div>
+          <div class="preimblock-b">
+              <img src="https://r-ms.ru/img/advantages/1.png" alt="img">
+            <p>Ремонт АКПП дешевле, чем у дилеров до 70%.</p>
+            {% if brandName|default or modelName|default %}
+                <span>Ремонт АКПП
+                    {% if brandName|default %}
+                    {{ brandName }}
+                    {% endif %}
+                    {% if modelName|default %}
+                    {{ modelName }}
+                    {% endif %}
+                     дешевле, чем у дилеров до 70%.</span>
+              {% else %}
+                <span>Ремонт АКПП дешевле, чем у дилеров до 70%.</span>
+            {% endif %}
+          </div>
+          <div class="preimblock-b">
+              <img src="https://r-ms.ru/img/advantages/1.png" alt="img">
+            <p>Гарантия 2 года</p>
+            {% if brandName|default or modelName|default %}
+            <span>Для ремонта трансмиссии
+                {% if brandName|default %}
+                    {{ brandName }}
+                {% endif %}
+                {% if modelName|default %}
+                    {{ modelName }}
+                {% endif %}
+                мы используем оригинальные комплектующие, поставляемые напрямую с заводов-изготовителей. Каждая деталь подбирается под конкретную модель трансмиссионного устройства.</span>
+            {% else %}
+            <span>Для ремонта трансмиссии мы используем оригинальные комплектующие, поставляемые напрямую с заводов-изготовителей. Каждая деталь подбирается под конкретную модель трансмиссионного устройства.</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

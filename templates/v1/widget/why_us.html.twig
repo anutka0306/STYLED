@@ -1,0 +1,60 @@
+<div class="whyus">
+    <div class="video">
+        <video class="lazy" data-src="/video/whyus.mp4" type="video/mp4" autoplay loop preload="auto" muted
+               id="video"></video>
+        <div class="video-bg"></div>
+    </div>
+    <div class="container">
+        <h2 class="whyus__title">Почему Мы</h2>
+        <div class="whyus__items">
+            <div class="whyus__items__item popup-trigger">
+                <div class="whyus__items__item__icon">
+                    <div class="green-block"><img {{ lazy_load(asset('img/whyus/paint.png')) }} alt="">
+                    </div>
+                </div>
+                <p class="whyus__items__item__text">
+                    <span>Современная</span><br>покрасочная камера</p>
+            </div>
+            <div class="whyus__items__item popup-trigger">
+                <div class="whyus__items__item__icon">
+                    <div class="green-block"><img {{ lazy_load(asset('img/whyus/guarantee.png')) }} alt="">
+                    </div>
+                </div>
+                <p class="whyus__items__item__text">
+                    <span>Официальная</span><br>пожизненная гарантия</p>
+            </div>
+            <div class="whyus__items__item popup-trigger">
+                <div class="whyus__items__item__icon">
+                    <div class="green-block"><img {{ lazy_load(asset('img/whyus/trust.png')) }} alt="">
+                    </div>
+                </div>
+                <p class="whyus__items__item__text">
+                    <span>Честные</span><br>фиксированные цены <br><span
+                            class="whyus__decrp">(не навязываем ненужных работ)</span></p>
+            </div>
+            <div class="whyus__items__item popup-trigger">
+                <div class="whyus__items__item__icon">
+                    <div class="green-block"><img {{ lazy_load(asset('img/whyus/location.png')) }} alt="">
+                    </div>
+                </div>
+                <p class="whyus__items__item__text">
+                    <span>Удобное расположение</span><br>{{ location|raw }}</p>
+            </div>
+            <div class="whyus__items__item popup-trigger">
+                <div class="whyus__items__item__icon">
+                    <div class="green-block"><img {{ lazy_load(asset('img/whyus/opit.png')) }} alt="">
+                    </div>
+                </div>
+                <p class="whyus__items__item__text">{{ experience|raw }}</p>
+            </div>
+            <div class="whyus__items__item popup-trigger">
+                <div class="whyus__items__item__icon">
+                    <div class="green-block"><img {{ lazy_load(asset('img/whyus/apple.png')) }} alt="">
+                    </div>
+                </div>
+                <p class="whyus__items__item__text">
+                    <span>100% попадание</span><br>в цвет</p>
+            </div>
+        </div>
+    </div>
+</div>

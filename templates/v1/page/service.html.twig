@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ page.metaTitle ?? (page.h1~' - кузовной центр '~page.brandName~' Детейлингофъ') }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('service') }}
+{% endblock %}
+{% block body %}
+    {{ include('blocks/rating_schema.html.twig') }}
+    {{ article_menu(page) }}
+    {{ price_blocks(page) }}
+    {{ price_list(page) }}
+    {{ our_works_slider(page) }}
+    {{ naschiraboty_slider(page) }}
+    {{ wrap_content(page.text|remove_gallery) }}
+    {#{{ video(page) }}#}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('service') }}
+{% endblock %}

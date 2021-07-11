@@ -1,0 +1,28 @@
+<div class="special_offers__card-block">
+    <div class="card">
+        <b class="card-zag">
+            {% if offer.slug is not empty %}
+                <a href="{{ path('skidki_i_akcii_view',{'slug':offer.slug}) }}">
+                    {{ offer.name }}
+                </a>
+            {% else %}
+                {{ offer.name }}
+            {% endif %}
+        </b>
+        <p class="card-description">{{ offer.description|raw }}</p>
+        <div class="cena-wrap">
+            <div>
+                {% if(offer.oldPrice > 0) %}
+                    {% if(offer.oldPrice > offer.newPrice) %}
+                        <span class="stcena">{{ offer.oldPrice }} руб</span>
+                        <span class="newcena ">{{ offer.newPrice }} руб</span>
+                    {% else %}
+                        <span class="newcena ">от {{ offer.newPrice }} руб</span>
+                    {% endif %}
+
+                {% endif %}
+            </div>
+            <div class="primary_button popup-trigger" data-title="Записаться">Записаться</div>
+        </div>
+    </div>
+</div>

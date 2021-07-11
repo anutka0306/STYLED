@@ -1,0 +1,30 @@
+{% extends 'error.html.twig' %}
+
+{% block breadcrumbs %}
+    <div class="container container2">
+        <div class="navigation">
+            <div class="navigation_item_block">
+                <div class="navigation_item">
+                    <a href="/">Ремонт АКПП</a>
+                    <span>⇆</span>
+                </div>
+
+                <div class="navigation_item">
+                    <a href="#">Данная страница не найдена!</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container container2">
+        <div class="alert alert-warning" role="alert">
+            <h1 class="title">Данная страница не найдена!</h1>
+        </div>
+        <p>Возможно, Вы неправильно ввели адрес в адресной строке браузера.</p>
+        <p style="font-weight: bold;">Что можно сделать?</p>
+        <p>Вы можете посетить другие разделы ресурса, воспользовавшись основным меню сайта или перейти на <a href="/">главную страницу</a> сайта.</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<div {{ lazy_load_bg(asset('img/prices-bg.png'),['prices']) }} id="prices">
+    <div class="container">
+        <h2 class="prices__title">{{ price_list_title }} цена</h2>
+        <div class="prices__list">
+            {% for section in sections %}
+                <div class="prices__list__main">{{ section.name }}</div>
+                <div class="prices__list__content">
+                    {% for service in section.priceServices|filter(service => service.published )  %}
+                        <div class="prices__list__content__item clearfix">
+                            <div class="prices__list__content__item__left">
+                                {% if service.path %}
+                                    <a href="{{ service.path }}">{{ service.nameInPriceList ?? service.name }}</a>
+                                {% else %}
+                                    {{ service.name }} {{ page.brandAndModelName }}
+                                {% endif %}
+                                <span>от {{ service.price }}&nbsp;р.</span>
+                            </div>
+                            <div class="prices__list__content__item__right popup-trigger" data-title="Рассчитать стоимость">Рассчитать стоимость</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{{ include('blocks/layout/callback_buttons.html.twig') }}

@@ -1,0 +1,15 @@
+<section id="brand" class="brand">
+    <div class="wrapper">
+        <h2 class="brand-list-header">Знаем все детали при ремонте {{ brand_name }}</h2>
+        <div class="row read-more-models">
+            {% for model in models %}
+            <div class="brand_col">
+                <a href="{{ model.path }}" class="brand_cont">
+                    <img {{ lazy_load(asset(model.imageUrl)) }} alt="{{ model.name }}" />
+                    <div class="brand_name">{{ model.name }}</div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

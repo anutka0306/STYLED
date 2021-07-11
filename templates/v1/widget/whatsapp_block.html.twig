@@ -1,0 +1,27 @@
+<div {{ lazy_load_bg(asset('img/form-bg.png'),['whatsapp']) }}>
+    <div class="container">
+        <div class="whatsapp__item">
+            <div class="whatsapp__phone" id="whatsapp">
+                <img {{ lazy_load(asset('img/whatsapp-block/whatsapp-phone.png')) }} alt="">
+                <div {{ lazy_load_bg(asset('img/whatsapp-block/whatsapp-phone.jpg'),['whatsapp__phone__text']) }}></div>
+            </div>
+        </div>
+        <div class="whatsapp__item clearfix">
+            <div class="whatsapp__button button">
+                <p class="footer-form__left__title">Заявка в WhatsApp</p>
+                <p class="footer-form__left__descr">Отправьте нам заявку с фото и получите просчет фиксированной стоимости ремонта вашего {{ brand_model }}</p>
+                <div class="btn_block">
+                    {% for item in items %}
+                        <div class="footer-form__right__button btn-tel">
+                            <a href="{{ item.link }}"
+                               class="button whatsapppop" target="_blank"
+                               onclick="(function(){ga('send', 'event', 'forma', 'whatsApp');})();">
+                                {{ item.name }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

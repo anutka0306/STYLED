@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{% block title %}{{ page.metaTitle ?? (page.h1~' - кузовной центр Детейлингофъ') }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ page.metaDescription|raw }}{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+    <meta http-equiv="Last-Modified" content="{{ page.modifyDate|date('D, d M Y H:i:s') }} GMT">
+    <link rel="canonical" href="{{ app.request.schemeAndHttpHost~page.path }}" />
+
+    <meta property="og:title" content="{{ block('title') }}" />
+    <meta property="og:keywords" content="{{ block('keywords') }}" />
+    <meta property="og:description" content="{{ block('description') }}" />
+    <meta property="og:url" content="{{ app.request.schemeAndHttpHost~page.path }}" />
+    <meta property="og:image" content="{{ app.request.schemeAndHttpHost }}/img/og-logo.png" />
+
+    <meta property="schema:name" content="{{ block('title') }}" />
+    <meta property="schema:description" content="{{ block('description') }}" />
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="yandex-verification" content="5440d1539bdcce3d" />
+    {{ include('blocks/scripts/_schema.html.twig') }}
+    {{ schema_breadcrumbs(page ?? null) }}
+    {{ include('blocks/scripts/_comagic.html.twig') }}
+    {{ include('blocks/scripts/_google_analitics.html.twig') }}
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/Product">
+{{ include('blocks/scripts/_yandex_metrics.html.twig') }}
+{{ include('blocks/scripts/_liveinternet.html.twig') }}
+{{ include('blocks/layout/_header.html.twig', { h1 : block('h1') ?? page.h1, description: block('description') }) }}
+{{ include('blocks/layout/_advantages.html.twig') }}
+{% block breadcrumbs %}
+    {{ breadcrumbs(page) }}
+{% endblock %}
+<div class="mega_contentt_blockksd">
+    {% block body %}{% endblock %}
+
+    {% block extraModules %}
+        {% block whatsappBlock %}
+            {{ whatsapp_block(page ?? null) }}
+        {% endblock whatsappBlock %}
+        {{ why_us(page) }}
+        {{ before_after(page) }}
+    {% endblock extraModules %}
+</div>
+{{ page is defined and page.id == 1 ? include('v1/blocks/layout/rating.html.twig') }}
+{{ render_map(page ?? null) }}
+{{ order_form() }}
+{{ include('v1/blocks/layout/_footer.html.twig') }}
+
+{{ include('v1/blocks/popup/_callback-popup.html.twig') }}
+{{ whatsapp_button(page ?? null) }}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+{{ include('v1/blocks/layout/calculator_label.html.twig') }}
+{{ include('v1/blocks/scripts/_mango.html.twig') }}
+</body>
+</html>

@@ -1,0 +1,24 @@
+<a class="wapopup mobile_show" href="#" data-href="whatsapp">
+    <div class="wapopup__content"><img src="{{ asset('img/whatsapp-button/whatsapp.svg') }}" alt="">
+        <div class="wapopup__content__text">
+            <div>Оцените стоимость кузовного</div>
+            <div>ремонта <span>по WhatsApp</span></div>
+        </div>
+    </div>
+</a>
+<div class="w-popup">
+    <div class="w-popup-wrap">
+        <div class="w-popup-close"></div>
+        <div class="whatsapp__button button">
+            <p class="footer-form__left__title">Заявка в WhatsApp</p>
+            <p class="footer-form__left__descr">Отправьте нам заявку с фото и получите просчет фиксированной стоимости ремонта вашего авто</p>
+            <div class="btn_block">
+                {% for item in items %}
+                    <div class="footer-form__right__button btn-tel">
+                        <a href="{{ item.link }}" class="button whatsapppop" target="_blank" onclick="(function(){ga('send', 'event', 'forma', 'whatsApp');})();">{{ item.name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="footer">
+    <div class="container-fluid">
+        {#<div class="footer__top row">
+            <ul class="footer__left-col col-sm-6 col-12">
+                <li><a href="/contact_info/">Контакты</a></li>
+                <li><a href="/price_list/">Прайс-лист</a></li>
+                <li><a href="/uslugi/">Услуги</a></li>
+                <li><a href="/about_us/">О компании</a></li>
+                <li><a href="/naschiraboty/">Наши работы</a></li>
+            </ul>
+
+            <div class="footer__right-col col-sm-6 col-12">
+                {% if is_detailing(page ?? null) %}
+                    <span class="phone_footer mgo-number-10762"
+                          onclick="location.href='tel:84994904453'">8 (499) 490-44-53</span>
+                    <small></small>
+                    <span class="address_footer">Москва, Севастопольский проспект дом 95Б стр. 2</span>
+                {% else %}
+                    <span class="phone_footer mgo-number-10762"
+                          onclick="location.href='tel:+74953747712'">+7 (495) 374-77-12</span>
+                    <small></small>
+
+                    <span class="address_footer">Москва, Севастопольский проспект дом 95Б стр. 2</span>
+
+                    <span class="phone_footer"
+                          onclick="yaCounter41408589.reachGoal ('click_michurinskii');location.href='tel:+74953748856'; return true;">+7(495) 374-88-56</span>
+                    <span class="address_footer">Москва, ул. Удальцова, 60 стр.7</span>
+
+                    <span class="phone_footer mgo-number-10586"
+                          onclick="yaCounter41408589.reachGoal ('click_dimitrovka');location.href='tel:+74951507017'; return true;">+7 (495) 150-70-78</span>
+                    <span class="address_footer">Москва, ул. Лобненская д.17 стр.6</span>
+
+                    <span class="phone_footer mgo-number-10586">+7 (800) 775-79-61</span>
+                    <span class="address_footer">Звонок бесплатный</span>
+                {% endif %}
+
+            </div>
+        </div>#}
+        <div class="footer__bottom row">
+            <div class="copyright col-sm-10 col-12">© 2003-{{ 'now'|date('Y') }} "ДетейлингофЪ".
+                <a href="/">Кузовной ремонт</a>,
+                <a href="/paint/">Покраска автомобилей</a>,
+                <a href="{{ path('sitemap_index') }}">Карта сайта</a>.
+            </div>
+        </div>
+    </div>
+
+</div>
+

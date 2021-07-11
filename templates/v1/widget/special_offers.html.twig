@@ -1,0 +1,14 @@
+<!--Второй блок - "Акции"-->
+{% if items|length > 0 %}
+<section class="special_offers">
+    <div class="container-fluid">
+        <h2 class="text-center">Акции и спецпредложения</h2>
+        <div class="card-wrap">
+            {% for offer in items %}
+                {{ include('widget/special_offers_item.html.twig') }}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+<!--Конец  блока "Акции"-->

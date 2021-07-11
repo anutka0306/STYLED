@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-cancel-24px</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Иконка-«Закрыть»-и-надпись-«Отправить-сообщение»" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-881.000000, -19.000000)">
+        <g id="ic-cancel-24px" transform="translate(881.000000, 19.000000)">
+            <circle id="White-Bg" fill="#FFFFFF" cx="11" cy="11" r="11"></circle>
+            <path d="M11,1 C5.47,1 1,5.47 1,11 C1,16.53 5.47,21 11,21 C16.53,21 21,16.53 21,11 C21,5.47 16.53,1 11,1 Z M16,14.59 L14.59,16 L11,12.41 L7.41,16 L6,14.59 L9.59,11 L6,7.41 L7.41,6 L11,9.59 L14.59,6 L16,7.41 L12.41,11 L16,14.59 Z" id="Shape" fill="#333333" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,35 @@
+<div class="stock-item">
+    <div class="stock-item__media">
+
+        <img {{ lazy_load(asset(offer.imageUrl)) }} alt="{{ offer.name }}" />
+
+        <div class="stock-item__title">
+            {% if offer.slug is not empty %}
+                <a href="{{ path('skidki_i_akcii_view',{'slug':offer.slug}) }}">
+                    {{ offer.name }}
+                </a>
+            {% else %}
+                {{ offer.name }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="stock-item__desc">
+        <div class="stock-item__intro">{{ offer.description|raw }}</div>
+        <div class="stock-item__bottom">
+            {% if(offer.oldPrice > 0) %}
+                <div class="stock-item__price">
+                {% if(offer.oldPrice > offer.newPrice) %}
+                        <span class="current">{{ offer.newPrice }} р</span>
+                        <span class="old">{{ offer.oldPrice }} р</span>
+                {% else %}
+                    <span class="current">{{ offer.newPrice }} р</span>
+                {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="stock-item__btn">
+                <a href="#" class="js-popup-trigger">Записаться</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="services-list-container">
+    <ul class="services-list" id="block_usl_model_top">
+        {% for article in articles %}
+            {% if article.id == service.id %}
+                <li class="active">{{ article.name }}</li>
+            {% else %}
+                <li><a href="{{ article.path }}">{{ article.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <button class="btn services-list-btn btn-success">Показать все</button>
+</div>

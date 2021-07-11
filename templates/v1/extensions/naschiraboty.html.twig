@@ -1,0 +1,36 @@
+<section class="container naschiraboty">
+    {% for item in items %}
+        <div class="row row--job" data-job-id="{{ loop.index }}">
+            <div class="job_col col-12 col-lg-6">
+                <div class="job_pad">
+                    <h3 class="job_title">{{ item.name|easyadmin_truncate(55) }}</h3>
+                    <p class="job_text"></p>
+                    <div class="job_dedline"></div>
+                    <p>{{ item.shortText|easyadmin_truncate(190) }}</p>
+                    <p><b>Клиент:</b> {{ item.clientName }}</p>
+                    <span><a class="job_next btn-blue" href="{{ path('naschiraboty_item',{'id': item.id}) }}">Подробнее</a></span>
+                    <div class="row justify-content-center">
+                        <div class="job_col-btn job_col-btn--2 mt-3 mobile_show">
+                            <div class="job_next btn-blue">следующая работа</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job_col col-12 col-lg-6">
+                <div class="fotorama" data-autoplay="true">
+                    {% for image in files_from_folder(item.imgFolder) %}
+                        <a href="{{ image }}"></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="row mb-4 justify-content-center">
+        <div class="job_col-btn job_col-btn--1">
+            <div class="job_prev btn-blue btn btn-primary">предыдущая работа</div>
+        </div>
+        <div class="job_col-btn job_col-btn--2 mobile_hide">
+            <div class="job_next btn-blue btn btn-primary">следующая работа</div>
+        </div>
+    </div>
+</section>

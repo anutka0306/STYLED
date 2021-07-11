@@ -1,0 +1,8 @@
+<div class="paint_menu">
+    {% for service in services %}
+        <a href="{{ service.link }}" class="item_paint_menu">
+            <div {{ lazy_load_bg(asset(service.img),['item_paint_menu_img']) }} ></div>
+            <span>{{ service.name }}</span>
+        </a>
+    {% endfor %}
+</div>

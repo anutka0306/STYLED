@@ -1,0 +1,46 @@
+<script>
+	let is_detejling = {{ isDetailing?'true':'false' }};
+</script>
+<div class="footer-blocks">
+    <div class="footer-contacts container" id="map">
+        {% for salon in salons %}
+            <div class="footer-contacts__contact">
+                <div class="footer-contacts__contact__wrap">
+                    <div class="footer-contacts__contact__name">{{ salon.alias }}</div>
+                    <div class="footer-contacts__contact__adress">{{ salon.address }}</div>
+                    <div class="footer-contacts__contact__phone">
+                        <a href="tel:{{ salon.phoneDigits }}">
+                            <div class="m-call-tracking-widget">{{ salon.phone }}</div>
+                        </a>
+                    </div>
+                    <div class="footer-contacts__contact__time">
+                        Ежедневно: {{ salon.workingHoursFrom }} - {{ salon.workingHoursTo }} <br>Без выходных
+                    </div>
+                </div>
+                <div class="footer-contacts__contact__adresses">
+                    <div class="footer-contacts__contact__button mobile_hide">
+                        Построить маршрут
+                    </div>
+
+                    <div class="footer-contacts__contact__button mobile_show">
+                        <a href="{{ salon.yandexNavigatorLink }}" data-name="{{ salon.alias }}" class="marsh white-link"
+                           data-map="яндекс навигатор" target="_blank">Яндекс Навигатор</a>
+                    </div>
+
+                    <div class="footer-contacts__contact__button__content mobile_hide">
+                        <a href="{{ salon.yandexMapLink }}" class="marsh" data-name="{{ salon.alias }}"
+                           data-map="яндекс карты" target="_blank">Яндекс карты</a>
+
+                        <a href="{{ salon.googleMapLink }}" class="marsh" data-name="{{ salon.alias }}"
+                           data-map="гугл карты" target="_blank">Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="ymap-container lazy" data-bg="url(/img/map/yandex-before-load.jpg)">
+        <div class="loader loader-default"></div>
+        <div id="map-yandex"></div>
+    </div>
+</div>

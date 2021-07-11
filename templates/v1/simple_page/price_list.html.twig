@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% embed 'blocks/embed/_content_wrapper.html.twig' %}
+        {% block content %}
+            {{ price_list_full() }}
+            {{ include('blocks/layout/callback_buttons.html.twig') }}
+            <div class="my-4">
+                {{ page.text|raw }}
+            </div>
+
+
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

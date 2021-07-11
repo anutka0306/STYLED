@@ -1,0 +1,50 @@
+{% extends 'v2/base.html.twig' %}
+
+{% block title %}
+    {{ offer.metaTitle ? offer.metaTitle : (offer.name~' - Сервис «Мир АКПП»') }}
+{% endblock %}
+{% block seoDescription %} {{ offer.metaDescription ? offer.metaDescription : (offer.name~'  ⌚ 8:00 - 22:00 Без Выходных! 🚗 Эвакуатор. ☑ Гарантия! ♦ Сервис «Мир АКПП» ☎ Звоните 8 (495) 150-69-21')}}
+{% endblock %}
+{% block canonical %}{{ app.request.schemeAndHttpHost~'/offer/'~offer.slug }}{% endblock %}
+{% block ogTitle %} {{ offer.metaTitle ? offer.metaTitle : (offer.name~' - Сервис «Мир АКПП»') }} {% endblock %}
+{% block ogDescription %}{{ offer.metaDescription ? offer.metaDescription : (offer.name~'  ⌚ 8:00 - 22:00 Без Выходных! 🚗 Эвакуатор. ☑ Гарантия! ♦ Сервис «Мир АКПП» ☎ Звоните 8 (495) 150-69-21')}} {% endblock %}
+
+{% block body %}
+    {% block breadcrumbs %}
+
+    {% endblock %}
+    <div class="container container2">
+        <div class="navigation">
+            <div class="navigation_item_block">
+                <div class="navigation_item">
+                    <a href="/offers">Акции</a>
+                    <span>&#8646;</span>
+                </div>
+                <div class="navigation_item">
+                    <a href="#">{{ offer.name }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="title">{{ offer.name }}</h1>
+
+    <div class="post-slide__all-offers">
+        <div class="post-review">
+            <p class="post-description">
+                {{ offer.description|replace({'BRAND': ''})|raw }}
+            </p>
+            <div class="post-price">
+                <div>
+                    {% if offer.oldPrice > 0 %}
+                        <span class="old_price">{{ offer.oldPrice }} руб</span>
+                    {% endif %}
+                    <span class="new_price">{{ offer.newPrice}} руб</span>
+                </div>
+            </div>
+            <div class="all-offers__buttons">
+                <button class="" data-title="ОСТАВИТЬ ЗАЯВКУ" data-toggle="modal" data-target="#callback_popup">Записаться</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

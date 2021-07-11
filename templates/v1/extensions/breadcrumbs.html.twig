@@ -1,0 +1,12 @@
+<div id="breadcrumbs">
+    {% for item in items %}
+        {% if loop.last %}
+            <span>{{ item.name }}</span>
+        {% else %}
+            <span>
+                <a href="{{ item.path }}">{{ item.name }}</a>
+            </span>
+            <span>&#8646;</span>
+        {% endif %}
+    {% endfor %}
+</div>

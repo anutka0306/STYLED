@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block breadcrumbs %}
+    {{ breadcrumbs(page,item.name) }}
+{% endblock %}
+
+{% block body %}
+    {% embed 'blocks/embed/_content_wrapper.html.twig' %}
+        {% block content %}
+                {{ item.text|raw }}
+                <div class="row mb-4 our_works">
+                    {{ swiper_slider(item.imgFolder) }}
+                </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ page.metaTitle ? page.metaTitle~' - Сервис «Мир АКПП»' : (page.h1~' - Сервис «Мир АКПП»') }} {% endblock %}
+{% block body %}
+    {{ include('blocks/rating_schema.html.twig') }}
+    {{ include('blocks/layout/_services_categories.html.twig') }}
+    {{ price_list(page) }}
+    {{ our_works_slider(page) }}
+    {{ naschiraboty_slider(page) }}
+    {{ wrap_content(page.text|remove_gallery) }}
+{% endblock %}
