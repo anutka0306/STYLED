@@ -1650,6 +1650,14 @@
     margin-top: 30px;
     text-align: center;
 }
+.block_advantages-home h3{
+    color:#ffffff;
+}
+.block_advantages-home__text{
+    color: #ffffff;
+    margin-top: 30px;
+    line-height: 1.5;
+}
 
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
