@@ -1576,6 +1576,60 @@
     color: #fff;
 }
 
+/* Блок акции */
+.block_promotions h2{
+    color: #77b52b;
+}
+.block_promotions .post-slide .post-title{
+    color: #77b52b;
+}
+.block_promotions .post-slide .post-description{
+    color:#ffffff;
+}
+.section-gallery .uk-slidenav svg{
+    color: #77b52b;
+}
+.block_promotions .post-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.block_promotions .post-price .new_price {
+    color: #77b52b;
+    font-size: 24px;
+    display: block;
+}
+.block_promotions .post-price button, .all-offers__buttons button {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    background-color: #77b52b;
+    border-radius: 5px;
+}
+.block_promotions .post-slide .post-review {
+    padding: 25px 20px;
+    background: var(--color-white);
+    position: relative;
+}
+.block_promotions .post-slide {
+    height: 100%;
+    min-width: 250px;
+    min-height: 240px;
+    /* margin: 0 15px; */
+    border: 1px solid #a3a89e;
+    box-shadow: 0 0 5px rgb(186 196 172 / 80%);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.block_promotions .post-price .old_price {
+    text-decoration: line-through;
+    display: block;
+    color: #999;
+}
+
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
         width: 80%;

@@ -28,6 +28,7 @@
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
             {{ price_list(page) }}
+            {{ special_offers(page.brandAndModelName) }}
         {% endblock %}
     {% endembed %}
 
