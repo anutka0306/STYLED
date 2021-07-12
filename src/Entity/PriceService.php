@@ -19,7 +19,7 @@ use Symfony\Bridge\Doctrine\ManagerRegistry;
  *
  * @ORM\Table(name="price__services")
  * @ORM\Entity(repositoryClass="App\Repository\PriceServiceRepository")
- * @ORM\EntityListeners({"App\Doctrine\GeneratePagesByPriceServiceListener"})
+ *
  */
 class PriceService
 {
@@ -89,12 +89,12 @@ class PriceService
     private $excludedSalons;
 
     
-    public function __construct(PriceModelRepository $price_model_repository)
+    public function __construct()
     {
         $this->contents = new ArrayCollection();
         $this->beforeAfterImages = new ArrayCollection();
         $this->excludedSalons = new ArrayCollection();
-        $this->price_model_repository = $price_model_repository;
+
     }
     
     public function getPriceOfHour(): int

@@ -31,7 +31,7 @@ class PriceCategoryCrudController extends AbstractCrudController
         return [
             Field::new('id','ID')->onlyOnIndex(),
             TextField::new('name', 'Название'),
-            NumberField::new('parentId', 'Родитель'),
+            /*NumberField::new('parent', 'Родитель'),*/
             TextField::new('slug', 'Алиас')
         ];
     }

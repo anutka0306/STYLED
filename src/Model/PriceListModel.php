@@ -90,11 +90,21 @@ class PriceListModel
 
         if ($content instanceof Brand || $content instanceof Model || $content instanceof Simple) {
 
-            $default_category = $this->configs->getCached('price.default_category');
+            //$default_category = $this->configs->getCached('price.default_category');
+            $sections_ids = array();
+            $default_category = $this->price_category_repository->findAll();
+            foreach ($default_category as $item){
+                $sections_ids[] = $item->getId();
+            }
 
-            $sections_ids = explode(',',$default_category);
+
+            //$sections_ids = explode(',',$default_category);
 
             $sections = [];
+
+            if (empty($sections_ids)){
+                return null;
+            }
 
             foreach ($sections_ids as $index => $section_id) {
                 $section = $this->price_category_repository->find($section_id);
