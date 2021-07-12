@@ -29,6 +29,7 @@
         {% block content %}
             {{ price_list(page) }}
             {{ special_offers(page.brandAndModelName) }}
+            {{ include('v2/blocks/section/advantages-home.html.twig') }}
         {% endblock %}
     {% endembed %}
 
