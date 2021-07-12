@@ -1666,6 +1666,11 @@
     margin-top: 30px;
 }
 
+/* Черная карта в подвале */
+.footer__black-map{
+    width: 100%;
+}
+
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
         width: 80%;
