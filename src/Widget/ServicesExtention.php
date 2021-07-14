@@ -37,6 +37,8 @@ class ServicesExtention extends AbstractExtension
                 ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('service_text', [$this, 'service_text'],
                 ['needs_environment' => true, 'is_safe'=> ['html']]),
+            new TwigFunction('service_text_down', [$this, 'service_text_down'],
+                ['needs_environment' => true, 'is_safe'=> ['html']]),
         ];
     }
 
@@ -54,8 +56,17 @@ class ServicesExtention extends AbstractExtension
     public function service_text(Environment $twig, $text):string {
         $parts = explode('</p>', $text,2);
         $first_part = $parts[0];
-        $second_part  = $parts[1];
+        if(isset($parts[1])) {
+            $second_part = $parts[1];
+        }else{
+            $second_part = null;
+        }
         $html = $twig->render('elements/_block_content.html.twig', compact('first_part', 'second_part'));
+        return $html;
+    }
+
+    public function service_text_down(Environment $twig, $text, $text2, $img, $img2, $bg):string{
+        $html = $twig->render('elements/_block_content_down.html.twig', compact('text', 'text2', 'img', 'img2','bg'));
         return $html;
     }
 }

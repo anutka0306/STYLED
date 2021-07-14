@@ -1,20 +1,19 @@
-<div class="container container2">
-    <div class="navigation">
-        <div class="navigation_item_block">
+
+<section id="breadcrumbs" style="margin-top: 100px;">
+    <div class="breadcrumbs_wrapper">
         {% for item in items %}
             {% if loop.last %}
-            <div class="navigation_item">
-                <a href="#">{{ item.name }}</a>
-            </div>
+                <span class="navigation_item">
+                    <a href="#">{{ item.name }}</a>
+                </span>
             {% else %}
-            <div class="navigation_item">
-                <a href="{{ item.path }}">{{ item.name }}</a>
-                <span>&#8646;</span>
-            </div>
+                <span class="navigation_item">
+                    <a href="{{ item.path }}">{{ item.name }}</a>
+                    <span>&#8646;</span>
+                </span>
 
             {% endif %}
         {% endfor %}
     </div>
     {{ include('v2/blocks/section/rating_schema.html.twig',{ page: page ?? null }) }}
-</div>
-</div>
+</section>

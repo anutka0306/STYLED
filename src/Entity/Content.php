@@ -93,6 +93,31 @@ class Content implements PageInterface
      */
     protected $published = true;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text_down;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text_down2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $text_down_img;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $text_down_img2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $text_down_bg;
+
 
 
     public function __construct()
@@ -275,6 +300,66 @@ class Content implements PageInterface
     public function setBrandId(?int $brand_id): self
     {
         $this->brand_id = $brand_id;
+
+        return $this;
+    }
+
+    public function getTextDown(): ?string
+    {
+        return $this->text_down;
+    }
+
+    public function setTextDown(?string $text_down): self
+    {
+        $this->text_down = $text_down;
+
+        return $this;
+    }
+
+    public function getTextDown2(): ?string
+    {
+        return $this->text_down2;
+    }
+
+    public function setTextDown2(?string $text_down2): self
+    {
+        $this->text_down2 = $text_down2;
+
+        return $this;
+    }
+
+    public function getTextDownImg(): ?string
+    {
+        return $this->text_down_img;
+    }
+
+    public function setTextDownImg(?string $text_down_img): self
+    {
+        $this->text_down_img = $text_down_img;
+
+        return $this;
+    }
+
+    public function getTextDownImg2(): ?string
+    {
+        return $this->text_down_img2;
+    }
+
+    public function setTextDownImg2(?string $text_down_img2): self
+    {
+        $this->text_down_img2 = $text_down_img2;
+
+        return $this;
+    }
+
+    public function getTextDownBg(): ?string
+    {
+        return $this->text_down_bg;
+    }
+
+    public function setTextDownBg(?string $text_down_bg): self
+    {
+        $this->text_down_bg = $text_down_bg;
 
         return $this;
     }

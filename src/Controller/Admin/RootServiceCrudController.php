@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CodeEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -43,6 +44,11 @@ class RootServiceCrudController extends AbstractCrudController
             TextField::new('meta_title', 'Title')->hideOnIndex(),
             Field::new('meta_description','Description')->hideOnIndex(),
             CodeEditorField::new('text', 'Текст')->hideOnIndex(),
+            ImageField::new('text_down_bg', 'Фоновое изображение нижнего блока текста')->setUploadDir('/public/images/page-images')->setBasePath('/images/page-images/')->hideOnIndex(),
+            CodeEditorField::new('text_down', 'Текст нижний')->hideOnIndex(),
+            ImageField::new('text_down_img', 'Картинка нижнего блока')->setUploadDir('/public/images/page-images')->setBasePath('/images/page-images/')->hideOnIndex(),
+            CodeEditorField::new('text_down2', 'Текст нижний 2-ой блок')->hideOnIndex(),
+            ImageField::new('text_down_img2', 'Картинка нижнего блока2')->setUploadDir('/public/images/page-images')->setBasePath('/images/page-images/')->hideOnIndex(),
             BooleanField::new('published', 'Активно'),
             NumberField::new('rating_value', 'Рейтинг')->hideOnIndex(),
             NumberField::new('rating_count', 'Кол-во голосов')->hideOnIndex(),

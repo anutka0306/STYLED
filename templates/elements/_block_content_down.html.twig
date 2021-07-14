@@ -1,0 +1,18 @@
+
+<div class="content-down__wrapper
+{% if bg is not null %}
+ content-down__bg
+{% endif %}"
+        {% if bg is not null %}
+            style="background: url(/images/page-images/{{ bg }});"
+        {% endif %}
+>
+    <div class="container container2">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                {{ text|raw }}
+            </div>
+            <div class="col-md-6 d-none"></div>
+        </div>
+    </div>
+</div>

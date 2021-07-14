@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210702122412 extends AbstractMigration
+final class Version20210714091540 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -24,7 +24,7 @@ final class Version20210702122412 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_4459C2111BC38CF0 ON before_after (price_model_id)');
         $this->addSql('ALTER TABLE config CHANGE name name VARCHAR(255) NOT NULL, CHANGE value value VARCHAR(255) DEFAULT NULL');
         $this->addSql('CREATE INDEX name ON config (name)');
-        $this->addSql('ALTER TABLE content CHANGE name name VARCHAR(250) DEFAULT NULL, CHANGE page_type page_type VARCHAR(255) NOT NULL, CHANGE h1 h1 VARCHAR(250) DEFAULT NULL, CHANGE meta_description meta_description TEXT DEFAULT NULL, CHANGE text text TEXT DEFAULT NULL, CHANGE published published TINYINT(1) DEFAULT \'1\' NOT NULL, CHANGE sort sort INT NOT NULL, CHANGE rating_value rating_value DOUBLE PRECISION DEFAULT \'4.8\' NOT NULL');
+        $this->addSql('ALTER TABLE content ADD text_down LONGTEXT DEFAULT NULL, CHANGE name name VARCHAR(250) DEFAULT NULL, CHANGE page_type page_type VARCHAR(255) NOT NULL, CHANGE h1 h1 VARCHAR(250) DEFAULT NULL, CHANGE meta_description meta_description TEXT DEFAULT NULL, CHANGE text text TEXT DEFAULT NULL, CHANGE published published TINYINT(1) DEFAULT \'1\' NOT NULL, CHANGE sort sort INT NOT NULL, CHANGE rating_value rating_value DOUBLE PRECISION DEFAULT \'4.8\' NOT NULL');
         $this->addSql('ALTER TABLE content ADD CONSTRAINT FK_FEC530A9727ACA70 FOREIGN KEY (parent_id) REFERENCES content (id)');
         $this->addSql('ALTER TABLE content ADD CONSTRAINT FK_FEC530A944F5D008 FOREIGN KEY (brand_id) REFERENCES price__brand (id)');
         $this->addSql('ALTER TABLE content ADD CONSTRAINT FK_FEC530A97975B7E7 FOREIGN KEY (model_id) REFERENCES price__model (id)');
@@ -76,7 +76,7 @@ final class Version20210702122412 extends AbstractMigration
         $this->addSql('ALTER TABLE content DROP FOREIGN KEY FK_FEC530A9727ACA70');
         $this->addSql('ALTER TABLE content DROP FOREIGN KEY FK_FEC530A9ED5CA9E6');
         $this->addSql('ALTER TABLE content DROP FOREIGN KEY FK_FEC530A9159FD1F4');
-        $this->addSql('ALTER TABLE content CHANGE text text TEXT CHARACTER SET utf8 NOT NULL COLLATE `utf8_general_ci`, CHANGE sort sort INT DEFAULT 0 NOT NULL, CHANGE published published TINYINT(1) DEFAULT \'1\' NOT NULL, CHANGE name name VARCHAR(250) CHARACTER SET utf8 NOT NULL COLLATE `utf8_general_ci`, CHANGE h1 h1 VARCHAR(191) CHARACTER SET utf8 DEFAULT NULL COLLATE `utf8_general_ci`, CHANGE meta_description meta_description VARCHAR(1024) CHARACTER SET utf8 DEFAULT NULL COLLATE `utf8_general_ci`, CHANGE rating_value rating_value DOUBLE PRECISION UNSIGNED DEFAULT \'4.8\' NOT NULL, CHANGE page_type page_type VARCHAR(15) CHARACTER SET utf8 DEFAULT NULL COLLATE `utf8_general_ci`');
+        $this->addSql('ALTER TABLE content DROP text_down, CHANGE text text TEXT CHARACTER SET utf8 NOT NULL COLLATE `utf8_general_ci`, CHANGE sort sort INT DEFAULT 0 NOT NULL, CHANGE published published TINYINT(1) DEFAULT \'1\' NOT NULL, CHANGE name name VARCHAR(250) CHARACTER SET utf8 NOT NULL COLLATE `utf8_general_ci`, CHANGE h1 h1 VARCHAR(191) CHARACTER SET utf8 DEFAULT NULL COLLATE `utf8_general_ci`, CHANGE meta_description meta_description VARCHAR(1024) CHARACTER SET utf8 DEFAULT NULL COLLATE `utf8_general_ci`, CHANGE rating_value rating_value DOUBLE PRECISION UNSIGNED DEFAULT \'4.8\' NOT NULL, CHANGE page_type page_type VARCHAR(15) CHARACTER SET utf8 DEFAULT NULL COLLATE `utf8_general_ci`');
         $this->addSql('DROP INDEX idx_fec530a9ed5ca9e6 ON content');
         $this->addSql('CREATE INDEX service_id ON content (service_id)');
         $this->addSql('DROP INDEX idx_fec530a9159fd1f4 ON content');

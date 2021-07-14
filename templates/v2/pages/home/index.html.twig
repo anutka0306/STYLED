@@ -1,8 +1,6 @@
 {% extends 'v2/base.html.twig' %}
 
-{% block h1 %}
-    <span>Кузовной</span> <span>ремонт</span> <span class="small-text">в Москве</span><span class="circle"></span>
-{% endblock %}
+
 {% block videofon %}
     {{ include('v2/blocks/section/hero.html.twig',{ h1 : block('h1') ?? page.h1 }) }}
 {% endblock %}
@@ -10,6 +8,8 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block body %}
+    {{ include('v2/blocks/section/reviews.html.twig') }}
+    {{ service_text(page.text) }}
    {# {{ include('v2/blocks/section/auto-brands.html.twig') }} #}
     {#{% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
@@ -22,14 +22,13 @@
 
 
 {% block extraModules %}
-    {{ include('v2/blocks/section/reviews.html.twig') }}
-    {{ service_text(page.text) }}
-
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
             {{ price_list(page) }}
             {{ special_offers(page.brandAndModelName) }}
             {{ include('v2/blocks/section/advantages-home.html.twig') }}
+            {# работает просто пока закомментировала #}
+            {#{{ before_after(page ?? null) }}#}
             {{ include('v2/blocks/section/instagram-block.html.twig') }}
         {% endblock %}
     {% endembed %}

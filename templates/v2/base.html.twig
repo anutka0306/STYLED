@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}{{ page.metaTitle ?? (page.h1~' - кузовной центр Детейлингофъ') }}{% endblock %}</title>
+    <title>{% block title %}{{ page.metaTitle ?? (page.h1~' - Styled.cc') }}{% endblock %}</title>
     <meta name="author">
     <meta name="description" content="{% block description %}{{ page.metaDescription|raw }}{% endblock %}"/>
     <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
@@ -66,7 +66,7 @@
 {{ include('v2/scripts/_liveinternet.html.twig') }}#}
 <div class="page-wrapper">
     {{ include('v2/blocks/include/header.html.twig') }}
-    <main class="page-main">
+    <main class="page-main uk-background-secondary">
         {% block videofon %}
         {% endblock %}
 
@@ -79,8 +79,8 @@
 
         {% block extraModules %}
             {{ include('v2/blocks/section/reviews.html.twig') }}
-            {{ whatsapp_block(page ?? null) }}
-            {{ include('v2/blocks/section/about.html.twig') }}
+            {#{{ whatsapp_block(page ?? null) }}
+            {{ include('v2/blocks/section/about.html.twig') }}#}
             {# {{ before_after(page ?? null) }}#}
             {{ our_works_slider(page) }}
         {% endblock %}

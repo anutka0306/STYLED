@@ -1,36 +1,33 @@
 {% extends 'v2/base.html.twig' %}
-{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Сервис «Мир АКПП»') }} {% endblock %}
+{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Styled.cc') }} {% endblock %}
 {% block body %}
-        <div class="container container2">
-                <div class="row justify-content-center">
-                        <div class="col-sm-12 col-lg-12">
-                                <h1 class="title">{{ page.name }}</h1>
-                                        {% if page.text starts with '<table' %}
-
-                                        {% else %}
-                                            {% set textParts = page.text|split('</p>', 2) %}
-                            <div class="col2 catalog-v2">
-                                            {{ (textParts[0] ~ '</p></div>')|raw }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+                        <div class="h1__inner-page">
+                            <div class="uk-section uk-container">
+                                <h1>{{ page.h1 }}</h1>
                             </div>
-                                        {% endif %}
                         </div>
-                </div>
-        </div>
+            <div class="seo-box__wrapper">
+                {{ service_text(page.text) }}
+            </div>
+            {{ price_list(page) }}
+            {{ include('v2/blocks/section/reviews.html.twig') }}
+            {{ special_offers(page.brandAndModelName) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
 
-                        
-                        <div class="price-list-orders__wrapper">
-                            {{ price_list(page) }}
-                        </div>
-                        {{ special_offers(page.brandAndModelName) }}
+{% block extraModules %}
+    {{ service_text_down(page.textDown, page.textDown2, page.textDownImg, page.textDownImg2, page.textDownBg) }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+            {{ include('v2/blocks/section/advantages-inner.html.twig') }}
+            {{ include('v2/blocks/section/instagram-block.html.twig') }}
+        {% endblock %}
+    {% endembed %}
 
-                        {{ include('elements/_advantages.html.twig') }}
-                        {% if textParts is defined %}
-                            {% if  textParts|length > 1 %}
-                                {{ service_text(textParts[1]) }}
-                            {% endif %}
-                        {% endif %}
-
-       <div class="brands-service-block__wrapper">
+       {#<div class="brands-service-block__wrapper">
             <div class="container container2">
                     <div class="row">
                             <div class="col-sm-12 col-lg-12">
@@ -38,6 +35,5 @@
                             </div>
                     </div>
             </div>
-    </div>
-
+    </div>#}
 {% endblock %}
