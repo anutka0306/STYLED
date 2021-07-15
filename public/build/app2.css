@@ -2098,7 +2098,7 @@ body {
 }
 
 .seo-box__title {
-  color: #3e9dcf;
+  color: #77b52b;
   font-size: 24px;
   font-weight: 600;
   text-transform: uppercase;
@@ -2108,8 +2108,8 @@ body {
 .seo-box__more {
   display: block;
   position: relative;
-  border-top: 2px solid #3e9dcf;
-  color: #3e9dcf;
+  border-top: 2px solid #77b52b;
+  color: #77b52b;
   font-size: 14px;
   font-weight: 400;
   margin-top: 30px;
@@ -2127,7 +2127,7 @@ body {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 17px solid #3e9dcf;
+  border-top: 17px solid #77b52b;
 }
 
 .seo-box__more.is-show:before {

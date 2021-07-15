@@ -1701,6 +1701,17 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+.text-down__image{
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+}
+.text-down__text{
+    padding: 100px 0;
+}
+.text-down__wrapper:first-child{
+    margin-bottom: 100px;
+}
 
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
