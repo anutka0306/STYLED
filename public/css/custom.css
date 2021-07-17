@@ -1746,6 +1746,24 @@ body{
     font-size: 28px;
     margin-bottom: 30px;
 }
+/* Меню в футере */
+.footer_menu{
+    -webkit-column-count:3;
+    -moz-column-count:3;
+    -ms-column-count:3;
+    -o-column-count:3;
+    column-count:3;
+    -webkit-column-gap:1em;
+    -moz-column-gap:1em;
+    -o-column-gap:1em;
+    -ms-column-gap:1em;
+    column-gap:1em;
+    list-style-type: none;
+}
+.footer_menu li a{
+    color: #ffffff;
+    text-decoration: none;
+}
 
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{

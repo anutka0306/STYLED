@@ -10,8 +10,16 @@
             <img src="{{ asset('img/footer-map.svg') }}" alt=""/>
         </a>
     </div>
-    <div class="uk-section-xsmall uk-container d-flex justify-content-center">
-        <img src="{{ asset('img/footer-logo.png') }}" alt="Styled.cc"/>
+    <div class="uk-section-xsmall uk-container">
+        <div class="row">
+            <div class="col-sm-3">
+                <img src="{{ asset('img/footer-logo.png') }}" alt="Styled.cc"/>
+            </div>
+            <div class="col-sm-9">
+                {{ footer_menu() }}
+            </div>
+
+        </div>
     </div>
     {#<div class="btn-fixed">
         <a class="calc-btn" href="{{ path('calculator') }}">

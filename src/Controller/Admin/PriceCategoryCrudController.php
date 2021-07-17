@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\PriceCategory;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
@@ -15,6 +17,20 @@ class PriceCategoryCrudController extends AbstractCrudController
     {
         return PriceCategory::class;
     }
+
+    //Здесь подумать - добавление в 2 теблицы
+    /*public function configureActions(Actions $actions): Actions
+    {
+        $newAction = Action::new('Add all')
+            ->linkToCrudAction('addAll');
+        return $actions
+            ->addBatchAction(Crud::PAGE_NEW, $newAction);
+    }
+
+    public function addAll(AdminContext $context)
+    {
+
+    }*/
 
     public function configureCrud(Crud $crud): Crud
     {
