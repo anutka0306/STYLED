@@ -1739,6 +1739,13 @@ body{
 .instagram_widget{
     margin-bottom: 100px;
 }
+.instagram_widget h2{
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
 
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
