@@ -24,12 +24,18 @@ class FooterMenuExtension extends AbstractExtension
     {
         return [
             new TwigFunction('footer_menu', [$this, 'footer_menu'], ['needs_environment'=> true, 'is_safe' => ['html']]),
+            new TwigFunction('inner_menu', [$this, 'inner_menu'], ['needs_environment'=> true, 'is_safe' => ['html']])
         ];
     }
 
     public function footer_menu(Environment $twig):string{
         $items = $this->price_category_repository->findAll();
         return $twig->render('v2/widget/footer_menu.html.twig', compact('items'));
+    }
+
+    public function inner_menu(Environment $twig):string{
+        $items = $this->price_category_repository->findAll();
+        return $twig->render('v2/widget/inner_menu.html.twig', compact('items'));
     }
 
 }
