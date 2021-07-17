@@ -4,9 +4,9 @@
             <h2>Также мы делаем</h2>
             <div class="section-gallery">
 
-                    <div class="uk-margin-medium-top uk-margin-medium-bottom gallery-slider uk-position-relative">
-                        <div tabindex="-1" data-uk-slider="" class="uk-slider uk-slider-container">
-                            <ul class="uk-slider-items uk-grid uk-child-width-1-5@l uk-child-width-1-4@m uk-child-width-1-1@s" data-uk-lightbox="data-uk-lightbox" style="transform: translate3d(0px, 0px, 0px);margin: 0 40px 0 15px;">
+                    <div class="uk-margin-medium-top uk-margin-medium-bottom gallery-slider uk-position-relative" >
+                        <div tabindex="-1" data-uk-slider="" class="uk-slider uk-slider-container" uk-slider="autoplay: true; autoplay-interval: 3000">
+                            <ul class="uk-slider-items uk-grid uk-child-width-1-5@l uk-child-width-1-4@m uk-child-width-1-1@s" data-uk-lightbox="data-uk-lightbox" style="transform: translate3d(0px, 0px, 0px);margin: 0 40px 0 15px;" >
                                 {% for item in items %}
 
                                     <li tabindex="-1" class="" style="order: 1;">
