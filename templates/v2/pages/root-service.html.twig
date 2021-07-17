@@ -22,10 +22,13 @@
     {{ service_text_down(page.textDown, page.textDown2, page.textDownImg, page.textDownImg2, page.textDownBg) }}
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
-            {{ include('v2/blocks/section/advantages-inner.html.twig') }}
-            {{ include('v2/blocks/section/instagram-block.html.twig') }}
+            {#{{ include('v2/blocks/section/advantages-inner.html.twig') }}#}
+            {{ include('v2/blocks/section/advantages-home.html.twig') }}
         {% endblock %}
     {% endembed %}
+    <div class="uk-background-secondary">
+        {{ include('elements/instagram_widget.html.twig') }}
+    </div>
 
        {#<div class="brands-service-block__wrapper">
             <div class="container container2">
