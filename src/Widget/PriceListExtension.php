@@ -49,6 +49,7 @@ class PriceListExtension extends AbstractExtension
         if ( empty($sections) ) {
             return '';
         }
+
         //$price_list_title = $this->model->getPricelistTitle();
         $price_list_title = str_replace('в Москве','- цены:',$page->getName());
         
