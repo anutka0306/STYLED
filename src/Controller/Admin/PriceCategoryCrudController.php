@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -48,7 +49,8 @@ class PriceCategoryCrudController extends AbstractCrudController
             Field::new('id','ID')->onlyOnIndex(),
             TextField::new('name', 'Название'),
             /*NumberField::new('parent', 'Родитель'),*/
-            TextField::new('slug', 'Алиас')
+            TextField::new('slug', 'Алиас'),
+            ImageField::new('image', 'Картинка для блока меню (на внутренних)')->setUploadDir('/public/images/category_images')->setBasePath('/images/category_images/')->hideOnIndex()
         ];
     }
 

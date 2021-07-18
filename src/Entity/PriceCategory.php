@@ -65,6 +65,11 @@ class PriceCategory
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -303,5 +308,17 @@ class PriceCategory
         $parent = $this->getParent();
         $parentName = $parent ? $parent->getName() . ' - ' : '';
         return $parentName.$this->getName();
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }
