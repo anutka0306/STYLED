@@ -7,6 +7,8 @@ use App\Entity\Contracts\PageInterface;
 use App\Service\FileManager;
 use App\Service\NaschirabotyManager;
 use App\Service\OurWorksService;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -72,11 +74,19 @@ class SliderExtension extends AbstractExtension
     public function our_works_slider(Environment $twig, PageInterface $content)
     {
         $folder = $this->our_works_service->getFolder($content);
-        $files = $this->fileManager->getFilesFromFolder($folder);
+        $filesystem = new Filesystem();
+        $finder = new Finder();
+        if($filesystem->exists($_SERVER['DOCUMENT_ROOT']. '/'.$folder)) {
+            $finder->files()->name(['*.jpeg', '*.jpg', '*.png'])->in($_SERVER['DOCUMENT_ROOT'] . '/' . $folder);
+            foreach ($finder as $file) {
+                $files[] = '/' . $folder . '/' . $file->getFilename();
+            }
+        }
+        /*$files = $this->fileManager->getFilesFromFolder($folder);*/
         if (empty($files)) {
             return '';
         }
-        return $twig->render('v2/extensions/gallery.html.twig', compact('files'));
+        return $twig->render('v2/extensions/gallery.html.twig', compact('files', 'folder'));
     }
 
     public function naschiraboty_slider(Environment $twig,?Content $content = null)

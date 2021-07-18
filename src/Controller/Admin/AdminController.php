@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Brand;
 use App\Entity\Model;
+use App\Entity\OurWorks;
 use App\Entity\PriceBrand;
 use App\Entity\PriceCategory;
 use App\Entity\PriceClass;
@@ -57,6 +58,7 @@ class AdminController extends AbstractDashboardController
                 MenuItem::linkToCrud('Классы', 'fa fa-fw fa-hand-holding-usd', PriceClass::class),
             ]),
             MenuItem::linkToCrud('Акции', 'fa fa-money', SpecialOffer::class),
+            MenuItem::linkToCrud('Галерея наших работ', 'fas fa-car', OurWorks::class),
         ];
     }
 }

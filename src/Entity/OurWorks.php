@@ -6,6 +6,12 @@ use App\Entity\Traits\PriceServicesListTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OurWorksRepository")
@@ -31,6 +37,44 @@ class OurWorks
      * @ORM\ManyToMany(targetEntity="App\Entity\PriceService")
      */
     private $priceServices;
+
+    /**
+     *
+     *
+     * @var Collection|null
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @var string|null
+     */
+    private $imageName;
+
+
+    public function setImageFile(?Array $imageFile = null): void
+    {
+        $fs = new Filesystem();
+        $fs->mkdir(self::IMAGES_PATH.'/'.$this->getId());
+        $this->imageFile = $imageFile;
+
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
 
     public function __construct()
     {
