@@ -2196,7 +2196,7 @@ body {
   top: 0;
   width: 38px;
   height: 100%;
-  background-color: #dedede;
+  background-color: #ffffff;
   transform: none;
   box-sizing: border-box;
   color: #ffffff;
@@ -2205,6 +2205,9 @@ body {
 
 .section-gallery .uk-slidenav:hover {
   background-color: #77b52b;
+}
+.section-gallery .uk-slidenav:hover svg{
+  color: #ffffff;
 }
 
 .section-team {
