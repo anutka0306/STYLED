@@ -2257,7 +2257,7 @@ body {
 }
 
 .team-item__name {
-  color: black;
+  color: #ffffff;
   font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
@@ -2265,7 +2265,7 @@ body {
 }
 
 .team-item__position {
-  color: black;
+  color: #ffffff;
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
