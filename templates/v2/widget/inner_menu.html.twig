@@ -1,3 +1,4 @@
+
 {% if items|length > 0 %}
     <div class="block_promotions inner-menu__wrapper">
 
@@ -12,7 +13,13 @@
                                     <li tabindex="-1" class="" style="order: 1;">
                                         <div class="post-slide post-slide__inner-menu_item d-flex align-items-center justify-content-center" {% if item.image is not null %} style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url('/images/category_images/{{ item.image }}')" {% endif %}>
                                             <div class="post-review">
-                                                <h3 class="post-title"><a href="/{{ item.slug }}"> {{ item.name }}</a></h3>
+                                                <h3 class="post-title">
+                                                    {% if item.realPath is not null %}
+                                                    <a href="/{{ item.realPath }}"> {{ item.name }}</a>
+                                                        {% else %}
+                                                            <a href="#"> {{ item.name }}</a>
+                                                    {% endif %}
+                                                </h3>
 
                                             </div>
                                         </div>
