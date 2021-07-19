@@ -1712,8 +1712,19 @@ body{
 .text-down__text{
     padding: 100px 0;
 }
+.text-down__text h2{
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
 .text-down__wrapper:first-child{
     margin-bottom: 100px;
+}
+
+/* Текст на simple страницах */
+.text-block__simple{
+    color: #ffffff;
 }
 
 /* Футер текст */

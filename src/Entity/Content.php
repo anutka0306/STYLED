@@ -118,6 +118,26 @@ class Content implements PageInterface
      */
     private $text_down_bg;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text_down3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $text_down_img3;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text_down4;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $text_down_img4;
+
 
 
     public function __construct()
@@ -360,6 +380,54 @@ class Content implements PageInterface
     public function setTextDownBg(?string $text_down_bg): self
     {
         $this->text_down_bg = $text_down_bg;
+
+        return $this;
+    }
+
+    public function getTextDown3(): ?string
+    {
+        return $this->text_down3;
+    }
+
+    public function setTextDown3(?string $text_down3): self
+    {
+        $this->text_down3 = $text_down3;
+
+        return $this;
+    }
+
+    public function getTextDownImg3(): ?string
+    {
+        return $this->text_down_img3;
+    }
+
+    public function setTextDownImg3(?string $text_down_img3): self
+    {
+        $this->text_down_img3 = $text_down_img3;
+
+        return $this;
+    }
+
+    public function getTextDown4(): ?string
+    {
+        return $this->text_down4;
+    }
+
+    public function setTextDown4(?string $text_down4): self
+    {
+        $this->text_down4 = $text_down4;
+
+        return $this;
+    }
+
+    public function getTextDownImg4(): ?string
+    {
+        return $this->text_down_img4;
+    }
+
+    public function setTextDownImg4(?string $text_down_img4): self
+    {
+        $this->text_down_img4 = $text_down_img4;
 
         return $this;
     }

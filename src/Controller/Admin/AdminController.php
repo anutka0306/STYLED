@@ -12,6 +12,7 @@ use App\Entity\PriceModel;
 use App\Entity\PriceService;
 use App\Entity\RootService;
 use App\Entity\Service;
+use App\Entity\Simple;
 use App\Entity\SpecialOffer;
 use Doctrine\ORM\Mapping\Entity;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -45,6 +46,7 @@ class AdminController extends AbstractDashboardController
         return[
             MenuItem::linktoDashboard('Dashboard', 'fa fa-home'),
             MenuItem::subMenu('Редактор страниц', 'fa fa-fw fa-file-alt')->setSubItems([
+                MenuItem::linkToCrud('Инфо страницы', 'fa fa-fw fa-file', Simple::class),
                 MenuItem::linkToCrud('Стр. Марок', 'fas fa-car', Brand::class),
                 MenuItem::linkToCrud('Стр. Моделей', 'fas fa-car', Model::class),
                 MenuItem::linkToCrud('Услуги','fa fa-fw fa-wrench', RootService::class),

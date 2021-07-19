@@ -1,68 +1,41 @@
 {% extends 'v2/base.html.twig' %}
-
+{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Styled.cc') }} {% endblock %}
 {% block body %}
-    {#{{ include('v2/blocks/section/content.html.twig',{text:page.text }) }}#}
-    {% if(page.text is empty) %}
-        <div class="container container2">
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-lg-12">
-                    <h1 class="title">{{ page.name }}</h1>
-
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+            <div class="h1__inner-page">
+                <div class="uk-section uk-container">
+                    <h1>{{ page.h1 }}</h1>
                 </div>
             </div>
-        </div>
-    {% else %}
-        <div class="container container2">
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-lg-12">
-                    <h1 class="title">{{ page.name }}</h1>
-                    <div class="col2 catalog-v2">
-                        {% if page.text starts with '<table' %}
+            <div class="text-block__simple">
+                {{ page.text|raw }}
+            </div>
+            {#<div class="seo-box__wrapper">
+                {{ service_text(page.text) }}
+            </div>#}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
 
-                        {% else %}
-                            {% set textParts = page.text|split('</p>', 2) %}
-                            {{ (textParts[0] ~ '</p></div>')|replace({'[[$table-price]]': ''})|raw }}
-                        {% endif %}
+{% block extraModules %}
+    {{ service_text_down(page.textDown, page.textDown2, page.textDownImg, page.textDownImg2, page.textDownBg) }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+        {% endblock %}
+    {% endembed %}
+    <div class="uk-background-secondary">
+        {{ inner_menu() }}
+        {{ include('elements/instagram_widget.html.twig') }}
+    </div>
 
+    {#<div class="brands-service-block__wrapper">
+            <div class="container container2">
+                    <div class="row">
+                            <div class="col-sm-12 col-lg-12">
+                                    {{ brands_service_block(page.path) }}
+                            </div>
                     </div>
-                </div>
             </div>
-        </div>
-    {% endif %}
-
-
-    <div class="price-list-orders__wrapper">
-        {{ price_list(page) }}
-    </div>
-    {#{{ special_offers(page.brandAndModelName) }}#}
-
-    {#{{ include('elements/_advantages.html.twig') }}#}
-
-<div class="container container2">
-    <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-12">
-            <div class="col2 catalog-v2">
-
-                {% if textParts is defined %}
-                {% if textParts|length > 1 %}
-
-                {{ (textParts[1])|replace({'[[$table-price]]': ''})|raw }}
-
-                {% endif %}
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
-
-    <div class="brands-service-block__wrapper">
-        <div class="container container2">
-            <div class="row">
-                <div class="col-sm-12 col-lg-12">
-                    <h2>Ремонт АКПП по маркам</h2>
-                    {{ brands_service_block() }}
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>#}
 {% endblock %}
