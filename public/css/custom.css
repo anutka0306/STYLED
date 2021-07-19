@@ -1699,7 +1699,7 @@ body{
     word-spacing: 4px;
 }
 .content-down__bg{
-    padding: 100px 0 450px 0;
+    padding: 100px 0 100px 0;
     background-position: top center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
