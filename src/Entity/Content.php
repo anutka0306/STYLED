@@ -431,4 +431,11 @@ class Content implements PageInterface
 
         return $this;
     }
+
+    public function setModelId(?int $model_id): self
+    {
+        $this->model_id = $model_id;
+
+        return $this;
+    }
 }

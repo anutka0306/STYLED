@@ -3,9 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\OurWorks;
+use App\Form\AttachmentType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -13,6 +16,7 @@ use Intervention\Image\ImageManager;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class OurWorksCrudController extends AbstractCrudController
 {
@@ -21,16 +25,31 @@ class OurWorksCrudController extends AbstractCrudController
         return OurWorks::class;
     }
 
-
+public function configureActions(Actions $actions): Actions
+{
+    return $actions->add(Crud::PAGE_NEW, Action::SAVE_AND_CONTINUE)
+        ->update(Crud::PAGE_NEW, Action::SAVE_AND_CONTINUE, function (Action $action) {
+            return $action->setIcon('fa fa-file-alt')->setLabel('Сохранить и загрузить картинки');
+        });
+}
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            ImageField::new('imageFile')->setUploadDir('public/img/our-works')->setBasePath('/img/our-works/')->setFormTypeOption('multiple', true),
 
-            /*Field::new('id'),*/
-            AssociationField::new('priceModel'),
+       $entityId = null;
+       if(isset($_GET['entityId'])){
+           $entityId = $_GET['entityId'];
+       }
+        $fields = [
+            AssociationField::new('priceModel')->setRequired(true),
+            AssociationField::new('priceServices'),
+            CollectionField::new('attachments')
+                ->setEntryType(AttachmentType::class)
+            ->onlyWhenUpdating(),
         ];
+
+
+        return $fields;
     }
 
 }

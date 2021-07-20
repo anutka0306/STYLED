@@ -370,4 +370,9 @@ class PriceBrand
         }
         return '/'.$this->getPhotoFolder(). $this->getPhoto();
     }
+
+    public function getPopular(): ?bool
+    {
+        return $this->popular;
+    }
 }

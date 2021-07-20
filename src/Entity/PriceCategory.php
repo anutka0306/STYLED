@@ -321,4 +321,16 @@ class PriceCategory
 
         return $this;
     }
+
+    public function removeChild(PriceCategory $child): self
+    {
+        if ($this->children->removeElement($child)) {
+            // set the owning side to null (unless already changed)
+            if ($child->getParent() === $this) {
+                $child->setParent(null);
+            }
+        }
+
+        return $this;
+    }
 }

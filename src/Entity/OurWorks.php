@@ -6,6 +6,7 @@ use App\Entity\Traits\PriceServicesListTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -38,47 +39,26 @@ class OurWorks
      */
     private $priceServices;
 
-    /**
-     *
-     *
-     * @var Collection|null
-     */
-    private $imageFile;
+
+
 
     /**
-     * @ORM\Column(type="string")
-     *
-     * @var string|null
+     * @ORM\OneToMany(targetEntity="Attachment", mappedBy="our_works", cascade={"persist"})
      */
-    private $imageName;
+    private $attachments;
+
+    /**
+     * @param array|null $imageName
+     * @return $this|null
+     */
 
 
-    public function setImageFile(?Array $imageFile = null): void
-    {
-        $fs = new Filesystem();
-        $fs->mkdir(self::IMAGES_PATH.'/'.$this->getId());
-        $this->imageFile = $imageFile;
 
-    }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
 
     public function __construct()
     {
         $this->priceServices = new ArrayCollection();
+        $this->attachments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -133,5 +113,37 @@ class OurWorks
     {
         return self::IMAGES_PATH.'/'. $this->getId();
     }
-    
+
+    /**
+     * @return Collection|Attachment[]
+     */
+    public function getAttachments(): Collection
+    {
+        return $this->attachments;
+    }
+
+    public function addAttachment(Attachment $attachment): self
+    {
+        if (!$this->attachments->contains($attachment)) {
+            $this->attachments[] = $attachment;
+            $attachment->setOurWorks($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttachment(Attachment $attachment): self
+    {
+        if ($this->attachments->removeElement($attachment)) {
+            // set the owning side to null (unless already changed)
+            if ($attachment->getOurWorks() === $this) {
+                $attachment->setOurWorks(null);
+
+                unlink(self::IMAGES_PATH.'/'.$this->getId().'/'.$attachment->getImage());
+            }
+        }
+
+        return $this;
+    }
+
 }

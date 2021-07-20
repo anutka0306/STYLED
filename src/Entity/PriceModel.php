@@ -326,4 +326,9 @@ class PriceModel
 
         return $this;
     }
+
+    public function getPopular(): ?bool
+    {
+        return $this->popular;
+    }
 }
