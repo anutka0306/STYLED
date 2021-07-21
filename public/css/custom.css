@@ -1776,12 +1776,38 @@ body{
     column-gap:1em;
     list-style-type: none;
 }
+@media (max-width: 567px) {
+    .footer_menu{
+        -webkit-column-count:2;
+        -moz-column-count:2;
+        -ms-column-count:2;
+        -o-column-count:2;
+        column-count:2;
+    }
+}
 .footer_menu li a{
     color: #ffffff;
     text-decoration: none;
+    font-size: 14px;
 }
-
-/* Меню на внутренних страницах */
+.footer__address{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 14px;
+    text-align: center;
+}
+@media (max-width: 1024px){
+    .footer__address{
+        font-size: 13px;
+    }
+}
+@media (max-width: 768px){
+    .footer__address{
+        justify-content: center;
+    }
+}
+    /* Меню на внутренних страницах */
 .post-slide__inner-menu_item{
     background-repeat: repeat, no-repeat;
     background-position: center;

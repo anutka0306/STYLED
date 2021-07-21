@@ -14,13 +14,27 @@
     {#{{ include('v2/blocks/section/reviews.html.twig') }}#}
     <div class="uk-section-xsmall uk-container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-md-1 d-sm-none d-none d-md-flex align-items-center">
                 <a href="/">
-                    <img src="{{ asset('img/footer-logo.png') }}" alt="Styled.cc"/>
+                    <img src="{{ asset('img/footer-logo-solo.png') }}" alt="Styled.cc"/>
                 </a>
             </div>
-            <div class="col-sm-9">
+            <div class="col-md-8 col-sm-12">
                 {{ footer_menu() }}
+            </div>
+
+            <div class="d-md-none d-lg-none d-sm-12 d-flex align-items-center justify-content-center">
+                <a href="/">
+                    <img src="{{ asset('img/footer-logo-solo.png') }}" alt="Styled.cc"/>
+                </a>
+            </div>
+
+            <div class=" col-md-3 col-sm-12 footer__address">
+                <span>
+                    &#169; Студия автостайлинга Styled<br>
+                    г. Москва ул. Декабристов, вл. 47а<br>
+                    +7(495)640-00-10
+                </span>
             </div>
 
         </div>
