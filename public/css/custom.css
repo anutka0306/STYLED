@@ -1713,14 +1713,35 @@ body{
     background-position: center !important;
     background-size: contain !important;
 }
+.text-top__image{
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: contain !important;
+}
 .text-down__text{
     padding: 100px 0;
+}
+.text-top__text{
+    padding: 50px 0 0 0;
+}
+.text-top__text{
+    color: #ffffff;
+    line-height: 1.4;
 }
 .text-down__text h2{
     color: #ffffff;
     font-family: "Open Sans", sans-serif;
     font-size: 24px;
     font-weight: 700;
+}
+
+.text-top__text h2{
+    font-size: 34px;
+    text-align: center;
+    color: rgb(194, 194, 194);
+    font-family: 'Open Sans';
+    font-weight: 700;
+    line-height: 1.6;
 }
 .text-down__wrapper:first-child{
     margin-bottom: 100px;

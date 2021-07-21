@@ -65,6 +65,8 @@ class ServicesExtention extends AbstractExtension
         return $html;
     }
 
+
+
     public function service_text_down(Environment $twig, $text, $text2, $text3=null, $text4=null, $img, $img2, $img3=null, $img4=null, $bg):string{
         $html = $twig->render('elements/_block_content_down.html.twig', compact('text', 'text2', 'text3', 'text4', 'img', 'img2','img3', 'img4','bg'));
         return $html;

@@ -1,16 +1,17 @@
 {% extends 'v2/base.html.twig' %}
 {% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Styled.cc') }} {% endblock %}
 {% block body %}
+    <div class="h1__inner-page" {% if page.pageIcon is not null %} style="background-image: url('/images/page-icons/{{ page.pageIcon}}')" {% endif %}>
+        <div class="uk-section uk-container">
+            <h1>{{ page.h1 }}</h1>
+        </div>
+    </div>
+    <div class="seo-box__wrapper">
+        {{ include('elements/_block_content_top.html.twig', {'text': page.text, 'textImg':page.textImg}) }}
+    </div>
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
-                        <div class="h1__inner-page" {% if page.pageIcon is not null %} style="background-image: url('/images/page-icons/{{ page.pageIcon}}')" {% endif %}>
-                            <div class="uk-section uk-container">
-                                <h1>{{ page.h1 }}</h1>
-                            </div>
-                        </div>
-            <div class="seo-box__wrapper">
-                {{ service_text(page.text) }}
-            </div>
+
             {{ price_list(page) }}
             {{ special_offers(page.brandAndModelName) }}
         {% endblock %}
