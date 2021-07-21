@@ -138,6 +138,11 @@ class Content implements PageInterface
      */
     private $text_down_img4;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $page_icon;
+
 
 
     public function __construct()
@@ -435,6 +440,18 @@ class Content implements PageInterface
     public function setModelId(?int $model_id): self
     {
         $this->model_id = $model_id;
+
+        return $this;
+    }
+
+    public function getPageIcon(): ?string
+    {
+        return $this->page_icon;
+    }
+
+    public function setPageIcon(?string $page_icon): self
+    {
+        $this->page_icon = $page_icon;
 
         return $this;
     }

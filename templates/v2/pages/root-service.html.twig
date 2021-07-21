@@ -3,7 +3,7 @@
 {% block body %}
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
-                        <div class="h1__inner-page">
+                        <div class="h1__inner-page" {% if page.pageIcon is not null %} style="background-image: url('/images/page-icons/{{ page.pageIcon}}')" {% endif %}>
                             <div class="uk-section uk-container">
                                 <h1>{{ page.h1 }}</h1>
                             </div>

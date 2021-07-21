@@ -1677,6 +1677,9 @@ body{
 /* Заголовки h1 внутренние страницы*/
 .h1__inner-page{
     text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: auto;
 }
 .h1__inner-page h1{
     text-align: center;
@@ -1721,6 +1724,7 @@ body{
 .text-down__wrapper:first-child{
     margin-bottom: 100px;
 }
+
 
 /* Текст на simple страницах */
 .text-block__simple{

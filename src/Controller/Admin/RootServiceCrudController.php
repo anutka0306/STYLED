@@ -40,6 +40,7 @@ class RootServiceCrudController extends AbstractCrudController
             TextField::new('path', 'Алиас'),
             TextField::new('name','Название'),
             TextField::new('h1', 'H1'),
+            ImageField::new('pageIcon', 'Иконка страницы')->setUploadDir('/public/images/page-icons')->setBasePath('/images/page-icons/'),
             AssociationField::new('service', 'Услуга прайса'),
             AssociationField::new('price_category', 'Категория услуги')->hideOnIndex(),
             //Подгружает

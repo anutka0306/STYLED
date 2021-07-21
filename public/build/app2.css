@@ -3010,7 +3010,7 @@ body {
 #breadcrumbs {
   display: flex;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .breadcrumbs_wrapper {
@@ -3019,7 +3019,7 @@ body {
 }
 
 .breadcrumbs_wrapper span, .breadcrumbs_wrapper a {
-  color: #292929;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -3060,11 +3060,15 @@ body {
 }
 
 .rating-details {
-  color: #292929;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-right: 4em;
+}
+
+.rating-details .text-muted{
+  color: #ffffff !important;
 }
 
 .ratingValue {
