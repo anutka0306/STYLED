@@ -1851,6 +1851,13 @@ body{
     display: block;
 }
 
+/* Блок произоводители */
+.producer-item{
+    width: 30%;
+    text-align: center;
+    margin-top: 20px;
+}
+
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
         width: 80%;
