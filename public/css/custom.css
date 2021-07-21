@@ -1623,8 +1623,8 @@ body{
     min-width: 250px;
     min-height: 240px;
     /* margin: 0 15px; */
-    border: 1px solid #a3a89e;
-    box-shadow: 0 0 5px rgb(186 196 172 / 80%);
+   /* border: 1px solid #a3a89e;
+    box-shadow: 0 0 5px rgb(186 196 172 / 80%);*/
     transition: all 0.4s ease-in-out 0s;
 }
 
