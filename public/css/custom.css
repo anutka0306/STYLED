@@ -1591,6 +1591,7 @@ body{
 }
 .section-gallery .uk-slidenav svg{
     color: #77b52b;
+    display: none;
 }
 .block_promotions .post-price {
     display: flex;
