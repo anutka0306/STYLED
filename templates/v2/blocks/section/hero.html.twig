@@ -1,40 +1,3 @@
-{#
-<div class="hero">
-    <div class="uk-container">
-        <div class="hero__box">
-            <div class="hero__content">
-                {% if h1 is not empty %}
-                    <h1 itemprop="name" class="hero__title">{{ h1|raw }}</h1>
-                {% endif %}
-                 <a
-                        class="youtube-btn"
-                        href="#modal-media-youtube" uk-toggle>
-                    <img src="/assets/images/icons/youtube.png" alt=""/>
-                    <p>
-                        <b>видео о нас</b>
-                        <span>всего за 180 сек</span>
-                    </p>
-                </a> 
-            </div>
-            <div
-                    class="hero__plus">
-                <div class="hero-plus-item">
-                    <div class="hero-plus-item__value"><img src="/assets/images/icons/plus.png" alt=""/></div>
-                    <div class="hero-plus-item__text">Пожизненная гарантия<br/> на кузовные работы</div>
-                </div>
-                <div class="hero-plus-item">
-                    <div class="hero-plus-item__value">3</div>
-                    <div class="hero-plus-item__text">Удобных автосервиса<br/> в Москве</div>
-                </div>
-                <div class="hero-plus-item">
-                    <div class="hero-plus-item__value"><small>на</small> 40%</div>
-                    <div class="hero-plus-item__text">Дешевле, чем у дилера<br/> при том же качестве</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>#}
-
 
 <div class="fullscreen-bg">
     <div class="overlay">
@@ -67,7 +30,7 @@
 
             {# Callback button#}
             <div class="callback-btn">
-                <button class="hvr-grow" type="button">Оставить заявку</button>
+                <button class="hvr-grow" type="button" data-toggle="modal" data-target="#callback_popup">Оставить заявку</button>
             </div>
 
         </div>
