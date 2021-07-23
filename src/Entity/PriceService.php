@@ -19,6 +19,7 @@ use Symfony\Bridge\Doctrine\ManagerRegistry;
  *
  * @ORM\Table(name="price__services")
  * @ORM\Entity(repositoryClass="App\Repository\PriceServiceRepository")
+ * @ORM\EntityListeners({"App\Doctrine\GeneratePagesByPriceServiceListener"})
  *
  */
 class PriceService
@@ -230,7 +231,9 @@ class PriceService
                 }
             }//endfor
 
-            $brandId = $content->getParent()->getBrandId();
+            /*$brandId = $content->getParent()->getBrandId();*/
+            //Здесь поменяла, иначен не работало с моделями
+            $brandId = $content->getParent()->getParent()->getBrandId();
             $path = $this->slug.str_replace('-euro', '',$this->getBrandById($brandId, $priceBrandRepository)->getCode()).'/'.str_replace('cc', 'passat-cc',$model->getModelCode()).'/';
             if($contentRepository->findOneBy(['path' => $path])) {
                 $this->path = $path;

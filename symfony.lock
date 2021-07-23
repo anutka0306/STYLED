@@ -127,6 +127,9 @@
     "nikic/php-parser": {
         "version": "v4.10.5"
     },
+    "php-programmist/file-sql-logger-bundle": {
+        "version": "v1.0.0"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },

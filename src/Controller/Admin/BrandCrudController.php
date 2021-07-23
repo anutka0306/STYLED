@@ -49,7 +49,7 @@ class BrandCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        $parents = $this->getDoctrine()->getManager()->getRepository(Content::class)->find(36);
+        $parents = $this->getDoctrine()->getManager()->getRepository(Content::class)->findAll();
         $pages = array();
         if(isset($_GET['entityId'])){
         $pages = $this->getDoctrine()->getManager()->getRepository(Content::class)->findBy(['parent' => $_GET['entityId']]);

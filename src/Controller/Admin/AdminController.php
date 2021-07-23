@@ -50,8 +50,8 @@ class AdminController extends AbstractDashboardController
                 MenuItem::linkToCrud('Инфо страницы', 'fa fa-fw fa-file', Simple::class),
                 MenuItem::linkToCrud('Стр. Марок', 'fas fa-car', Brand::class),
                 MenuItem::linkToCrud('Стр. Моделей', 'fas fa-car', Model::class),
-                MenuItem::linkToCrud('Услуги','fa fa-fw fa-wrench', RootService::class),
-                MenuItem::linkToCrud('Услуги моделей','fa fa-fw fa-wrench', Service::class),
+                MenuItem::linkToCrud('Услуги общие','fa fa-fw fa-wrench', RootService::class),
+                MenuItem::linkToCrud('Услуги марок и моделей','fa fa-fw fa-wrench', Service::class),
             ]),
             MenuItem::subMenu('Прайс лист','fa fa-fw fa-hand-holding-usd')->setSubItems([
                 MenuItem::linkToCrud('Марки', 'fas fa-car', PriceBrand::class),

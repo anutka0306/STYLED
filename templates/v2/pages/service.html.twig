@@ -1,5 +1,42 @@
 {% extends 'v2/base.html.twig' %}
 {% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Сервис «Мир АКПП»') }} {% endblock %}
+{% block body %}
+    <div class="h1__inner-page" {% if page.pageIcon is not null %} style="background-image: url('/images/page-icons/{{ page.pageIcon}}')" {% endif %}>
+        <div class="uk-section uk-container">
+            <h1>{{ page.h1 }}</h1>
+        </div>
+    </div>
+    <div class="seo-box__wrapper">
+        {{ include('elements/_block_content_top.html.twig', {'text': page.text, 'textImg':page.textImg}) }}
+    </div>
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+
+            {{ price_list(page) }}
+{#{{ dump(page.parent.parent.brandId) }}#}
+            {{ special_offers(page.brandAndModelName) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block extraModules %}
+    {{ service_text_down(page.textDown, page.textDown2, page.textDown3, page.textDown4, page.textDownImg, page.textDownImg2, page.textDownImg3, page.textDownImg4, page.textDownBg) }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+            {{ include('v2/blocks/section/advantages-inner.html.twig') }}
+            {{ include('v2/blocks/section/instagram-block.html.twig') }}
+        {% endblock %}
+    {% endembed %}
+    <div class="uk-background-secondary">
+        {{ include('elements/instagram_widget.html.twig') }}
+        {{ our_works_slider(page) }}
+        {# Блок мастеров #}
+        {# {{ include('v2/blocks/section/team.html.twig') }}#}
+        {{ inner_menu() }}
+    </div>
+
+{% endblock %}
+{#{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Сервис «Мир АКПП»') }} {% endblock %}
 
 {% block body %}
 
@@ -27,4 +64,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+{% endblock %}#}

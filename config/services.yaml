@@ -32,4 +32,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
+    App\Doctrine\GeneratePagesByPriceBrandListener:
+        tags: [doctrine.orm.entity_listener]
+    App\Doctrine\GeneratePagesByPriceModelListener:
+        tags: [doctrine.orm.entity_listener]
+    App\Doctrine\GeneratePagesByPriceServiceListener:
+        tags: [doctrine.orm.entity_listener]

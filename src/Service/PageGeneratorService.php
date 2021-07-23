@@ -6,8 +6,10 @@ use App\Entity\Brand;
 use App\Entity\Content;
 use App\Entity\Model;
 use App\Entity\PriceBrand;
+use App\Entity\PriceCategory;
 use App\Entity\PriceModel;
 use App\Entity\PriceService;
+use App\Entity\RootService;
 use App\Entity\Service;
 use App\Model\PageGeneratorModel;
 use App\Repository\BrandRepository;
@@ -17,12 +19,17 @@ use App\Repository\PriceBrandRepository;
 use App\Repository\PriceModelRepository;
 use App\Repository\PriceServiceRepository;
 use App\Repository\ServiceRepository;
+use App\Repository\RootServiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use PhpProgrammist\FileSqlLoggerBundle\FileSqlLogger;
 use Psr\Log\LoggerInterface;
 
 class PageGeneratorService
 {
+    /**
+     * @var RootServiceRepository
+     */
+    protected $rootServiceRepository;
     /**
      * @var BrandRepository
      */
@@ -69,6 +76,7 @@ class PageGeneratorService
     private $seo;
     
     public function __construct(
+        RootServiceRepository  $rootServiceRepository,
         BrandRepository $brand_repository,
         ModelRepository $model_repository,
         ContentRepository $content_repository,
@@ -82,6 +90,7 @@ class PageGeneratorService
         LoggerInterface $logger,
         FileSqlLogger $sql_logger
     ) {
+        $this->rootServiceRepository    = $rootServiceRepository;
         $this->brand_repository         = $brand_repository;
         $this->model_repository         = $model_repository;
         $this->service_repository       = $service_repository;
@@ -138,6 +147,10 @@ class PageGeneratorService
     
     public function generateByNewService(PriceService $price_service)
     {
+
+        $this->addRootServicePage(
+            $price_service
+        );
         $price_brands = $this->price_brand_repository->findAll();
         
         foreach ($price_brands as $price_brand) {
@@ -198,6 +211,18 @@ class PageGeneratorService
     private function renderSeoTemplate($service,$brand_model,$brand,$template)
     {
         return str_replace(['SERVICE', 'BRAND MODEL', 'BRAND'], [$service, $brand_model, $brand], $template);
+    }
+
+    private function addRootServicePage(
+        PriceService $price_service
+    ){
+        $rootService_page = new RootService();
+        $rootService_page->setName($price_service->getName())
+            ->setPath('/'.$this->getRootServicePath($price_service))
+            ->setService($price_service)
+            ->setPriceCategory($price_service->getPriceCategory())
+            ->setPublished(true);
+        $this->em->persist($rootService_page);
     }
     
     private function addServicePage(
@@ -287,6 +312,21 @@ class PageGeneratorService
         }
         $parts = array_reverse(array_unique($parts));
         return $parent->getPath() . implode('/',$parts) . '/';
+    }
+
+    private function getRootServicePath(PriceService $price_service):string
+    {
+
+        $parts = [];
+        $parts[] = $price_service->getSlug();
+        if ($price_service->getPriceCategory()) {
+            $parts[] = $price_service->getPriceCategory()->getSlug();
+            if ($price_service->getPriceCategory()->getParent()) {
+                $parts[] = $price_service->getPriceCategory()->getParent()->getSlug();
+            }
+        }
+        $parts = array_reverse(array_unique($parts));
+        return implode('/',$parts) . '/';
     }
 
     /**
