@@ -178,32 +178,47 @@ class PageController extends AbstractController
     
     private function rootService(RootService $rootService)
     {
-        if(is_null($rootService->getAdvIcon1())){
-            if($rootService->getParent()->getAdvIcon1() !== null){
+        if(is_null($rootService->getAdvIcon1())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvIcon1() !== null) {
                 $rootService->setAdvIcon1($rootService->getParent()->getAdvIcon1());
             }
-            if($rootService->getParent()->getAdvIcon2() !== null){
+        }
+        if(is_null($rootService->getAdvIcon2())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvIcon2() !== null) {
                 $rootService->setAdvIcon2($rootService->getParent()->getAdvIcon2());
             }
-            if($rootService->getParent()->getAdvIcon3() !== null){
+        }
+        if(is_null($rootService->getAdvIcon3())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvIcon3() !== null) {
                 $rootService->setAdvIcon3($rootService->getParent()->getAdvIcon3());
             }
-            if($rootService->getParent()->getAdvIcon4() !== null){
+        }
+        if(is_null($rootService->getAdvIcon4())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvIcon4() !== null) {
                 $rootService->setAdvIcon4($rootService->getParent()->getAdvIcon4());
             }
-            if($rootService->getParent()->getAdvText1() !== null){
+        }
+        if(is_null($rootService->getAdvText1())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvText1() !== null) {
                 $rootService->setAdvText1($rootService->getParent()->getAdvText1());
             }
-            if($rootService->getParent()->getAdvText2() !== null){
+        }
+        if(is_null($rootService->getAdvText2())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvText2() !== null) {
                 $rootService->setAdvText2($rootService->getParent()->getAdvText2());
             }
-            if($rootService->getParent()->getAdvText3() !== null){
+        }
+        if(is_null($rootService->getAdvText3())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvText3() !== null) {
                 $rootService->setAdvText3($rootService->getParent()->getAdvText3());
             }
-            if($rootService->getParent()->getAdvText4() !== null){
+        }
+        if(is_null($rootService->getAdvText4())) {
+            if ($rootService->getParent() !== null && $rootService->getParent()->getAdvText4() !== null) {
                 $rootService->setAdvText4($rootService->getParent()->getAdvText4());
             }
         }
+
         return $this->render('v2/pages/root-service.html.twig', [
             'page' => $rootService,
         ]);
