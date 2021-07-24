@@ -16,6 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="price__categories")
  * @ORM\Entity(repositoryClass="App\Repository\PriceCategoryRepository")
+ * @ORM\EntityListeners({"App\Doctrine\GeneratePagesByPriceCategoryListener"})
  */
 class PriceCategory
 {

@@ -144,6 +144,15 @@ class PageGeneratorService
         }
         $this->em->flush();
     }
+
+
+    public function generateByNewCategory(PriceCategory $priceCategory){
+        $this->addRootServicePageByCategory(
+            $priceCategory
+        );
+        $this->em->flush();
+
+    }
     
     public function generateByNewService(PriceService $price_service)
     {
@@ -216,13 +225,29 @@ class PageGeneratorService
     private function addRootServicePage(
         PriceService $price_service
     ){
+        $path = $price_service->getPriceCategory()->getSlug();
         $rootService_page = new RootService();
         $rootService_page->setName($price_service->getName())
             ->setPath('/'.$this->getRootServicePath($price_service))
             ->setService($price_service)
+            ->setParent($this->content_repository->findOneBy(['path' => '/'.$path.'/']))
             ->setPriceCategory($price_service->getPriceCategory())
             ->setPublished(true);
         $this->em->persist($rootService_page);
+    }
+
+    private function addRootServicePageByCategory(
+        PriceCategory $priceCategory
+    ){
+        $path = $priceCategory->getSlug();
+        $rootCategory_page = new RootService();
+        $rootCategory_page->setName($priceCategory->getName())
+            ->setPath('/'.$path.'/')
+            ->setService(null)
+            ->setParent($this->content_repository->findOneBy(['path' => '/']))
+            ->setPriceCategory($priceCategory)
+            ->setPublished(true);
+        $this->em->persist($rootCategory_page);
     }
     
     private function addServicePage(

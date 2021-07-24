@@ -36,7 +36,7 @@ class BreadcrumbsExtension extends AbstractExtension
             return '';
         }
         $items = $this->breadcrumbs_service->getItems($page, $current_name);
-        if (count($items) < 2) {
+        if (count($items) < 1) {
             return '';
         }
         return $twig->render('v2/extensions/breadcrumbs.html.twig', compact('items', 'page'));
