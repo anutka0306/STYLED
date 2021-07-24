@@ -9,7 +9,8 @@
                         {% for service in section.priceServices|filter(service => service.published ) %}
                             <li>
                                 <span>
-                                    {% if service.path %}
+                                    {#{{ dump(service) }}#}
+                                    {% if service.path  and service.published %}
                                         <a href="{{ service.path }}">{{ service.nameInPriceList ?? service.name }}</a>
                                     {% else %}
                                         {{ service.name }} {{ page.brandAndModelName }}
