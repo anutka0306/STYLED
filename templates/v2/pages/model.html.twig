@@ -1,56 +1,39 @@
 {% extends 'v2/base.html.twig' %}
-{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Сервис «Мир АКПП»') }} {% endblock %}
+{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Styled.cc') }} {% endblock %}
 {% block body %}
-    {% if(page.text is empty) %}
-        <div class="container container2">
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-lg-12">
-                    <h1 class="title">{{ page.name }}</h1>
-
-                </div>
-            </div>
-        </div>
-        {% else %}
-    <div class="container container2">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 col-lg-12">
-                <h1 class="title">{{ page.name }}</h1>
-                <div class="col2 catalog-v2">
-                    {% if page.text starts with '<table' %}
-
-                        {% else %}
-                    {% set textParts = page.text|split('</p>', 2) %}
-                    {{ (textParts[0] ~ '</p></div>')|raw }}
-                            {% endif %}
-
-                </div>
-            </div>
+    <div class="h1__inner-page" {% if page.pageIcon is not null %} style="background-image: url('/images/page-icons/{{ page.pageIcon}}')" {% endif %}>
+        <div class="uk-section uk-container">
+            <h1>{{ page.h1 }}</h1>
         </div>
     </div>
-    {% endif %}
-
-    <div class="price-list-orders__wrapper">
-        {{ price_list(page) }}
+    <div class="seo-box__wrapper">
+        {{ include('elements/_block_content_top.html.twig', {'text': page.text, 'textImg':page.textImg}) }}
     </div>
-    {{ special_offers(page.brandAndModelName) }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
 
-    {{ include('elements/_advantages.html.twig') }}
+            {{ price_list(page) }}
+            {#{{ dump(page.parent.parent.brandId) }}#}
+            {{ special_offers(page.brandAndModelName) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
 
-    <div class="container container2">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 col-lg-12">
-                <div class="col2 catalog-v2">
-                    {% if textParts is defined %}
-                        {% if  textParts|length > 1 %}
-                            {{ service_text(textParts[1]) }}
-                        {% endif %}
-                    {% else %}
-                        &nbsp;
-                        {{ page.text|raw }}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+{% block extraModules %}
+    {{ service_text_down(page.textDown, page.textDown2, page.textDown3, page.textDown4, page.textDownImg, page.textDownImg2, page.textDownImg3, page.textDownImg4, page.textDownBg) }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+            {{ include('v2/blocks/section/advantages-inner.html.twig') }}
+            {{ include('v2/blocks/section/instagram-block.html.twig') }}
+        {% endblock %}
+    {% endembed %}
+    <div class="uk-background-secondary">
+        {{ include('elements/instagram_widget.html.twig') }}
+        {{ our_works_slider(page) }}
+        {# Блок мастеров #}
+        {# {{ include('v2/blocks/section/team.html.twig') }}#}
+        {{ inner_menu() }}
     </div>
 
 {% endblock %}
+

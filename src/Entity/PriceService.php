@@ -233,7 +233,7 @@ class PriceService
 
             /*$brandId = $content->getParent()->getBrandId();*/
             //Здесь поменяла, иначен не работало с моделями
-            $brandId = $content->getParent()->getParent()->getBrandId();
+            $brandId = $content->getParent()->getBrandId();
             $path = $this->slug.str_replace('-euro', '',$this->getBrandById($brandId, $priceBrandRepository)->getCode()).'/'.str_replace('cc', 'passat-cc',$model->getModelCode()).'/';
             if($contentRepository->findOneBy(['path' => $path])) {
                 $this->path = $path;
