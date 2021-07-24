@@ -1,5 +1,10 @@
 {% extends 'v2/base.html.twig' %}
 {% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Styled.cc') }} {% endblock %}
+
+ {% block breadcrumbs %}
+     {{ breadcrumbs(page ?? null) }}
+ {% endblock %}
+
 {% block body %}
     <div class="h1__inner-page" {% if page.pageIcon is not null %} style="background-image: url('/images/page-icons/{{ page.pageIcon}}')" {% endif %}>
         <div class="uk-section uk-container">
