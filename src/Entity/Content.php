@@ -148,6 +148,46 @@ class Content implements PageInterface
      */
     private $text_img;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_icon1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_icon2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_icon3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_icon4;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_text1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_text2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_text3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adv_text4;
+
 
 
     public function __construct()
@@ -469,6 +509,102 @@ class Content implements PageInterface
     public function setTextImg(?string $text_img): self
     {
         $this->text_img = $text_img;
+
+        return $this;
+    }
+
+    public function getAdvIcon1(): ?string
+    {
+        return $this->adv_icon1;
+    }
+
+    public function setAdvIcon1(?string $adv_icon1): self
+    {
+        $this->adv_icon1 = $adv_icon1;
+
+        return $this;
+    }
+
+    public function getAdvIcon2(): ?string
+    {
+        return $this->adv_icon2;
+    }
+
+    public function setAdvIcon2(?string $adv_icon2): self
+    {
+        $this->adv_icon2 = $adv_icon2;
+
+        return $this;
+    }
+
+    public function getAdvIcon3(): ?string
+    {
+        return $this->adv_icon3;
+    }
+
+    public function setAdvIcon3(?string $adv_icon3): self
+    {
+        $this->adv_icon3 = $adv_icon3;
+
+        return $this;
+    }
+
+    public function getAdvIcon4(): ?string
+    {
+        return $this->adv_icon4;
+    }
+
+    public function setAdvIcon4(?string $adv_icon4): self
+    {
+        $this->adv_icon4 = $adv_icon4;
+
+        return $this;
+    }
+
+    public function getAdvText1(): ?string
+    {
+        return $this->adv_text1;
+    }
+
+    public function setAdvText1(?string $adv_text1): self
+    {
+        $this->adv_text1 = $adv_text1;
+
+        return $this;
+    }
+
+    public function getAdvText2(): ?string
+    {
+        return $this->adv_text2;
+    }
+
+    public function setAdvText2(?string $adv_text2): self
+    {
+        $this->adv_text2 = $adv_text2;
+
+        return $this;
+    }
+
+    public function getAdvText3(): ?string
+    {
+        return $this->adv_text3;
+    }
+
+    public function setAdvText3(?string $adv_text3): self
+    {
+        $this->adv_text3 = $adv_text3;
+
+        return $this;
+    }
+
+    public function getAdvText4(): ?string
+    {
+        return $this->adv_text4;
+    }
+
+    public function setAdvText4(?string $adv_text4): self
+    {
+        $this->adv_text4 = $adv_text4;
 
         return $this;
     }
