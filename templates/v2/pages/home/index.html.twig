@@ -27,6 +27,7 @@
         {% block content %}
             <a id="priceListAnchor"></a>
             {{ price_list(page) }}
+            {{ brands_service_block() }}
             {{ special_offers(page.brandAndModelName) }}
             {{ include('v2/blocks/section/advantages-home.html.twig') }}
             {# работает просто пока закомментировала #}

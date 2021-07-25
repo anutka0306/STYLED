@@ -1,0 +1,30 @@
+{% if models|length > 0 %}
+
+    <div class="tab-content" id="v-pills-tabContent">
+
+            <div class="" id="" role="tabpanel" aria-labelledby="">
+                <div class="row">
+                    {% for row in models|batch(itemsCount) %}
+                        <div class="col-md-2">
+                            {% for model in row %}
+
+                                {% if(model.path) %}
+                            <div class="price-title brands-list__block_item"> <a href="{{ curBrand[0].path }}{{ model.code }}"
+                                       title="Ремонт АКПП {{ curBrand[0].name }} {{ model.name }} ({{ curBrand[0].nameRus }} {{ model.nameRus }}) в Москве">
+                                    {{ curBrand[0].name }} {{ model.name}} </a></div>
+                                {% else %}
+                            <div class="price-title brands-list__block_item">
+                                    <a href="{{ curBrand[0].path }}">
+                                        {{ curBrand[0].name }} {{ model.name}}
+                    </a>
+                            </div>
+                                {% endif %}
+
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+    </div>
+{% endif %}

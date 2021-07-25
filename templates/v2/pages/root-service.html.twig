@@ -20,6 +20,8 @@
         {% block content %}
 
             {{ price_list(page) }}
+            <h2 class="brands-list__header">{{ page.h1 }} марки</h2>
+            {{ brands_service_block() }}
             {{ special_offers(page.brandAndModelName) }}
         {% endblock %}
     {% endembed %}

@@ -76,6 +76,8 @@ class BrandsModelsExtension extends AbstractExtension
                 ['needs_environment' => true, 'is_safe' => ['html']]),
             new TwigFunction('brand_models', [$this, 'brand_models'],
                 ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction('brand_models_service', [$this, 'brand_models_service'],
+                ['needs_environment' => true, 'is_safe' => ['html']]),
         ];
     }
 
@@ -281,6 +283,31 @@ class BrandsModelsExtension extends AbstractExtension
 
         $curBrand = $this->brand_repository->findOneWithPath($brand->getId());
         $html = $twig->render('v2/widget/models.html.twig', compact('models', 'curBrand'));
+        $item->set($html);
+        return $item->get();
+    }
+
+    // Все модели бренда на стр. сервиса
+
+    public  function brand_models_service(Environment $twig, PriceBrand $brand, $path){
+        $item = $this->cache->getItem('brand_models' . $brand->getName());
+        $models = $brand->getPriceModels();
+        $curBrand = $this->brand_repository->findOneWithPath($brand->getId());
+        $itemsCount = floor(count($models)/6);
+        if($itemsCount == 0){
+            $itemsCount = 1;
+        }
+        foreach ($models as $key => $model){
+            $page = $this->content_repository->findOneBy(['path' => $curBrand[0]['path'].$model->getCode().'/', 'published'=> 1]);
+            if($page){
+                $model->path = $page->getPath();
+            }else{
+                /*$model->path = $curBrand[0]['path'].$model->getCode();*/
+                $model->path = null;
+            }
+        }
+
+        $html = $twig->render('v2/widget/models_alternative.html.twig', compact('models', 'curBrand','itemsCount'));
         $item->set($html);
         return $item->get();
     }

@@ -1581,8 +1581,11 @@ body{
 }
 
 /* Блок акции */
-.block_promotions h2{
+.block_promotions h2, .brands-service-block__wrapper h2, h2.brands-list__header{
     color: #77b52b;
+}
+.brands-service-block__wrapper h2, h2.brands-list__header{
+    margin-bottom: 70px;
 }
 .block_promotions .post-slide .post-title{
     color: #77b52b;
@@ -1627,6 +1630,23 @@ body{
     margin-top: 130px;
     justify-content: center;
 }
+
+/* Блок брендов, блок моделей */
+.brands-service-block__wrapper{
+    margin-bottom: 100px;
+}
+.brands-list__block_item {
+    padding-bottom: 15px;
+}
+.price-title a {
+    border: 1px solid #ffffff;
+    text-align: center;
+    font-weight: 700;
+    width: 100%;
+    display: inline-block;
+    color: #77b52b;;
+}
+
 @media (max-width: 1420px) {
     .partners__wrapper{
         background-size: contain !important;
