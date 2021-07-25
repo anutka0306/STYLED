@@ -259,7 +259,8 @@ class PageGeneratorService
         $service_page = new Service();
         $service_page->setName($price_service->getName())
                      ->setPath($this->getNewServicePath($parent,$price_service))
-                     ->setParent($parent);
+                     ->setParent($parent)
+                    ->setModelId($parent->getModelId());
         $service_page->setService($price_service)
                      ->setPriceCategory($price_service->getPriceCategory())
                      ->setH1($this->getSeo('h1', $price_service->getName(),
