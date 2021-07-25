@@ -3059,12 +3059,12 @@ body {
 }
 
 .star.on {
-  color: gold;
+  color: white;
 }
 
 .star.half:after {
   content: '\2605';
-  color: gold;
+  color: white;
   position: absolute;
   margin-left: 0;
   width: 11px;
