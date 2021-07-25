@@ -70,19 +70,6 @@ $(document).ready(function () {
         }, 0);
     });
 
-    /*const emailTo = {
-        'Научный':'webmaster@qmotors.ru, service@tokyogarage.ru, direktor@tokyogarage.ru, master@tokyogarage.ru',
-        'Лобненская':'info@mirakpp.ru, maxima-x@yandex.ru, service@qmotors.ru, direktor@qmotors.ru, webmaster@qmotors.ru, w.ww@mail.ru,kostin@qmotors.ru',
-        'Севастопольский':'webmaster@qmotors.ru,service@rovercity.ru,master@rovercity.ru,direktor@rovercity.ru',
-        'Нижегородка':'webmaster@qmotors.ru,5service@qmotors.ru,5direktor@qmotors.ru,5master@qmotors.ru',
-        'Удальцова':'2direktor@qmotors.ru,2service@qmotors.ru,2master@qmotors.ru,webmaster@qmotors.ru',
-        'Тест':'kostin@qmotors.ru, webmaster@qmotors.ru',
-    };
-    /!*подмена получателей в зависимости от выбранного салона*!/
-    $('.salon').change(function () {
-        var selectedSalon = $(this).val();
-        $('.addressTo').val(emailTo[selectedSalon]);
-    });*/
 
     /*Валидация всех форм*/
     $('.popwindow form, #form-czenyi, .callback-form').submit(function(e){

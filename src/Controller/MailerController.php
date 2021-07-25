@@ -128,17 +128,15 @@ class MailerController extends AbstractController
             $email = (new Email())
                 ->from('robot@mirakpp.ru')
                 ->to((string)$recipient)
-                ->subject('Заказ обратного звонка с сайта mirakpp.ru')
-                ->html('<p>Заказ обратного звонка / запись на ремонт</p>
+                ->subject('Новая заявка с сайта Styled.cc')
+                ->html('<p>Новая заявка с сайта Styled.cc</p>
              <p>Имя отправителя: ' . $request->get('name') . '</p>
-            <p>Телефон отправителя: ' . $request->get('phone') . '</p>
-            <p>Салон: ' . $request->get('salon') . '</p>
-            <p>Сообщение: ' . $request->get('message') . '</p>'
+            <p>Телефон отправителя: ' . $request->get('phone') . '</p>'
                 );
             $mailer->send($email);
         }
 
-        return new JsonResponse(['success'=>'<p>Спасибо! Ваше сообщение отправлено.</p>']);
+        return new JsonResponse(['success'=>'<p>Спасибо! Ваша заявка отправлена.</p>']);
     }
 
     public function addEmail($email, ValidatorInterface $validator){

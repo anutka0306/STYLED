@@ -1801,6 +1801,41 @@ body{
     column-gap:1em;
     list-style-type: none;
 }
+
+/* Поп-ап форма*/
+#callback-popup .modal-content{
+    background-color: #78B729 !important;
+}
+
+#callback-popup .modal-content .callback-popup-body input{
+    margin: 20px 25px !important;
+    width: 80% !important;
+}
+
+.modal2-close {
+    cursor: pointer;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 100px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    top: -10px;
+    right: -10px;
+    transition: transform 200ms;
+}
+.modal2-close span{
+    color: white;
+    font-size: 22px;
+}
+
+.callback-popup-title h5{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+
 @media (max-width: 567px) {
     .footer_menu{
         -webkit-column-count:2;
