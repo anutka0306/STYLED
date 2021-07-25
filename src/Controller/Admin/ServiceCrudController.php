@@ -41,7 +41,7 @@ class ServiceCrudController extends AbstractCrudController
             //Подгружает
             AssociationField::new('parent', 'Родитель')->hideOnIndex(),
             TextField::new('meta_title', 'Title')->hideOnIndex(),
-            Field::new('meta_description','Description')->hideOnIndex(),
+            CodeEditorField::new('meta_description','Description')->hideOnIndex(),
             Field::new('model_id'),
             CodeEditorField::new('text', 'Текст')->hideOnIndex(),
             BooleanField::new('published', 'Активно'),

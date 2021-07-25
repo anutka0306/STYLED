@@ -50,7 +50,7 @@ class ModelCrudController extends AbstractCrudController
             AssociationField::new('parent', 'Родитель')->setFormTypeOption('choices', $parents)->onlyWhenCreating(),
             TextField::new('h1', 'H1')->hideOnIndex(),
             TextField::new('metaTitle', 'Title')->hideOnIndex(),
-            TextField::new('meta_description', 'Description')->hideOnIndex(),
+            CodeEditorField::new('meta_description', 'Description')->hideOnIndex(),
             CodeEditorField::new('text', 'Текст')->hideOnIndex(),
             BooleanField::new('published', 'Активна'),
             NumberField::new('rating_value', 'Рейтинг')->hideOnIndex(),

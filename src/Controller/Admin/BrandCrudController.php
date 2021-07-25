@@ -66,7 +66,7 @@ class BrandCrudController extends AbstractCrudController
             TextField::new('h1', 'H1'),
             ImageField::new('pageIcon', 'Иконка страницы')->setUploadDir('/public/images/page-icons')->setBasePath('/images/page-icons/'),
             TextField::new('meta_title', 'Title')->hideOnIndex(),
-            TextField::new('meta_description', 'Description')->hideOnIndex(),
+            CodeEditorField::new('meta_description', 'Description')->hideOnIndex(),
             CodeEditorField::new('text', 'Текст')->hideOnIndex(),
             ImageField::new('text_img', 'Картинка текста (верхнего)')->setUploadDir('/public/images/page-images')->setBasePath('/images/page-images/')->hideOnIndex(),
             CodeEditorField::new('text_down', 'Текст нижний')->hideOnIndex(),
