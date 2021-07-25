@@ -1644,7 +1644,14 @@ body{
     font-weight: 700;
     width: 100%;
     display: inline-block;
-    color: #77b52b;;
+    color: #77b52b;
+    text-decoration: none;
+}
+
+.price-title a:hover {
+    border: 1px solid #77b52b;
+    background-color: #77b52b;
+    color: var(--color-white);
 }
 
 @media (max-width: 1420px) {
