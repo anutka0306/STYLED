@@ -6,9 +6,13 @@
             <h1>{{ page.h1 }}</h1>
         </div>
     </div>
+
+    {% if page.text is not null and page.text is not empty %}
     <div class="seo-box__wrapper">
         {{ include('elements/_block_content_top.html.twig', {'text': page.text, 'textImg':page.textImg}) }}
     </div>
+    {% endif %}
+
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
 

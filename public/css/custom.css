@@ -1621,24 +1621,27 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+}
+.partners__wrapper .block_promotions .post-slide .post-review{
     margin-top: 130px;
+    justify-content: center;
 }
 @media (max-width: 1420px) {
     .partners__wrapper{
         background-size: contain !important;
     }
-    .block_promotions .post-slide .post-review{
+    .partners__wrapper .block_promotions .post-slide .post-review{
         margin-top: 90px;
     }
 }
 @media (max-width: 1280px) {
-    .block_promotions .post-slide .post-review{
+    .partners__wrapper .block_promotions .post-slide .post-review{
         margin-top: 40px;
     }
 }
 @media (max-width: 640px) {
-    .block_promotions .post-slide .post-review{
+    .partners__wrapper .block_promotions .post-slide .post-review{
         margin-top: 0px;
     }
 }

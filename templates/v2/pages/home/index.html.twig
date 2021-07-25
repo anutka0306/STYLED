@@ -25,6 +25,7 @@
 {% block extraModules %}
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
+            <a id="priceListAnchor"></a>
             {{ price_list(page) }}
             {{ special_offers(page.brandAndModelName) }}
             {{ include('v2/blocks/section/advantages-home.html.twig') }}
