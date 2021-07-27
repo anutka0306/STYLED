@@ -230,7 +230,7 @@ class PriceService
                     return $this;
                 }
             }//endfor
-            
+
             $brandId = $content->getParent()->getBrandId();
             //Здесь поменяла, иначен не работало с моделями
             if(!$brandId){
