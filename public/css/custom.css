@@ -1944,8 +1944,8 @@ body{
 
 /* Якоря */
 #priceListAnchor{
-    padding-bottom: 100px;
-    display: block;
+    /*padding-bottom: 100px;
+    display: block;*/
 }
 
 /* Блок произоводители */
