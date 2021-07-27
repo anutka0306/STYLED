@@ -203,7 +203,7 @@ class MailerController extends AbstractController
             case 'Удальцова':
                 return '2direktor@qmotors.ru,2service@qmotors.ru,2master@qmotors.ru,webmaster@qmotors.ru,kostin@qmotors.ru';
             default:
-                return 'anya-programmist@qmotors.ru, robot@my-side.online, webmaster@qmotors.ru';
+                return 'anya-programmist@qmotors.ru, robot@my-side.online';
         }
     }
 

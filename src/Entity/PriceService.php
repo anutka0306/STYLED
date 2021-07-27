@@ -230,11 +230,13 @@ class PriceService
                     return $this;
                 }
             }//endfor
-
-            /*$brandId = $content->getParent()->getBrandId();*/
-            //Здесь поменяла, иначен не работало с моделями
+            
             $brandId = $content->getParent()->getBrandId();
-            $path = $this->slug.str_replace('-euro', '',$this->getBrandById($brandId, $priceBrandRepository)->getCode()).'/'.str_replace('cc', 'passat-cc',$model->getModelCode()).'/';
+            //Здесь поменяла, иначен не работало с моделями
+            if(!$brandId){
+                $brandId = $content->getParent()->getParent()->getBrandId();
+            }
+            $path = $this->slug.$this->getBrandById($brandId, $priceBrandRepository)->getCode().'/'.$model->getModelCode().'/';
             if($contentRepository->findOneBy(['path' => $path])) {
                 $this->path = $path;
                 return $this;
