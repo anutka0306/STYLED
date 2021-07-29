@@ -2,6 +2,7 @@
     <h3>{{ price_list_title }} цена:</h3>
     <ul data-uk-accordion="collapsible: false">
         {% for section in sections %}
+            {% if section.priceServices is not empty %}
             <li><a class="uk-accordion-title" href="#">{{ section.name }}</a>
                 <div class="uk-accordion-content">
                     <ul class="price-list">
@@ -23,6 +24,7 @@
                     </ul>
                 </div>
             </li>
+            {% endif %}
         {% endfor %}
     </ul>
 </div>

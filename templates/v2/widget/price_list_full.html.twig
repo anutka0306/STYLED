@@ -1,6 +1,7 @@
 <div class="services-prices">
     <ul data-uk-accordion="multiple: true">
         {% for section in sections %}
+            {% if section.priceServices is not empty %}
             <li><a class="uk-accordion-title" href="#">{{ section.name }}</a>
                 <div class="uk-accordion-content">
                     <ul class="price-list">
@@ -12,7 +13,7 @@
                                     {% else %}
                                         {{ service.name }}
                                     {% endif %}
-                                        <b> {{ service.price }}&nbsp;р.</b>
+                                        <b> {{ service.price|number_format(0, '', ' ') }}&nbsp;р.</b>
                                 </span>
                                 <span class="border"></span>
                                 <span><a class="callback js-popup-trigger" data-toggle="modal" data-target="#callback_popup" href="#">Заказать услугу</a></span>
@@ -21,6 +22,7 @@
                     </ul>
                 </div>
             </li>
+            {% endif %}
         {% endfor %}
     </ul>
 </div>
