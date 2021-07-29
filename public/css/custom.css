@@ -1797,6 +1797,12 @@ body{
     background-position: left center !important;
     background-size: contain !important;
 }
+@media (max-width: 767px) {
+    .text-top__image{
+        height: 200px;
+    }
+}
+
 .text-down__text{
     padding: 100px 0;
 }
