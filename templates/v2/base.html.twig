@@ -6,7 +6,7 @@
     <meta name="author">
     <meta name="description" content="{% block description %}{{ page.metaDescription|raw }}{% endblock %}"/>
     <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
-    <meta http-equiv="Last-Modified" content="{{ page.modifyDate|date('D, d M Y H:i:s') }} GMT">
+    {#<meta http-equiv="Last-Modified" content="{{ page.modifyDate|date('D, d M Y H:i:s') }} GMT">#}
     <link rel="canonical" href="{{ app.request.schemeAndHttpHost~page.path }}"/>
 
     <meta property="og:title" content="{{ block('title') }}"/>
@@ -104,6 +104,7 @@
 
 
     {#{{ encore_entry_script_tags('app2') }}#}
+    {{ include('elements/lastMod.php') }}
 {% endblock %}
 </body>
 </html>
