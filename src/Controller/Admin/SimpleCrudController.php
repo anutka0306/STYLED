@@ -35,6 +35,7 @@ class SimpleCrudController extends AbstractCrudController
             TextField::new('path', 'Алиас'),
             TextField::new('name','Название'),
             TextField::new('h1', 'H1'),
+            ImageField::new('pageIcon', 'Иконка страницы')->setUploadDir('/public/images/page-icons')->setBasePath('/images/page-icons/'),
             //Подгружает
             AssociationField::new('parent', 'Родитель')->hideOnIndex(),
             TextField::new('meta_title', 'Title')->hideOnIndex(),
