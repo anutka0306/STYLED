@@ -1638,6 +1638,9 @@ body{
     text-align: center;
     background-color: #77b52b;
     border-radius: 5px;
+    color: #000;
+    font-weight: 700;
+    border: 3px solid #77b52b;
 }
 .block_promotions .post-slide .post-review {
     padding: 25px 20px;
