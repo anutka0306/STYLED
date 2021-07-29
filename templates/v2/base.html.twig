@@ -78,19 +78,13 @@
 
         {% block extraModules %}
             {{ include('v2/blocks/section/reviews.html.twig') }}
-            {#{{ whatsapp_block(page ?? null) }}
-            {{ include('v2/blocks/section/about.html.twig') }}#}
-            {# {{ before_after(page ?? null) }}#}
             {{ our_works_slider(page) }}
         {% endblock %}
 
        {# {{ render_map(page) }}#}
     </main>
     {{ include('v2/blocks/include/footer.html.twig') }}
-    {#{{ include('v2/blocks/section/callback-popup.html.twig') }}#}
     {{ include('elements/popup/_callback_popup.html.twig') }}
-    {#{{ include('v2/blocks/section/youtube-popup.html.twig') }}#}
-   {# {{ include('v2/blocks/section/mango.html.twig') }}#}
 </div>
 {% block javascripts %}
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>

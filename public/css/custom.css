@@ -1916,6 +1916,15 @@ body{
     font-weight: 700;
 }
 
+/* Страница контакты */
+.contact-icons{
+    margin-top: 100px;
+}
+.contact-icon__item{
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
 @media (max-width: 567px) {
     .footer_menu{
         -webkit-column-count:2;

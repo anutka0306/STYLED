@@ -19,12 +19,12 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/kontaktyi/", name="contact")
+     * @Route("/contacts/", name="contacts")
      */
     public function index(): Response
     {
-        if(! $page = $this->page_repository->findOneBy(['path'=>'/kontaktyi/'])){
-            throw $this->createNotFoundException('Page /kontaktyi/ not found');
+        if(! $page = $this->page_repository->findOneBy(['path'=>'/contacts/'])){
+            throw $this->createNotFoundException('Page /contacts/ not found');
         }
         return $this->render('v2/pages/contact/index.html.twig', [
             'page' => $page,

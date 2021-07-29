@@ -8,17 +8,10 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block body %}
-    {#{{ service_text(page.text) }}#}
+
     {{ include('elements/_block_content_top_home.html.twig', {'text': page.text, 'textImg':page.textImg}) }}
     {{ partners_index() }}
-   {# {{ include('v2/blocks/section/auto-brands.html.twig') }} #}
-    {#{% embed 'v2/embed/black-services-block.html.twig' %}
-        {% block content %}
-            {{ include('v2/blocks/section/services.html.twig') }}
-            #}{#{{ naschiraboty_slider(page) }}#}{#
-            {{ price_list(page) }}
-        {% endblock %}
-    {% endembed %}#}
+
 {% endblock %}
 
 
@@ -36,10 +29,7 @@
     {% endembed %}
     {{ include('elements/instagram_widget.html.twig') }}
 
-    {#{{ special_offers(page.brandAndModelName) }}#}
-   {# {{ whatsapp_block(page) }}#}
-    {#{{ include('v2/blocks/section/about.html.twig') }}#}
-    {#{{ before_after(page) }}#}
+
     {{ our_works_slider(page) }}
 
     {# Блок мастеров #}
