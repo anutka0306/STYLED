@@ -1,30 +1,28 @@
 {% extends 'error.html.twig' %}
 
 {% block breadcrumbs %}
-    <div class="container container2">
-        <div class="navigation">
-            <div class="navigation_item_block">
-                <div class="navigation_item">
-                    <a href="/">Ремонт АКПП</a>
-                    <span>⇆</span>
-                </div>
+    <section id="breadcrumbs" style="margin-top: 100px;">
+        <div class="breadcrumbs_wrapper">
+                    <span class="navigation_item">
+                    <a href="/">Главная</a>
+                        <span>&#8646;</span>
+                </span>
+                    <span class="navigation_item">
+                    <a href="#">Старница не найдена</a>
 
-                <div class="navigation_item">
-                    <a href="#">Данная страница не найдена!</a>
-                </div>
-            </div>
-
+                </span>
         </div>
-    </div>
+        {{ include('v2/blocks/section/rating_schema.html.twig',{ page: page ?? null }) }}
+    </section>
 {% endblock %}
 
 {% block body %}
     <div class="container container2">
-        <div class="alert alert-warning" role="alert">
+        <div class="alert alert-info" role="alert">
             <h1 class="title">Данная страница не найдена!</h1>
         </div>
-        <p>Возможно, Вы неправильно ввели адрес в адресной строке браузера.</p>
-        <p style="font-weight: bold;">Что можно сделать?</p>
-        <p>Вы можете посетить другие разделы ресурса, воспользовавшись основным меню сайта или перейти на <a href="/">главную страницу</a> сайта.</p>
+        <p  style="color: #ffffff">Возможно, Вы неправильно ввели адрес в адресной строке браузера.</p>
+        <p style="font-weight: bold; color: #ffffff;">Что можно сделать?</p>
+        <p  style="color: #ffffff">Вы можете посетить другие разделы ресурса, воспользовавшись основным меню сайта или перейти на <a href="/">главную страницу</a> сайта.</p>
     </div>
 {% endblock %}

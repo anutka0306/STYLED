@@ -2,6 +2,9 @@
     box-sizing: border-box;
     font-family: Roboto,sans-serif;
 }
+html{
+    background: #000000;
+}
 a{
     text-decoration: none;
     color: #232323;
@@ -1041,6 +1044,23 @@ button {
     box-sizing: border-box;
     color: #fff;
     transition: .3s;
+}
+
+@media (max-width: 638px) {
+    .section-gallery{
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    .section-gallery .uk-slidenav-next{
+        right: 5px;
+        height: 50px;
+        width: 50px;
+    }
+    .section-gallery .uk-slidenav-previous{
+        left: 5px;
+        height: 50px;
+        width: 50px;
+    }
 }
 /* Конец Gallery */
 
