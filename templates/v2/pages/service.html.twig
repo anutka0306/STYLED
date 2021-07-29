@@ -17,17 +17,20 @@
         {% block content %}
 
             {{ price_list(page) }}
-            <div class="brands-service-block__wrapper">
+
+            {#Марки модели#}
+            {#<div class="brands-service-block__wrapper">
                 <div class="container container2">
                     <div class="row">
                         <div class="col-sm-12 col-lg-12">
                             <h2>{{ page.h1 }} модели</h2>
-                            {#{{ brands_service_block(page.service.slug) }}#}
+                            #}{#{{ brands_service_block(page.service.slug) }}#}{#
                             {{ brand_models_service(page.priceBrand, page.priceBrand.path) }}
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>#}
+            
             {{ special_offers(page.brandAndModelName) }}
         {% endblock %}
     {% endembed %}

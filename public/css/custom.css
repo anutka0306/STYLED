@@ -1661,7 +1661,7 @@ body{
     padding-bottom: 15px;
 }
 .price-title a {
-    border: 1px solid #ffffff;
+    /*border: 1px solid #ffffff;*/
     text-align: center;
     font-weight: 700;
     width: 100%;
