@@ -18,8 +18,11 @@
     {% endif %}
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
-
-            {{ price_list(page) }}
+            {% if page.name == 'Детейлинг' %}
+                {{ price_list_full() }}
+            {% else %}
+                {{ price_list(page) }}
+            {% endif %}
             <h2 class="brands-list__header">{{ page.h1 }} марки</h2>
             {{ brands_service_block() }}
             {{ special_offers(page.brandAndModelName) }}
