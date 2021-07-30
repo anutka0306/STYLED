@@ -7,6 +7,11 @@ use App\Entity\Traits\PriceServicesListTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NaschirabotyRepository")
@@ -69,9 +74,15 @@ class Naschiraboty implements PageInterface
      */
     private $priceServices;
 
+    /**
+     * @ORM\OneToMany(targetEntity=AttachNashiraboty::class, mappedBy="nashiraboty", cascade={"persist"})
+     */
+    private $attach;
+
     public function __construct()
     {
         $this->priceServices = new ArrayCollection();
+        $this->attach = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -239,5 +250,35 @@ class Naschiraboty implements PageInterface
     public function getBrandAndModelName(): string
     {
         return '';
+    }
+
+    /**
+     * @return Collection|AttachNashiraboty[]
+     */
+    public function getAttach(): Collection
+    {
+        return $this->attach;
+    }
+
+    public function addAttach(AttachNashiraboty $attach): self
+    {
+        if (!$this->attach->contains($attach)) {
+            $this->attach[] = $attach;
+            $attach->setNashiraboty($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttach(AttachNashiraboty $attach): self
+    {
+        if ($this->attach->removeElement($attach)) {
+            // set the owning side to null (unless already changed)
+            if ($attach->getNashiraboty() === $this) {
+                $attach->setNashiraboty(null);
+            }
+        }
+
+        return $this;
     }
 }

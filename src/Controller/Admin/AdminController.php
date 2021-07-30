@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Brand;
 use App\Entity\Model;
+use App\Entity\Naschiraboty;
 use App\Entity\OurWorks;
 use App\Entity\Partners;
 use App\Entity\PriceBrand;
@@ -63,6 +64,7 @@ class AdminController extends AbstractDashboardController
             MenuItem::linkToCrud('Акции', 'fa fa-money', SpecialOffer::class),
             MenuItem::linkToCrud('Галерея наших работ', 'fas fa-car', OurWorks::class),
             MenuItem::linkToCrud('Наши партнеры', 'fa fa-fw fa-hand-holding-usd', Partners::class),
+            MenuItem::linkToCrud('Наши работы', 'fa fa-fw fa-hand-holding-usd', Naschiraboty::class),
         ];
     }
 }

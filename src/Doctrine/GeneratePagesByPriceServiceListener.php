@@ -35,5 +35,7 @@ class GeneratePagesByPriceServiceListener
     {
         $this->page_generator_service->generateByNewService($price_service);
     }
+
+
     
 }
