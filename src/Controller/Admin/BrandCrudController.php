@@ -50,11 +50,11 @@ class BrandCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        $parents = $this->getDoctrine()->getManager()->getRepository(Content::class)->findAll();
+        $parents = $this->getDoctrine()->getManager()->getRepository(Content::class)->findBy(['published' => '1']);
         $pages = array();
         if(isset($_GET['entityId'])){
-        $pages = $this->getDoctrine()->getManager()->getRepository(Content::class)->findBy(['parent' => $_GET['entityId']]);
-    }
+            $pages = $this->getDoctrine()->getManager()->getRepository(Content::class)->findBy(['parent' => $_GET['entityId']]);
+        }
 
 
 
@@ -80,7 +80,7 @@ class BrandCrudController extends AbstractCrudController
 
             AssociationField::new('pages', 'Услуги')->setFormTypeOption('choices', $pages)->onlyWhenUpdating(),
             AssociationField::new('pages', 'Услуги')->onlyOnIndex(),
-           AssociationField::new('parent')->setFormTypeOption('choices', [$parents] )->setHelp('Ремонт коробки передач в Москве'),
+            AssociationField::new('parent')->setFormTypeOption('choices', [$parents] )->setHelp('Ремонт коробки передач в Москве'),
 
         ];
     }
