@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\AttachMainGallery;
 use App\Entity\Brand;
 use App\Entity\Model;
 use App\Entity\Naschiraboty;
@@ -65,6 +66,7 @@ class AdminController extends AbstractDashboardController
             MenuItem::linkToCrud('Галерея наших работ', 'fas fa-car', OurWorks::class),
             MenuItem::linkToCrud('Наши партнеры', 'fa fa-fw fa-hand-holding-usd', Partners::class),
             MenuItem::linkToCrud('Наши работы', 'fa fa-fw fa-hand-holding-usd', Naschiraboty::class),
+            MenuItem::linkToCrud('Галерея на главной',null,AttachMainGallery::class),
         ];
     }
 }

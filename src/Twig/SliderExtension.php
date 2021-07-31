@@ -73,7 +73,12 @@ class SliderExtension extends AbstractExtension
 
     public function our_works_slider(Environment $twig, PageInterface $content)
     {
-        $folder = $this->our_works_service->getFolder($content);
+        if($content->getPath() == '/'){
+            $folder = 'img/main-gallery';
+        }
+        else {
+            $folder = $this->our_works_service->getFolder($content);
+        }
         $filesystem = new Filesystem();
         $finder = new Finder();
         if($filesystem->exists($_SERVER['DOCUMENT_ROOT']. '/'.$folder)) {
