@@ -2044,6 +2044,22 @@ body{
     text-align: center;
 }
 
+.dropdown:hover ul{
+display: block;
+}
+.dropdown-menu__header{
+    width: 550px;
+    background: #0d0c0c;
+}
+.dropdown-menu__header li{
+    display: inline;
+    margin: 0 20px;
+}
+.dropdown-menu__header li a{
+    color: #ffffff;
+    font-size: 15px;
+}
+
 @media (max-width: 1024px) {
     .partners__wrapper{
         height: 390px;
@@ -2115,6 +2131,23 @@ h2, h3{
 @media (max-width: 1060px) {
     .fullscreen-bg__content .callback-btn {
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 1005px) {
+    .main-menu__block .main-menu .nav-list > li > a{
+        font-size: 12px;
+    }
+    .dropdown-menu__header li a{
+        font-size: 11px;
+    }
+}
+@media (max-width: 899px) {
+    .main-menu__block .main-menu .nav-list > li > a{
+        font-size: 10px;
+    }
+    .dropdown-menu__header li a{
+        font-size: 9px;
     }
 }
 
