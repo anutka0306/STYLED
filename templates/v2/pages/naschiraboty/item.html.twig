@@ -1,10 +1,30 @@
 {% extends 'v2/base.html.twig' %}
 
 {% block body %}
-    {{ include('v2/blocks/section/content.html.twig',{text:page.text }) }}
+    {#{{ include('v2/blocks/section/content.html.twig',{text:page.text }) }}
     <div class="uk-container">
         <div class="row mb-4 our_works">
-            {#{{ swiper_slider(item.imgFolder) }}#}
+            #}{#{{ swiper_slider(item.imgFolder) }}#}{#
         </div>
+    </div>#}
+    <div class="uk-container">
+        <div class="h1__inner-page">
+            <div class="uk-section uk-container">
+                <h1>{{ page.name }}</h1>
+            </div>
+        </div>
+        <div class="nashiraboty__text">
+            {{ page.text|raw }}
+        </div>
+        {% if images is not empty %}
+            <div class="nashiraboty__photo">
+                {% for image in images %}
+                    <figure class="figure">
+                        <img src="/img/naschiraboty/{{ page.id }}/{{ image.image }}" class="figure-img img-fluid rounded" alt="...">
+                        <figcaption class="figure-caption">{{ image.description }}</figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

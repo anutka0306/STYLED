@@ -2014,6 +2014,36 @@ body{
     margin-top: 100px;
 }
 
+/* Наши работы страница */
+.nashiraboty__wrapper{
+    color: #ffffff;
+}
+
+.nashiraboty__wrapper img{
+    padding: 15px;
+    border-radius: 10px;
+    height: 200px;
+    margin: 0 auto;
+}
+.nashiraboty__wrapper a{
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+}
+.nashiraboty__item{
+    text-align: center;
+}
+.nashiraboty__text{
+    color: #ffffff;
+}
+.nashiraboty__photo figure{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
 @media (max-width: 1024px) {
     .partners__wrapper{
         height: 390px;

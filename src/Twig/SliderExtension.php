@@ -92,7 +92,7 @@ class SliderExtension extends AbstractExtension
     public function naschiraboty_slider(Environment $twig,?Content $content = null)
     {
         $item = $this->cache->getItem('naschiraboty_slider');
-        if (!$item->isHit()) {//если данное значение не закешировано
+        //if (!$item->isHit()) {//если данное значение не закешировано
             $items = $this->naschirabotyManager->getItems($content);
             if (empty($items)) {
                 $html = '';
@@ -100,7 +100,7 @@ class SliderExtension extends AbstractExtension
             $html = $twig->render('v2/extensions/naschiraboty.html.twig', compact('items'));
             $item->set($html);
             $this->cache->save($item);
-        }
+       // }
         return $item->get();
     }
     

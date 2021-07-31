@@ -6,6 +6,7 @@ use App\Form\SalonFilterType;
 use App\Service\SalonManager;
 use App\Entity\Naschiraboty;
 use App\Repository\ContentRepository;
+use App\Repository\NaschirabotyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,12 +27,19 @@ class NaschirabotyController extends AbstractController
     /**
      * @Route("/naschiraboty/", name="naschiraboty_index")
      * @param ContentRepository $content_repository
+     * @param  NaschirabotyRepository $naschiraboty_repository
      * @param Request $request
      * @return Response
      */
-    public function index( ContentRepository $content_repository, Request $request): Response
+    public function index( ContentRepository $content_repository, NaschirabotyRepository $naschiraboty_repository,Request $request): Response
     {
         $page = $content_repository->findOneByToken('naschiraboty');
+        $works = $naschiraboty_repository->findAll();
+
+        foreach ($works as $key => $value){
+            $images = $value->getAttach();
+            $value->images = $images;
+        }
 
         $form = $this->createForm(
             SalonFilterType::class,
@@ -46,6 +54,7 @@ class NaschirabotyController extends AbstractController
             'page' => $page,
             'form' => $form->createView(),
             'availableSalons' => $availableSalons,
+            'works' => $works,
         ]);
     }
 
@@ -57,6 +66,7 @@ class NaschirabotyController extends AbstractController
      */
     public function item(Naschiraboty $work, Request $request): Response
     {
+        $images = $work->getAttach();
 
         $form = $this->createForm(
             SalonFilterType::class,
@@ -72,6 +82,7 @@ class NaschirabotyController extends AbstractController
             'item' => $work,
             'form' => $form->createView(),
             'availableSalons' => $availableSalons,
+            'images' => $images,
         ]);
     }
 }

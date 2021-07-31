@@ -1,10 +1,39 @@
 {% extends 'v2/base.html.twig' %}
+{% block title %} {{ page.metaTitle }} {% endblock %}
+{% block seoDescription %} {{ page.metaDescription}} {% endblock %}
 
 {% block body %}
+
+            <div class="container nashiraboty__wrapper">
+                <div class="h1__inner-page">
+                    <div class="uk-section uk-container">
+                        <h1>Наши работы</h1>
+                    </div>
+                </div>
+                <div class="row">
+
+            {#{{ naschiraboty_slider(page) }}#}
+            {% for work in works %}
+                {#{% for image in work.images %}
+                        {{ dump(image) }}
+                {% endfor %}#}
+                <div class="col-md-4 col-sm-6 col-12 nashiraboty__item">
+                    <img src="/img/naschiraboty/{{ work.id }}/{{ work.images[0].image }}">
+                    <a href="/naschiraboty/{{ work.id }}/">{{ work.name }}</a>
+                </div>
+            {% endfor %}
+                </div>
+            </div>
+
+{% endblock %}
+
+{% block extraModules %}
     {% embed 'v2/embed/black-services-block.html.twig' %}
         {% block content %}
-            {{ naschiraboty_slider(page) }}
+
+            {{ include('v2/blocks/section/instagram-block.html.twig') }}
         {% endblock %}
     {% endembed %}
-    {{ include('v2/blocks/section/content.html.twig',{text:page.text }) }}
+
+
 {% endblock %}
