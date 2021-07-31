@@ -126,7 +126,7 @@ class MailerController extends AbstractController
         $to = explode(',',$this->getTo_salonWithout() );
         foreach ($to as $recipient){
             $email = (new Email())
-                ->from('robot@mirakpp.ru')
+                ->from('robot@styled.cc')
                 ->to((string)$recipient)
                 ->subject('Новая заявка с сайта Styled.cc')
                 ->html('<p>Новая заявка с сайта Styled.cc</p>
