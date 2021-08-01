@@ -2032,13 +2032,17 @@ body{
 /* Наши работы страница */
 .nashiraboty__wrapper{
     color: #ffffff;
+    background: #000000;
 }
 
 .nashiraboty__wrapper img{
-    padding: 15px;
     border-radius: 10px;
     height: 200px;
     margin: 0 auto;
+    opacity: .6;
+}
+.nashiraboty__wrapper img:hover{
+    opacity: 1;
 }
 .nashiraboty__wrapper a{
     display: block;

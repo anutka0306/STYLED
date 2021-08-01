@@ -18,7 +18,9 @@
                         {{ dump(image) }}
                 {% endfor %}#}
                 <div class="col-md-4 col-sm-6 col-12 nashiraboty__item">
-                    <img src="/img/naschiraboty/{{ work.id }}/{{ work.images[0].image }}">
+                    <a href="/naschiraboty/{{ work.id }}/">
+                        <img src="/img/naschiraboty/{{ work.id }}/{{ work.images[0].image }}">
+                    </a>
                     <a href="/naschiraboty/{{ work.id }}/">{{ work.name }}</a>
                 </div>
             {% endfor %}
