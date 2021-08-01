@@ -35,11 +35,11 @@
     </div>
     <div class="offcanvas-body">
         <div>
-            <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav="multiple: true">
+            <ul class="uk-nav uk-nav-default uk-nav-parent-icon mobile-menu__ul" data-uk-nav="multiple: true">
                 {{ include('v2/blocks/include/main_menu_items.html.twig') }}
             </ul>
         </div>
-        <div class="uk-margin">
+        <div class="uk-margin d-flex justify-content-center">
             {% for salon in salons(page ?? null) %}
 
                 {# @var salon \App\Entity\Salon #}

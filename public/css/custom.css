@@ -1584,6 +1584,20 @@ body{
     color: #fff;
 }
 
+.mobile-menu__ul{
+    width: 60%;
+    margin: 0 20%;
+}
+
+.mobile_submenu li a:before{
+    font-family: 'Font Awesome 5 Free';
+    content: "\f1b9";
+    display: inline-block;
+    font-size: 20px;
+    padding-right: 5px;
+    color: #77b52b;
+}
+
 /* Блок акции */
 .block_promotions h2, .brands-service-block__wrapper h2, h2.brands-list__header{
     color: #77b52b;
@@ -2098,15 +2112,13 @@ h2, h3{
 
 /* Мобильная версия меню - субменю */
 .mobile_submenu li a{
-    font-size: 15px;
+    font-size: 12px;
     text-transform: uppercase;
-    padding-left: 20px;
+    padding-left: 5px;
     margin: 5px 0;
     font-weight: 700;
 }
-.mobile_submenu li a:before{
 
-}
 
 @media (max-width: 1360px) {
     .fullscreen-bg__content .header-slogan{
