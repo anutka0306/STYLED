@@ -12,7 +12,7 @@
                 <div class="col-md-6 col-12">
                     <div class="text-down__text"> {{ text|raw }}</div>
                 </div>
-                <div class="col-md-6 text-down__image"
+                <div class="col-md-6 text-down__image {% if img is null %} d-none {% endif %}"
                 {% if img is not null %}
                     style="background: url(/images/page-images/{{ img }});"
                 {% endif %}
@@ -22,7 +22,7 @@
 
             {% if text2 is not null %}
             <div class="row text-down__wrapper">
-                <div class="col-md-6 text-down__image"
+                <div class="col-md-6 text-down__image {% if img2 is null %} d-none {% endif %}"
                     {% if img2 is not null %}
                         style="background: url(/images/page-images/{{ img2 }});"
                 {% endif %}
@@ -40,7 +40,7 @@
                     <div class="col-md-6 col-12">
                         <div class="text-down__text"> {{ text3|raw }}</div>
                     </div>
-                    <div class="col-md-6 text-down__image"
+                    <div class="col-md-6 text-down__image {% if img3 is null %} d-none {% endif %}"
                             {% if img3 is not null %}
                                 style="background: url(/images/page-images/{{ img3 }});"
                             {% endif %}
@@ -51,7 +51,7 @@
 
             {% if text4 is not null %}
                 <div class="row text-down__wrapper">
-                    <div class="col-md-6 text-down__image"
+                    <div class="col-md-6 text-down__image {% if img4 is null %} d-none {% endif %}"
                             {% if img4 is not null %}
                                 style="background: url(/images/page-images/{{ img4 }});"
                             {% endif %}
