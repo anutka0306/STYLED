@@ -2209,7 +2209,8 @@ h2, h3{
         width: 90%;
     }
     .fullscreen-bg{
-        background-image: url('../video/video_bg.jpg');
+        /*background-image: url('../video/video_bg.jpg');*/
+        background-image: url('../video/video-bg-img1.jpg');
         background-repeat: no-repeat;
         background-position: center;
         padding-bottom: 30%;
