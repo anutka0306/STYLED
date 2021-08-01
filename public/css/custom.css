@@ -1806,7 +1806,7 @@ body{
     .text-down__wrapper{
         max-height: 100%;
     }
-    .text-down__wrapper:after{
+    .content-down__bg:after{
         content: '';
         position: absolute;
         top: 0;
@@ -1819,7 +1819,7 @@ body{
 }
 
 .text-down__text{
-    padding: 100px 0;
+    padding: 200px 0;
 }
 @media (max-width: 640px) {
     .text-down__text{
