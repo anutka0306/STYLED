@@ -1788,7 +1788,10 @@ body{
 .seo-box__wrapper{
     margin-bottom: 70px;
 }
-
+.h2_red{
+    color: #fe0000;
+    font-weight: 600;
+}
 /* Блок нижнего текста */
 .content-down__wrapper{
     color: #ffffff;
