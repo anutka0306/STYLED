@@ -1801,6 +1801,11 @@ body{
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+@media (max-width: 768px) {
+    .content-down__bg{
+        background: none;
+    }
+}
 .text-down__image{
     background-repeat: no-repeat !important;
     background-position: center !important;
