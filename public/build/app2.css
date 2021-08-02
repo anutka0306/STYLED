@@ -2183,7 +2183,7 @@ body {
 }
 
 .section-gallery .uk-slider-items > li > a img:hover, .section-gallery .uk-slider-items > li > a img:focus, .section-gallery .uk-slider-items > li > a img:active {
-  filter: sepia(1);
+  filter: initial;
   transition: 0.5s;
 }
 
