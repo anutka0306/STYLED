@@ -1803,7 +1803,7 @@ body{
 }
 @media (max-width: 768px) {
     .content-down__bg{
-        background: none;
+        background: none !important;
     }
 }
 .text-down__image{
