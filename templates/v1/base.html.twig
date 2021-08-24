@@ -28,6 +28,17 @@
     {{ include('blocks/scripts/_google_analitics.html.twig') }}
 </head>
 <body itemscope="itemscope" itemtype="https://schema.org/Product">
+
+<script>
+(function(w, d, s, h, id) {
+    w.roistatProjectId = id; w.roistatHost = h;
+    var p = d.location.protocol == "https:" ? "https://" : "http://";
+    var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
+    var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
+})(window, document, 'script', 'cloud.roistat.com', '98c9b5b7bc2664b27f36b88fb6ce4997');
+</script>
+
+
 {{ include('blocks/scripts/_yandex_metrics.html.twig') }}
 {{ include('blocks/scripts/_liveinternet.html.twig') }}
 {{ include('blocks/layout/_header.html.twig', { h1 : block('h1') ?? page.h1, description: block('description') }) }}

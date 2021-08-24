@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /
 Disallow: /agreement/
 Disallow: /*utm_
 Disallow: /*_openstat
@@ -16,5 +15,5 @@ Disallow: /tmp/shema_pechat_tulska/*
 Clean-param: utm_source&utm_medium&utm_term&utm_campaign /
 Clean-param: _openstat /
 Clean-param: gclid /
-Sitemap: https://mirakpp.ru/sitemap.xml
-Host: mirakpp.ru
+Sitemap: https://styled.cc/sitemap.xml
+Host: styled.cc

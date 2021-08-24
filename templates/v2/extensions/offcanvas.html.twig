@@ -45,8 +45,8 @@
                 {# @var salon \App\Entity\Salon #}
 
                 <div class="contact-item">
-                    <a class="phone-link mgo-number-{{ salon.mangoId }}" href="tel:{{ salon.phoneDigits }}" onclick="yaCounter41408589.reachGoal ('{{ salon.yandexTarget }}');location.href='tel:{{ salon.phoneDigits }}'; return true;">
-                        {{ salon.phone }}
+                    <a class="phone-link mgo-number-{{ salon.mangoId }}" href="tel:+74956400010{#{{ salon.phoneDigits }}#}" onclick="yaCounter41408589.reachGoal ('{{ salon.yandexTarget }}');location.href='tel:{{ salon.phoneDigits }}'; return true;">
+                        +7(495) 640-00-10{#{{ salon.phone }}#}
                     </a>
                     <a class="adress-link" href="{{ salon.googleMapLink }}" target="_blank">
                         {{ salon.address }}
