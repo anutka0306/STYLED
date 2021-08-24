@@ -13,10 +13,10 @@
                                     {% else %}
                                         {{ service.name }}
                                     {% endif %}
-                                        <b> {{ service.price|number_format(0, '', ' ') }}&nbsp;р.</b>
+                                        {#<b> {{ service.price|number_format(0, '', ' ') }}&nbsp;р.</b>#}
                                 </span>
                                 <span class="border"></span>
-                                <span><a class="callback js-popup-trigger" data-toggle="modal" data-target="#callback_popup" href="#">Заказать услугу</a></span>
+                                <span><a class="callback js-popup-trigger" data-toggle="modal" data-target="#callback_popup" href="#">Уточнить стоимость</a></span>
                             </li>
                         {% endfor %}
                     </ul>
