@@ -12,6 +12,11 @@ body{
     background: #000000;
     overflow-x: hidden;
 }
+a img {
+    border: none;
+    outline: none;
+    outline-color: transparent;
+}
 .btn.css0 { background-color: rgba(120, 183, 41, 0);border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;border-style: solid;border-top-width: 0px;border-bottom-width: 0px;border-left-width: 0px;border-right-width: 0px;border-color: rgb(96, 146, 33);padding-top: 8px;padding-bottom: 8px;font-size: 19px;font-weight: bold;color: rgb(255, 255, 255)!important;font-family: "Open Sans"; } .btn.css0:hover, .btn.css0.hover { background-color: rgba(108, 165, 37, 0);border-color: rgb(77, 117, 26);color: rgb(120, 183, 41)!important; } .btn.css0:active, .btn.css0.active { background-color: rgba(97, 148, 32, 0);border-color: rgb(86, 132, 30);color: rgb(120, 183, 41)!important; } .btn.css0:before {  } .btn.css0:active:before, .btn.css0.active:before { background-color: rgba(97, 148, 32, 0); }
 .node.css1  { color: #FFF; padding-top: 0px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px }
 .node.css1 a { color: rgb(25, 100, 230) }
