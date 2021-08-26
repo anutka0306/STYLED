@@ -1824,10 +1824,18 @@ a img:active, a:active, a:focus, img:focus{
 }
 .text-down__image{
     background-repeat: no-repeat !important;
-    background-position: center !important;
+    /*background-position: center !important;*/
     background-size: contain !important;
     min-height: 380px;
 }
+
+.text-down__image.right-side-img{
+    background-position: right center !important;
+}
+.text-down__image.left-side-img{
+    background-position: left center !important;
+}
+
 .text-top__image{
     background-repeat: no-repeat !important;
     background-position: left center !important;
@@ -1854,7 +1862,7 @@ a img:active, a:active, a:focus, img:focus{
 }
 
 .text-down__text{
-    padding: 200px 0;
+    padding: 200px 0 200px 50px;
 }
 @media (max-width: 640px) {
     .text-down__text{
