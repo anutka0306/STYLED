@@ -1,6 +1,6 @@
 {% extends 'v2/base.html.twig' %}
-{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - метро Отрадное – Детейлинг студия Styled') }} {% endblock %}
-{% block description %}{{ page.metaDescription ? page.metaDescription : ('⭐⭐⭐⭐⭐'~ page.h1~'. Цены и сколько стоит – на сайте и по телефону. Расположены у метро Отрадное, СВАО! Детейлинг студия Styled') }}{% endblock %}
+{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' метро Отрадное – Детейлинг студия Styled') }} {% endblock %}
+{% block description %}{{ page.metaDescription ? page.metaDescription : ('⭐⭐⭐⭐⭐ '~ page.h1~'. Цены и сколько стоит – на сайте и по телефону. Расположены у метро Отрадное, СВАО! Детейлинг студия Styled') }}{% endblock %}
 
  {% block breadcrumbs %}
      {{ breadcrumbs(page ?? null) }}
