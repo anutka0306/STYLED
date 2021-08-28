@@ -41,7 +41,7 @@ class AdminController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Mirakpp Админ панель');
+            ->setTitle('Styled.cc');
     }
 
     public function configureMenuItems(): iterable
