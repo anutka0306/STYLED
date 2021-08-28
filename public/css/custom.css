@@ -2321,3 +2321,20 @@ h2, h3{
         width: 50%;
     }
 }
+
+/* Телефон мобильная версия*/
+.phone__mobile_wrapper{
+    display: flex;
+    justify-content: center;
+}
+.phone__mobile{
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.phone__mobile:hover{
+    text-decoration: none;
+    color: #78B729;
+}
