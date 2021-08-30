@@ -71,7 +71,7 @@ class SliderExtension extends AbstractExtension
         return $twig->render('v2/extensions/swiper_slider.html.twig', compact('files'));
     }
 
-    public function our_works_slider(Environment $twig, PageInterface $content)
+   /* public function our_works_slider(Environment $twig, PageInterface $content)
     {
         if($content->getPath() == '/'){
             $folder = 'img/main-gallery';
@@ -85,6 +85,30 @@ class SliderExtension extends AbstractExtension
             $finder->files()->name(['*.jpeg', '*.jpg', '*.png'])->in($_SERVER['DOCUMENT_ROOT'] . '/' . $folder);
             foreach ($finder as $file) {
                 $files[] = '/' . $folder . '/' . $file->getFilename();
+            }
+        }
+        //$files = $this->fileManager->getFilesFromFolder($folder);
+        if (empty($files)) {
+            return '';
+        }
+        return $twig->render('v2/extensions/gallery.html.twig', compact('files', 'folder'));
+    }*/
+    public function our_works_slider(Environment $twig, PageInterface $content)
+    {
+        if($content->getPath() == '/'){
+            $folder = ['img/main-gallery'];
+        }
+        else {
+            $folder = $this->our_works_service->getFolder($content);
+        }
+        foreach ($folder as $folder_item) {
+            $filesystem = new Filesystem();
+            $finder = new Finder();
+            if ($filesystem->exists($_SERVER['DOCUMENT_ROOT'] . '/' . $folder_item)) {
+                $finder->files()->name(['*.jpeg', '*.jpg', '*.png'])->in($_SERVER['DOCUMENT_ROOT'] . '/' . $folder_item);
+                foreach ($finder as $file) {
+                    $files[] = '/' . $folder_item . '/' . $file->getFilename();
+                }
             }
         }
         /*$files = $this->fileManager->getFilesFromFolder($folder);*/

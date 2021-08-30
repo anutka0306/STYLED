@@ -24,9 +24,9 @@ class OurWorksService
     /**
      * @param PageInterface $content
      *
-     * @return string
+     * @return array
      */
-    public function getFolder(PageInterface $content): string
+    public function getFolder(PageInterface $content): array
     {
         if ($content instanceof ServiceEntityReedInterface) {
             return $this->serviceAlgorithm($content);
@@ -36,9 +36,9 @@ class OurWorksService
     /**
      * @param ServiceEntityReedInterface $content
      *
-     * @return string
+     * @return array
      */
-    private function serviceAlgorithm(ServiceEntityReedInterface $content):string
+    private function serviceAlgorithm(ServiceEntityReedInterface $content):array
     {
         $service = $content->getService();
         if (! $service) {
@@ -64,13 +64,16 @@ class OurWorksService
      * @param PriceService $service
      * @param PriceModel   $model
      *
-     * @return string
+     * @return array
      */
-    private function serviceAlgorithm1(PriceService $service, PriceModel $model):string
+    private function serviceAlgorithm1(PriceService $service, PriceModel $model):array
     {
-        $item = $this->our_works_repository->getByServiceAndModel($service,$model);
-        if ($item) {
-            return $item->getImgFolder();
+        $items = $this->our_works_repository->getByServiceAndModel($service,$model);
+        if ($items) {
+            foreach ($items as $item){
+                $folders[] = $item->getImgFolder();
+            }
+            return $folders;
         }
         $brand = $model->getPriceBrand();
         if (! $brand) {
@@ -83,39 +86,57 @@ class OurWorksService
      * @param PriceService $service
      * @param PriceBrand   $brand
      *
-     * @return string
+     * @return array
      */
-    private function serviceAlgorithm2(PriceService $service, PriceBrand $brand):string
+    private function serviceAlgorithm2(PriceService $service, PriceBrand $brand):array
     {
-        $item = $this->our_works_repository->getByServiceAndBrand($service,$brand);
-        if ($item) {
-            return $item->getImgFolder();
+        $items = $this->our_works_repository->getByServiceAndBrand($service,$brand);
+        if ($items) {
+            foreach ($items as $item){
+                $folders[] = $item->getImgFolder();
+            }
         }
-        return $this->serviceAlgorithm3($service);
+        return $folders;
     }
     
     /**
      * @param PriceService $service
      * @return string
      */
-    private function serviceAlgorithm3(PriceService $service):string
+    /*private function serviceAlgorithm3(PriceService $service):string
     {
         $item = $this->our_works_repository->getByService($service);
         if ($item) {
             return $item->getImgFolder();
         }
         return $this->serviceAlgorithm4();
+    }*/
+
+    private function serviceAlgorithm3(PriceService $service):array
+    {
+        $items = $this->our_works_repository->getByService3($service);
+        foreach ($items as $item){
+            $folders[] = $item->getImgFolder();
+        }
+        return $folders;
+        /*if ($item) {
+            return $item->getImgFolder();
+        }*/
+        return $this->serviceAlgorithm4();
     }
     
     /**
      *
-     * @return string
+     * @return array
      */
-    private function serviceAlgorithm4():string
+    private function serviceAlgorithm4():array
     {
-        $item = $this->our_works_repository->findOneLatest();
-        if ($item) {
-            return $item->getImgFolder();
+        $items = $this->our_works_repository->findOneLatest();
+        if ($items) {
+            foreach ($items as $item){
+                $folders[] = $item->getImgFolder();
+            }
+            return $folders;
         }
         return '';
     }

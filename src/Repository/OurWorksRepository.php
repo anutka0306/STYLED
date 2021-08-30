@@ -22,18 +22,22 @@ class OurWorksRepository extends ServiceEntityRepository
         parent::__construct($registry, OurWorks::class);
     }
     
-    public function getByServiceAndModel(PriceService $service, PriceModel $model):?OurWorks
+    public function getByServiceAndModel(PriceService $service, PriceModel $model):?Array
     {
         $result = $this->getQueryBuilderWithServiceFilter($service)
                        ->andWhere('b.priceModel = :priceModel')
                        ->setParameter('priceModel', $model)
                        ->getQuery()
                        ->getResult();
-        return $result[0]??null;
+        $totalResult = array();
+        foreach ($result as $result_item){
+            $totalResult[] = $result_item;
+        }
+        return $totalResult??null;
     }
     
     
-    public function getByServiceAndBrand(PriceService $service, PriceBrand $brand):?OurWorks
+    public function getByServiceAndBrand(PriceService $service, PriceBrand $brand):?Array
     {
         $result = $this->getQueryBuilderWithServiceFilter($service)
                        ->innerJoin('b.priceModel','m')
@@ -41,7 +45,11 @@ class OurWorksRepository extends ServiceEntityRepository
                        ->setParameter('priceBrand', $brand->getId())
                        ->getQuery()
                        ->getResult();
-        return $result[0]??null;
+        $totalResult = array();
+        foreach ($result as $result_item){
+            $totalResult[] = $result_item;
+        }
+        return $totalResult??null;
     }
     
     
@@ -52,15 +60,27 @@ class OurWorksRepository extends ServiceEntityRepository
                        ->getResult();
         return $result[0]??null;
     }
+
+    public function getByService3(PriceService $service):?Array
+    {
+        $result = $this->getQueryBuilderWithServiceFilter($service)
+            ->getQuery()
+            ->getResult();
+        $totalResult = array();
+        foreach ($result as $result_item){
+            $totalResult[] = $result_item;
+        }
+        return $totalResult??null;
+    }
     
-    public function findOneLatest(): ?OurWorks
+    public function findOneLatest(): ?Array
     {
         $result = $this->createQueryBuilder('o')
                     ->orderBy('o.id', 'DESC')
                     ->setMaxResults(1)
                     ->getQuery()
                     ->getResult();
-        return $result[0]??null;
+        return $result??null;
     }
     
     private function getQueryBuilderWithServiceFilter(PriceService $service)
@@ -70,7 +90,7 @@ class OurWorksRepository extends ServiceEntityRepository
                     ->andWhere('s.id = :service_id ')
                     ->setParameter('service_id', $service->getId())
                     ->orderBy('b.id', 'ASC')
-                    ->setMaxResults(1);
+                    ->setMaxResults(3);
     }
     
     // /**
