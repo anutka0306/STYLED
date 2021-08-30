@@ -74,6 +74,9 @@ class OurWorksService
             foreach ($items as $item){
                 $folders[] = $item->getImgFolder();
             }
+            if(empty($folders)){
+                return $this->serviceAlgorithm4();
+            }
             return $folders;
         }
         $brand = $model->getPriceBrand();
@@ -82,7 +85,7 @@ class OurWorksService
         }
         return $this->serviceAlgorithm2($service,$brand);
     }
-    
+
     /**
      * @param PriceService $service
      * @param PriceBrand   $brand
@@ -97,10 +100,13 @@ class OurWorksService
             foreach ($items as $item){
                 $folders[] = $item->getImgFolder();
             }
+            return $folders;
         }
-        return $folders;
+
+        return $this->serviceAlgorithm4();
+
     }
-    
+
     /**
      * @param PriceService $service
      * @return string
@@ -118,16 +124,17 @@ class OurWorksService
     {
         $folders = array();
         $items = $this->our_works_repository->getByService3($service);
-        foreach ($items as $item){
-            $folders[] = $item->getImgFolder();
+        if ($items) {
+            foreach ($items as $item) {
+                $folders[] = $item->getImgFolder();
+            }
+            return $folders;
         }
-        return $folders;
-        /*if ($item) {
-            return $item->getImgFolder();
-        }*/
+
+
         return $this->serviceAlgorithm4();
     }
-    
+
     /**
      *
      * @return array
@@ -144,5 +151,5 @@ class OurWorksService
         }
         return '';
     }
-    
+
 }
