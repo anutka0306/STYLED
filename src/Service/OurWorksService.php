@@ -68,6 +68,7 @@ class OurWorksService
      */
     private function serviceAlgorithm1(PriceService $service, PriceModel $model):array
     {
+        $folders = array();
         $items = $this->our_works_repository->getByServiceAndModel($service,$model);
         if ($items) {
             foreach ($items as $item){
@@ -90,6 +91,7 @@ class OurWorksService
      */
     private function serviceAlgorithm2(PriceService $service, PriceBrand $brand):array
     {
+        $folders = array();
         $items = $this->our_works_repository->getByServiceAndBrand($service,$brand);
         if ($items) {
             foreach ($items as $item){
@@ -114,6 +116,7 @@ class OurWorksService
 
     private function serviceAlgorithm3(PriceService $service):array
     {
+        $folders = array();
         $items = $this->our_works_repository->getByService3($service);
         foreach ($items as $item){
             $folders[] = $item->getImgFolder();
@@ -131,6 +134,7 @@ class OurWorksService
      */
     private function serviceAlgorithm4():array
     {
+        $folders = array();
         $items = $this->our_works_repository->findOneLatest();
         if ($items) {
             foreach ($items as $item){
