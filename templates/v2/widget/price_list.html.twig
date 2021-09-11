@@ -1,5 +1,9 @@
 <div class="services-prices">
+    {% if price_list_title == 'Главная' %}
+        <h3>Прайс лист</h3>
+    {% else %}
     <h3>{{ price_list_title }} цена:</h3>
+    {% endif %}
     <ul data-uk-accordion="collapsible: false">
         {% for section in sections %}
             {% if section.priceServices is not empty %}
