@@ -101,6 +101,7 @@
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/uikit.js') }}"></script>
     <script src="{{ asset('js/uikit-icons.js') }}"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
 
 
     <script type="text/javascript" src="{{ asset('build/vendors~app2.js') }}"></script>
@@ -109,5 +110,12 @@
 
     {#{{ encore_entry_script_tags('app2') }}#}
 {% endblock %}
+{#  Маска для номера телефона #}
+<script>
+    $("#modal_1 input[name=user_phone]").mask("+7(999) 999-99-99");
+    $("#modal_2 input[name=user_phone]").mask("+7(999) 999-99-99");
+
+</script>
+{#  Маска для номера телефона конец#}
 </body>
 </html>
