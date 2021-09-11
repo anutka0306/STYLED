@@ -1,34 +1,65 @@
 {% extends 'v2/base.html.twig' %}
+{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Styled.cc') }} {% endblock %}
+{% block breadcrumbs %}
+    <section id="breadcrumbs" style="margin-top: 100px;">
+        <div class="breadcrumbs_wrapper">
+                                    <span class="navigation_item">
+                    <a href="/">Главная</a>
+                    <span>⇆</span>
+                </span>
 
-{% block title %}Акции, скидки, предложения{% endblock %}
-{% block seoDescription %} Акции! Сервис «Мир АКПП» ☎ Звоните 8 (495) 150-69-21 {% endblock %}
-{% block canonical %}{{ app.request.schemeAndHttpHost~'/offers' }}{% endblock %}
-{% block ogTitle %} Акции, скидки, предложения {% endblock %}
-{% block ogDescription %}Акции! Сервис «Мир АКПП» ☎ Звоните 8 (495) 150-69-21 {% endblock %}
+            <span class="navigation_item">
+                    <a href="#">Акции</a>
+                </span>
 
-{% block body %}
-    {% block breadcrumbs %}
-    {% endblock %}
-<h1 class="title">Акции и спецпредложения</h1>
-    {% for offer in offers %}
-        <div class="post-slide__all-offers">
-            <div class="post-review">
-                <h3 class="post-title"><a href="/offer/{{ offer.slug }}">{{ offer.name }}</a></h3>
-            <p class="post-description">
-                {{ offer.description|replace({'BRAND': ''})|raw }}
-            </p>
-            <div class="post-price">
-                <div>
-                    {% if offer.oldPrice > 0 %}
-                        <span class="old_price">{{ offer.oldPrice }} руб</span>
-                    {% endif %}
-                    <span class="new_price">{{ offer.newPrice}} руб</span>
+        </div>
+        <div class="rating_schema">
+            <div class="rating_schema_wrapper" itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
+
+                <div class="rating-box">
+                    <div class="stars"><span class="star on"></span><span class="star on"></span><span class="star on"></span><span class="star on"></span><span class="star half"></span></div>
+                    <meta itemprop="worstRating" content="1">
+                </div>
+
+                <div class="rating-details">
+              <span>
+                    <span class="ratingValue" itemprop="ratingValue">4.7</span>
+                    <span class="text-muted">из&nbsp;
+                        <span itemprop="bestRating">5</span>
+                    </span>
+                 (<span itemprop="ratingCount">13</span>&nbsp;оценок)
+              </span>
                 </div>
             </div>
-                <div class="all-offers__buttons">
-                    <button class="" data-title="ОСТАВИТЬ ЗАЯВКУ" data-toggle="modal" data-target="#callback_popup">Записаться</button>
-                </div>
         </div>
-        </div>
-    {% endfor %}
+
+    </section>
 {% endblock %}
+{% block body %}
+    {#<div class="h1__inner-page" {% if page.pageIcon is not null %} style="background-image: url('/images/page-icons/{{ page.pageIcon}}')" {% endif %}>
+        <div class="uk-section uk-container">
+            <h1>{{ page.h1 }}</h1>
+        </div>
+    </div>#}
+    {% if page.text is not null and page.text is not empty %}
+        <div class="seo-box__wrapper">
+            {{ include('elements/_block_content_top.html.twig', {'text': page.text, 'textImg':page.textImg}) }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block extraModules %}
+    {{ special_offers(page.brandAndModelName) }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+            {{ include('v2/blocks/section/advantages-inner.html.twig') }}
+            {{ include('v2/blocks/section/instagram-block.html.twig') }}
+        {% endblock %}
+    {% endembed %}
+    <div class="uk-background-secondary">
+        {{ include('elements/instagram_widget.html.twig') }}
+        {{ our_works_slider(page) }}
+    </div>
+
+{% endblock %}
+

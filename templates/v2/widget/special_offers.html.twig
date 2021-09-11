@@ -12,7 +12,7 @@
                                     <li tabindex="-1" class="" style="order: 1;">
                                         <div class="post-slide">
                                             <div class="post-review">
-                                                <h3 class="post-title">{{ offer.name }}</h3>
+                                                <a href="/offer/{{ offer.slug }}" onclick="goTo('/offer/{{ offer.slug }}')"><h3 class="post-title">{{ offer.name }}</h3></a>
                                                 <p class="post-description">
                                                     {{ offer.description|raw }}
                                                 </p>
@@ -47,3 +47,9 @@
         </div>
     </div>
 {% endif %}
+<script>
+    function goTo(url){
+        /*let url = $(this).attr('href');*/
+        document.location.href = url;
+    }
+</script>

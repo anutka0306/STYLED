@@ -1,0 +1,20 @@
+{% if (text is not null and text is not empty)  or (description is not null)%}
+  <div class="container">
+  <div class="row text-top__wrapper">
+    <div class="{% if textImg is not null %}col-md-6 {% else %}d-none {% endif %} text-top__image"
+            {% if textImg is not null %}
+              style="background: url(/images/page-images/{{ textImg }});"
+            {% endif %}
+    >
+    </div>
+    <div class="{% if textImg is not null %}col-md-6 {% else %}col-md-12 {% endif %} col-12">
+      {% if(text is not null) %}
+      <div class="text-top__text" {% if textImg is null %} style="text-align: center" {% endif %}> {{ text|raw }}</div>
+      {% else %}
+        <div class="text-top__text" {% if textImg is null %} style="text-align: center" {% endif %}> {{ description|raw }}</div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+{% endif %}

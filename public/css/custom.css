@@ -1678,6 +1678,9 @@ a img:active, a:active, a:focus, img:focus{
     flex-direction: column;
     justify-content: space-between;
 }
+.post-review a:hover{
+    text-decoration: none;
+}
 .partners__wrapper .block_promotions .post-slide .post-review{
     margin-top: 130px;
     justify-content: center;

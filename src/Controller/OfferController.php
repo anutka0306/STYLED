@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\SpecialOfferRepository;
+use App\Repository\ContentRepository;
 
 class OfferController extends AbstractController
 {
@@ -15,9 +16,15 @@ class OfferController extends AbstractController
      */
     protected $offer_repository;
 
-    public function __construct(SpecialOfferRepository $offer_repository)
+    /**
+     * @var ContentRepository
+     */
+    protected $contentRepository;
+
+    public function __construct(SpecialOfferRepository $offer_repository, ContentRepository $contentRepository)
     {
         $this->offer_repository = $offer_repository;
+        $this->contentRepository = $contentRepository;
     }
 
     /**
@@ -26,8 +33,10 @@ class OfferController extends AbstractController
     public function index(): Response
     {
         $offers = $this->offer_repository->findBy(['published' => 1]);
+        $page = $this->contentRepository->findOneBy(['path' => '/offers/']);
         return $this->render('offer/index.html.twig', [
             'offers' => $offers,
+            'page' => $page,
         ]);
     }
 
@@ -39,7 +48,7 @@ class OfferController extends AbstractController
             throw $this->createNotFoundException(sprintf('Offer %s not found',$token));
         }
         if($offer instanceof SpecialOffer){
-           return $this->render('offer/offer.html.twig', ['offer'=>$offer]);
+           return $this->render('offer/offer.html.twig', ['page'=>$offer]);
         }
     }
 }

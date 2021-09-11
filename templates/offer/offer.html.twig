@@ -1,50 +1,69 @@
 {% extends 'v2/base.html.twig' %}
+{% block title %} {{ page.metaTitle ? page.metaTitle : (page.h1~' - Styled.cc') }} {% endblock %}
+ {% block breadcrumbs %}
+     <section id="breadcrumbs" style="margin-top: 100px;">
+         <div class="breadcrumbs_wrapper">
+                                    <span class="navigation_item">
+                    <a href="/">Главная</a>
+                    <span>⇆</span>
+                </span>
 
-{% block title %}
-    {{ offer.metaTitle ? offer.metaTitle : (offer.name~' - Сервис «Мир АКПП»') }}
-{% endblock %}
-{% block seoDescription %} {{ offer.metaDescription ? offer.metaDescription : (offer.name~'  ⌚ 8:00 - 22:00 Без Выходных! 🚗 Эвакуатор. ☑ Гарантия! ♦ Сервис «Мир АКПП» ☎ Звоните 8 (495) 150-69-21')}}
-{% endblock %}
-{% block canonical %}{{ app.request.schemeAndHttpHost~'/offer/'~offer.slug }}{% endblock %}
-{% block ogTitle %} {{ offer.metaTitle ? offer.metaTitle : (offer.name~' - Сервис «Мир АКПП»') }} {% endblock %}
-{% block ogDescription %}{{ offer.metaDescription ? offer.metaDescription : (offer.name~'  ⌚ 8:00 - 22:00 Без Выходных! 🚗 Эвакуатор. ☑ Гарантия! ♦ Сервис «Мир АКПП» ☎ Звоните 8 (495) 150-69-21')}} {% endblock %}
+             <span class="navigation_item">
+                    <a href="/offers">Акции</a>
+                 <span>⇆</span>
+                </span>
+             <span class="navigation_item">
+                    <a href="/offers">{{ page.name }}</a>
+                </span>
+         </div>
+         <div class="rating_schema">
+             <div class="rating_schema_wrapper" itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
+
+                 <div class="rating-box">
+                     <div class="stars"><span class="star on"></span><span class="star on"></span><span class="star on"></span><span class="star on"></span><span class="star half"></span></div>
+                     <meta itemprop="worstRating" content="1">
+                 </div>
+
+                 <div class="rating-details">
+              <span>
+                    <span class="ratingValue" itemprop="ratingValue">4.7</span>
+                    <span class="text-muted">из&nbsp;
+                        <span itemprop="bestRating">5</span>
+                    </span>
+                 (<span itemprop="ratingCount">13</span>&nbsp;оценок)
+              </span>
+                 </div>
+             </div>
+         </div>
+
+     </section>
+ {% endblock %}
 
 {% block body %}
-    {% block breadcrumbs %}
-
-    {% endblock %}
-    <div class="container container2">
-        <div class="navigation">
-            <div class="navigation_item_block">
-                <div class="navigation_item">
-                    <a href="/offers">Акции</a>
-                    <span>&#8646;</span>
-                </div>
-                <div class="navigation_item">
-                    <a href="#">{{ offer.name }}</a>
-                </div>
-            </div>
+    <div class="h1__inner-page">
+        <div class="uk-section uk-container">
+            <h1>{{ page.h1 }}</h1>
         </div>
     </div>
-
-    <h1 class="title">{{ offer.name }}</h1>
-
-    <div class="post-slide__all-offers">
-        <div class="post-review">
-            <p class="post-description">
-                {{ offer.description|replace({'BRAND': ''})|raw }}
-            </p>
-            <div class="post-price">
-                <div>
-                    {% if offer.oldPrice > 0 %}
-                        <span class="old_price">{{ offer.oldPrice }} руб</span>
-                    {% endif %}
-                    <span class="new_price">{{ offer.newPrice}} руб</span>
-                </div>
-            </div>
-            <div class="all-offers__buttons">
-                <button class="" data-title="ОСТАВИТЬ ЗАЯВКУ" data-toggle="modal" data-target="#callback_popup">Записаться</button>
-            </div>
+    {% if (page.text is not null and page.text is not empty) or (page.description is not null and page.description is not empty) %}
+        <div class="seo-box__wrapper">
+            {{ include('elements/_block_content_top_offer.html.twig', {'text': page.text,'description':page.description, 'textImg':page.image}) }}
         </div>
-    </div>
+    {% endif %}
 {% endblock %}
+
+{% block extraModules %}
+    {{ special_offers(page.brandAndModelName) }}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+            {{ include('v2/blocks/section/instagram-block.html.twig') }}
+        {% endblock %}
+    {% endembed %}
+    <div class="uk-background-secondary">
+        {{ include('v2/blocks/section/advantages-offer.html.twig') }}
+        {{ include('elements/instagram_widget.html.twig') }}
+        {{ our_works_slider(page) }}
+    </div>
+
+{% endblock %}
+

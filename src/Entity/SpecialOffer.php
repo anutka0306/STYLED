@@ -56,6 +56,11 @@ class SpecialOffer implements PageInterface
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $text;
+
 
     public function getId(): ?int
     {
@@ -158,5 +163,17 @@ class SpecialOffer implements PageInterface
     public function getParent()
     {
         return self::BASE_PATH;
+    }
+
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(?string $text): self
+    {
+        $this->text = $text;
+
+        return $this;
     }
 }
