@@ -94,7 +94,7 @@
 
        {# {{ render_map(page) }}#}
     </main>
-    {{ include('v2/blocks/include/footer.html.twig') }}
+    {{ include('v2/blocks/include/footer.html.twig',{h1:page.h1}) }}
     {{ include('elements/popup/_callback_popup.html.twig') }}
 </div>
 {% block javascripts %}
