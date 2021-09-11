@@ -2338,3 +2338,46 @@ h2, h3{
     text-decoration: none;
     color: #78B729;
 }
+
+/* Промо страница */
+.fullscreen-bg__promo{
+    display: block !important;
+    height: 100vh;
+}
+.fullscreen-bg__video_promo{
+    top: 100px;
+}
+.fullscreen-bg__promo .overlay{
+    background: none !important;
+}
+
+@media (max-width: 768px) {
+    .fullscreen-bg__promo {
+        background-image: none !important;
+        padding-bottom: 70%;
+        height: 100vh;
+        margin-top: 100px;
+    }
+    .fullscreen-bg__video_promo{
+        top: 100px;
+        display: block !important;
+    }
+    .fullscreen-bg__promo .overlay{
+        display: none;
+    }
+    .main-menu__block .main-menu .nav-list > li > a{
+        line-height: 1;
+    }
+}
+@media (max-width: 640px) {
+    .fullscreen-bg__promo {
+        padding-bottom: 70%;
+        height: 100vh;
+    }
+}
+@media (max-width: 360px) {
+    .fullscreen-bg__promo {
+        height: 100vh;
+        margin-top: 100px;
+    }
+}

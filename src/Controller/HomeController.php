@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Repository\ContentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
+use App\Service\Mobile_Detect;
 
 class HomeController extends AbstractController
 {
@@ -17,10 +19,30 @@ class HomeController extends AbstractController
     {
         $page = $repository->findOneBy(['path'=>'/']);
         $gallery = $this->getGalleryImages();
+
         
         return $this->render('v2/pages/home/index.html.twig', [
             'page' => $page,
             'gallery'=> $gallery,
+        ]);
+    }
+
+    /**
+     * @Route ("/promo", name="promo")
+     */
+    public function promo(ContentRepository $repository){
+        $page = $repository->findOneBy(['path'=>'/']);
+        $gallery = $this->getGalleryImages();
+        $detect = new Mobile_Detect();
+        if($detect->isMobile()){
+           $is_mobile = 1;
+        }else{
+            $is_mobile = 0;
+        }
+        return $this->render('v2/pages/home/mobile_index.html.twig', [
+            'page' => $page,
+            'gallery'=> $gallery,
+            'isMobile' => $is_mobile,
         ]);
     }
 

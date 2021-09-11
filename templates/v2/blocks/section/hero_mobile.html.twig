@@ -1,0 +1,25 @@
+
+<div class="fullscreen-bg__promo">
+    <div class="overlay">
+        <div class="fullscreen-bg__content d-flex flex-column align-items-center">
+            {#<div class="short-logo">
+                <img src="{{ asset('img/short_logo.png') }}" alt="Styled.cc автосервис"/>
+            </div>#}
+
+            {# Menu #}
+
+
+            {# Callback button#}
+
+
+        </div>
+
+    </div>
+    <video loop="" muted="" autoplay="" poster="{{ asset('video/video-bg-img1.jpg') }}" class="fullscreen-bg__video fullscreen-bg__video_promo">
+        {% if isMobile == 0 %}
+        <source src="{{ asset('video/promo.mp4') }}" type="video/mp4">
+        {% else %}
+        <source src="{{ asset('video/promo-vertical.mp4') }}" type="video/mp4">
+        {% endif %}
+    </video>
+</div>

@@ -1,0 +1,38 @@
+{% extends 'v2/base.html.twig' %}
+
+
+{% block videofon %}
+    {{ include('v2/blocks/section/hero_mobile.html.twig',{ h1 : block('h1') ?? page.h1, 'isMobile' : isMobile }) }}
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block body %}
+
+
+{% endblock %}
+
+
+{% block extraModules %}
+    {% embed 'v2/embed/black-services-block.html.twig' %}
+        {% block content %}
+            {{ price_list(page) }}
+
+            {#Марки модели#}
+            {#{{ brands_service_block() }}#}
+
+            {{ special_offers(page.brandAndModelName) }}
+            {{ include('v2/blocks/section/advantages-home.html.twig') }}
+            {# работает просто пока закомментировала #}
+            {#{{ before_after(page ?? null) }}#}
+        {% endblock %}
+    {% endembed %}
+
+    {{ our_works_slider(page) }}
+
+    {# Блок мастеров #}
+    {#{{ include('v2/blocks/section/team.html.twig') }}#}
+
+
+    {#{{ include('v2/blocks/section/reviews.html.twig') }}#}
+{% endblock %}
