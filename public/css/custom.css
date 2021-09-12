@@ -13,7 +13,7 @@ body{
     overflow-x: hidden;
 }
 
-a img:active, a:active, a:focus, img:focus{
+a img:active, a:active, a:focus, img:focus, a img:focus, li:focus, li:active, a:focus-visible, a:focus-within, a:target, a:visited, img:focus-within, img:focus-visible, img:target, img:visited, li:focus-visible, li:focus-within, li:target, li:visited{
     border: none !important;
     outline: none !important;
     outline-color: transparent !important;
