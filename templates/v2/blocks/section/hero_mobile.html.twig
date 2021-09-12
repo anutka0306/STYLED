@@ -15,7 +15,7 @@
         </div>
 
     </div>
-    <video loop="" muted="" autoplay="" poster="{{ asset('video/video-bg-img1.jpg') }}" class="fullscreen-bg__video fullscreen-bg__video_promo">
+    <video  autoplay loop muted playsinline poster="{{ asset('video/video-bg-img1.jpg') }}" class="fullscreen-bg__video fullscreen-bg__video_promo">
         {% if isMobile == 0 %}
         <source src="{{ asset('video/promo.mp4') }}" type="video/mp4">
         {% else %}
