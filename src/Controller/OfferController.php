@@ -41,7 +41,7 @@ class OfferController extends AbstractController
     }
 
     /**
-     * @Route("/offer/{token}", name="dinamic_offers")
+     * @Route("/offers/{token}", name="dinamic_offers")
      */
     public function offer_item($token): Response{
         if ( !$offer = $this->offer_repository->findOneBy(['published'=>1, 'slug'=>$token])) {

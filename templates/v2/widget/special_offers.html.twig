@@ -1,7 +1,7 @@
 {% if items|length > 0 %}
     <div class="block_promotions">
         <div class="container container2">
-            <h2 class="h2_red">Акции и спецпредложения</h2>
+            <h2 class="h2_red"><a href="/offers/"> Акции и спецпредложения</a></h2>
             <div class="section-gallery">
                 <div class="uk-container">
                     <div class="uk-margin-medium-top uk-margin-medium-bottom gallery-slider uk-position-relative">
@@ -12,7 +12,7 @@
                                     <li tabindex="-1" class="" style="order: 1;">
                                         <div class="post-slide">
                                             <div class="post-review">
-                                                <a href="/offer/{{ offer.slug }}" onclick="goTo('/offer/{{ offer.slug }}')"><h3 class="post-title">{{ offer.name }}</h3></a>
+                                                <a href="/offers/{{ offer.slug }}" onclick="goTo('/offers/{{ offer.slug }}')"><h3 class="post-title">{{ offer.name }}</h3></a>
                                                 <p class="post-description">
                                                     {{ offer.description|raw }}
                                                 </p>

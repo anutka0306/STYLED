@@ -1804,9 +1804,12 @@ a img:active, a:active, a:focus, img:focus{
 .seo-box__wrapper{
     margin-bottom: 70px;
 }
-.h2_red{
+.h2_red, .h2_red a{
     color: #fe0000 !important;
     font-weight: 600;
+}
+.h2_red a:hover{
+    text-decoration: none;
 }
 /* Блок нижнего текста */
 .content-down__wrapper{
