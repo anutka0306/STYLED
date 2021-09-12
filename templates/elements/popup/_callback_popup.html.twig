@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="callback-popup-body">
-                    <form class="ajax_form" action="" method="post" id="call-form">
+                    <form class="ajax_form-n" action="" method="post" id="call-form-n">
                         <input style="margin: 20px 25px; width: 80%;" type="text" id="callback_popup_name" class="form-control" name="user_name" value="" placeholder="Ваше имя">
                         <input  style="margin: 20px 25px; width: 80%;" type="text" id="callback_popup_phone" class="form-control" name="user_phone" value="" placeholder="+7 (___) ___-____" class="mask-phone">
 
@@ -76,6 +76,10 @@
 </div>
 
 <script>
+
+    $('#call-form-n').submit(function (e){
+       e.preventDefault();
+    });
 
     let my_func = function (event){
         event.preventDefault();
@@ -110,10 +114,11 @@
             var title = button.data('title');
             $('#callback_popup_title').html(title);
         });
-        /*$("#callback_popup_phone").mask("+7(999) 999-99-99");*/
+        /!*$("#callback_popup_phone").mask("+7(999) 999-99-99");*!/
 
-        let form = document.getElementById('call-form');
+        let form = document.getElementById('call-form-n');
         form.addEventListener('submit', my_func, true);
+
     });
 
     function sendAjaxPopupForm(url, name, phone) {
